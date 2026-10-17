@@ -53,7 +53,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Top Header */}
+      {/* Top Aerospace Cockpit Header */}
       <Header
         architecture={architecture}
         onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
@@ -62,17 +62,23 @@ export default function App() {
         onReset={resetSimulation}
       />
 
-      {/* Main Bento Workspace Layout */}
+      {/* Full-Width Telemetry Deck */}
+      <TelemetryPanel
+        telemetry={telemetry}
+        gaStats={gaStats}
+      />
+
+      {/* Main Spacious Command Cockpit */}
       <main style={{
         flex: 1,
-        padding: '0 20px',
+        padding: '0 24px',
         display: 'grid',
-        gridTemplateColumns: 'minmax(380px, 440px) minmax(500px, 1fr)',
-        gap: '20px',
+        gridTemplateColumns: 'minmax(400px, 460px) minmax(560px, 1fr)',
+        gap: '24px',
         alignItems: 'start'
       }}>
-        {/* Left Column: Game Viewport & Simulation Command Center */}
-        <section style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {/* Left Column: Flight Viewport & Flight Parameters */}
+        <section style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <GameViewport
             canvasRef={canvasRef}
             turboMode={turboMode}
@@ -105,13 +111,8 @@ export default function App() {
           />
         </section>
 
-        {/* Right Column: Telemetry & Visualization Bento Tabs */}
+        {/* Right Column: Neural Intelligence & Mathematical Deck */}
         <section style={{ display: 'flex', flexDirection: 'column' }}>
-          <TelemetryPanel
-            telemetry={telemetry}
-            gaStats={gaStats}
-          />
-
           <VisualizerTabs
             brain={championBrain}
             bestBird={bestBird}
@@ -120,7 +121,7 @@ export default function App() {
         </section>
       </main>
 
-      {/* Model Weights & Dossier Export Bar */}
+      {/* Model Weights & Research Dossier Console */}
       <ExportImportBar
         onExportBrain={exportBrainJSON}
         onImportBrain={importBrainJSON}
@@ -129,14 +130,14 @@ export default function App() {
         onClearStorage={clearStorage}
       />
 
-      {/* Footer */}
+      {/* Sleek Footer */}
       <footer style={{
-        padding: '16px 20px',
+        padding: '16px 24px',
         textAlign: 'center',
-        borderTop: '2.5px solid #000000',
-        background: '#0d121f',
-        fontSize: '0.82rem',
-        color: 'var(--text-sub)',
+        borderTop: '1px solid var(--border-subtle)',
+        background: 'rgba(7, 10, 18, 0.9)',
+        fontSize: '0.8rem',
+        color: 'var(--text-muted)',
         fontFamily: 'var(--font-body)'
       }}>
         <span>

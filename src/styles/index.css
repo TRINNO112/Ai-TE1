@@ -1,40 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Neobrutalist Foundation Palette */
-  --bg-canvas: #0b0f19;
-  --bg-surface: #111827;
-  --bg-card: #151d30;
-  --bg-card-alt: #1a243b;
+  /* Sleek Aerospace Cockpit Design Foundations */
+  --bg-deep: #070a12;
+  --bg-surface: #0c1220;
+  --bg-card: rgba(16, 24, 40, 0.75);
+  --bg-card-hover: rgba(22, 33, 56, 0.85);
+  --bg-card-solid: #111a2e;
+  --bg-panel: rgba(12, 18, 32, 0.85);
 
-  --border-color: #000000;
-  --border-width: 2.5px;
-  --border-light: rgba(255, 255, 255, 0.12);
+  /* Subtle Sleek Borders (No Neobrutalist Black Lines) */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-accent: rgba(14, 165, 233, 0.4);
+  --border-glow: rgba(56, 189, 248, 0.35);
 
-  /* Tactile Hard Offset Shadows */
-  --shadow-offset: 4px 4px 0px #000000;
-  --shadow-offset-hover: 6px 6px 0px #000000;
-  --shadow-offset-active: 1px 1px 0px #000000;
-  --shadow-sm: 2px 2px 0px #000000;
-
-  /* Vibrant Neobrutalist Accent Tokens */
-  --neo-yellow: #FDC800;
-  --neo-emerald: #00E599;
-  --neo-cyan: #00D8F6;
-  --neo-coral: #FF4D4D;
-  --neo-purple: #A855F7;
-  --neo-indigo: #6366F1;
-  --neo-slate: #334155;
+  /* Aerospace Neon Accents */
+  --accent-cyan: #06b6d4;
+  --accent-sky: #0ea5e9;
+  --accent-blue: #3b82f6;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-violet: #8b5cf6;
 
   /* Typography */
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-body: 'Inter', sans-serif;
 
-  /* Text colors */
-  --text-main: #FFFFFF;
-  --text-sub: #94A3B8;
-  --text-muted: #64748B;
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Sleek Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-cyan-glow: 0 0 24px rgba(6, 182, 212, 0.25);
+  --shadow-sky-glow: 0 0 24px rgba(14, 165, 233, 0.25);
 }
 
 * {
@@ -44,181 +49,215 @@
 }
 
 body {
-  background-color: var(--bg-canvas);
+  background-color: var(--bg-deep);
   background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px),
-    linear-gradient(180deg, #090d16 0%, #0d121f 100%);
-  background-size: 24px 24px, 100% 100%;
-  color: var(--text-main);
-  font-family: var(--font-display);
+    radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(139, 92, 246, 0.05) 0%, transparent 45%),
+    linear-gradient(180deg, #060911 0%, #0a0f1d 100%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Bento Box Container */
-.bento-card {
+/* Sleek Aerospace Cockpit Panel */
+.sleek-card {
   background: var(--bg-card);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: 18px;
-  box-shadow: var(--shadow-offset);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
   position: relative;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.bento-card:hover {
-  border-color: #000000;
-  box-shadow: var(--shadow-offset-hover);
-  transform: translate(-1px, -1px);
+.sleek-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Neobrutalist Tactile Buttons */
-.neo-btn {
+/* Aerospace Action Buttons */
+.sleek-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 10px 18px;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.88rem;
-  letter-spacing: 0.01em;
-  color: #000000;
-  border: var(--border-width) solid var(--border-color);
-  border-radius: 12px;
-  box-shadow: var(--shadow-offset);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
   text-decoration: none;
 }
 
-.neo-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-offset-hover);
+.sleek-btn:active {
+  transform: scale(0.97);
 }
 
-.neo-btn:active {
-  transform: translate(3px, 3px);
-  box-shadow: var(--shadow-offset-active);
+.sleek-btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+.sleek-btn-primary:hover {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+  transform: translateY(-1px);
 }
 
-/* Button Color Variants */
-.neo-btn-primary {
-  background: var(--neo-yellow);
-  color: #000000;
+.sleek-btn-emerald {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff;
+  border-color: rgba(52, 211, 153, 0.4);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+.sleek-btn-emerald:hover {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+  transform: translateY(-1px);
 }
 
-.neo-btn-emerald {
-  background: var(--neo-emerald);
-  color: #000000;
+.sleek-btn-rose {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+  color: #ffffff;
+  border-color: rgba(251, 113, 133, 0.4);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
+}
+.sleek-btn-rose:hover {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
+  transform: translateY(-1px);
 }
 
-.neo-btn-cyan {
-  background: var(--neo-cyan);
-  color: #000000;
+.sleek-btn-violet {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+}
+.sleek-btn-violet:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
 }
 
-.neo-btn-purple {
-  background: var(--neo-purple);
-  color: #FFFFFF;
+.sleek-btn-neutral {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+.sleek-btn-neutral:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
 }
 
-.neo-btn-coral {
-  background: var(--neo-coral);
-  color: #FFFFFF;
-}
-
-.neo-btn-neutral {
-  background: #1e293b;
-  color: #FFFFFF;
-  border-color: #000000;
-}
-.neo-btn-neutral:hover {
-  background: #334155;
-}
-
-/* Tactile Pills / Badges */
-.neo-pill {
+/* Sleek Badges (Zero Raw Emojis) */
+.sleek-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 12px;
-  font-family: var(--font-display);
-  font-weight: 800;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #000000;
-  border: 2px solid var(--border-color);
-  border-radius: 999px;
-  box-shadow: 2px 2px 0px #000000;
+  border-radius: 6px;
+  line-height: 1;
 }
 
-.neo-pill-yellow { background: var(--neo-yellow); }
-.neo-pill-emerald { background: var(--neo-emerald); }
-.neo-pill-cyan { background: var(--neo-cyan); }
-.neo-pill-purple { background: var(--neo-purple); color: #FFFFFF; }
-.neo-pill-coral { background: var(--neo-coral); color: #FFFFFF; }
-.neo-pill-slate { background: #334155; color: #FFFFFF; }
+.sleek-badge-sky {
+  background: rgba(14, 165, 233, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.28);
+}
 
-/* Range Slider */
+.sleek-badge-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.28);
+}
+
+.sleek-badge-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+.sleek-badge-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.sleek-badge-violet {
+  background: rgba(139, 92, 246, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.28);
+}
+
+.sleek-badge-slate {
+  background: rgba(148, 163, 184, 0.1);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* Aerospace Range Sliders */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 8px;
-  background: #0f172a;
-  border: 2px solid #000000;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
-  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.6);
   outline: none;
+  transition: background 0.2s;
+}
+
+input[type="range"]:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--neo-yellow);
-  border: 2.5px solid #000000;
-  box-shadow: 2px 2px 0px #000000;
+  background: #0ea5e9;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.6);
   cursor: pointer;
-  transition: transform 0.1s;
+  transition: transform 0.15s, background-color 0.15s;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-  background: #ffe066;
+  transform: scale(1.2);
+  background: #38bdf8;
 }
 
-input[type="range"]::-webkit-slider-thumb:active {
-  transform: scale(0.95);
-}
-
-/* Checkbox */
-input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--neo-emerald);
-  cursor: pointer;
-  border: 2px solid #000000;
-}
-
-/* Scrollbar */
+/* Smooth Aerospace Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0f19;
+  background: rgba(7, 10, 18, 0.6);
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border: 1.5px solid #000000;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neo-yellow);
+  background: rgba(14, 165, 233, 0.5);
 }

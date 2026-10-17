@@ -6,7 +6,8 @@ import {
   Dna, 
   Calculator, 
   Cpu, 
-  Award
+  Award,
+  Lightbulb
 } from 'lucide-react';
 
 export function WalkthroughModal({ isOpen, onClose }) {
@@ -18,62 +19,59 @@ export function WalkthroughModal({ isOpen, onClose }) {
     {
       title: 'Demystifying the "Black Box" — Generation 1 Chaos',
       badge: 'Step 1: The Magic Illusion',
-      icon: <Cpu size={26} color="#000000" strokeWidth={2.5} />,
-      pillColor: 'var(--neo-coral)',
+      icon: <Cpu size={24} color="#f43f5e" />,
       content: (
         <div>
-          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#FFFFFF' }}>
-            Today, millions of students use chatbots and Siri believing AI is "sentient magic". 
+          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#ffffff' }}>
+            Today, millions of students use chatbots and voice assistants believing AI is "sentient magic". 
             Under <strong>India's National Education Policy (NEP 2020)</strong>, Class 8–12 students are mandated to learn AI and computational thinking.
           </p>
           <div style={{
-            background: '#0f172a',
-            border: '2px solid #000000',
-            borderLeft: '6px solid var(--neo-coral)',
-            boxShadow: '3px 3px 0px #000000',
+            background: 'rgba(244, 63, 94, 0.08)',
+            borderLeft: '4px solid #f43f5e',
+            border: '1px solid rgba(244, 63, 94, 0.25)',
             padding: '14px 16px',
-            borderRadius: '10px',
+            borderRadius: '8px',
             marginBottom: '14px'
           }}>
-            <strong style={{ color: 'var(--neo-coral)', fontSize: '0.92rem' }}>What happens in Generation 1:</strong>
-            <p style={{ fontSize: '0.86rem', color: 'var(--text-sub)', marginTop: '4px', lineHeight: '1.5' }}>
+            <strong style={{ color: '#fb7185', fontSize: '0.92rem' }}>What happens in Generation 1:</strong>
+            <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: '1.5' }}>
               All 150 birds flop and crash within 1.5 seconds. Why? Because the weights inside their neural brains 
-              are initialized completely at random. 
+              are initialized completely at random using Gaussian sampling. 
               <strong> The AI knows nothing! There is no pre-coded intelligence.</strong>
             </p>
           </div>
-          <p style={{ fontSize: '0.86rem', color: 'var(--neo-yellow)', fontWeight: '600' }}>
-            💡 Classroom Takeaway: AI does not "think". It begins as pure random numbers and iteratively discovers patterns.
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fbbf24', fontSize: '0.86rem', fontWeight: '500' }}>
+            <Lightbulb size={16} />
+            <span>Classroom Takeaway: AI does not "think". It begins as pure random numbers and iteratively discovers patterns through mathematical loss.</span>
+          </div>
         </div>
       )
     },
     {
       title: 'Mathematics (Subtheme 1B) — The Objective Fitness Function',
       badge: 'Step 2: Linear Algebra & Grading',
-      icon: <Calculator size={26} color="#000000" strokeWidth={2.5} />,
-      pillColor: 'var(--neo-cyan)',
+      icon: <Calculator size={24} color="#38bdf8" />,
       content: (
         <div>
-          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#FFFFFF' }}>
+          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#ffffff' }}>
             How does the computer determine which bird is "smarter"? Through an objective mathematical grading formula:
           </p>
           <div style={{
-            background: '#0f172a',
-            border: '2.5px solid #000000',
-            boxShadow: '4px 4px 0px #000000',
-            padding: '16px',
-            borderRadius: '12px',
+            background: 'rgba(14, 165, 233, 0.08)',
+            border: '1px solid rgba(56, 189, 248, 0.3)',
+            padding: '14px 16px',
+            borderRadius: '10px',
             fontFamily: 'var(--font-mono)',
-            fontSize: '1rem',
+            fontSize: '0.95rem',
             fontWeight: '700',
-            color: 'var(--neo-cyan)',
+            color: '#38bdf8',
             textAlign: 'center',
             marginBottom: '14px'
           }}>
             Fitness = (Score × 1000) + FramesSurvived - (|y - y_gap| × 0.5)
           </div>
-          <ul style={{ fontSize: '0.86rem', color: 'var(--text-sub)', paddingLeft: '22px', lineHeight: '1.8' }}>
+          <ul style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', paddingLeft: '20px', lineHeight: '1.8' }}>
             <li><strong>Score × 1000:</strong> High reward for successfully clearing obstacle gaps.</li>
             <li><strong>Frames Survived:</strong> Points for flight stamina and mid-air stability.</li>
             <li><strong>Gap Alignment:</strong> Distance penalty for straying away from the center line of the gap.</li>
@@ -84,67 +82,65 @@ export function WalkthroughModal({ isOpen, onClose }) {
     {
       title: 'Biology Meets Computer Science — Darwinian Evolution',
       badge: 'Step 3: Crossover & Mutation',
-      icon: <Dna size={26} color="#000000" strokeWidth={2.5} />,
-      pillColor: 'var(--neo-emerald)',
+      icon: <Dna size={24} color="#34d399" />,
       content: (
         <div>
-          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#FFFFFF' }}>
+          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#ffffff' }}>
             This simulator bridges <strong>Biology (Darwinian Natural Selection)</strong> directly with <strong>Computer Science Optimization</strong>:
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px', marginBottom: '14px' }}>
-            <div style={{ background: '#0f172a', padding: '12px', borderRadius: '10px', border: '2px solid #000000', boxShadow: '2px 2px 0px #000000' }}>
-              <strong style={{ color: 'var(--neo-emerald)', fontSize: '0.88rem' }}>1. Elitism:</strong>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-sub)', marginTop: '4px' }}>
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+              <strong style={{ color: '#34d399', fontSize: '0.88rem' }}>1. Elitism:</strong>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
                 Top 5% champions survive unchanged so the population never loses learned skills.
               </p>
             </div>
-            <div style={{ background: '#0f172a', padding: '12px', borderRadius: '10px', border: '2px solid #000000', boxShadow: '2px 2px 0px #000000' }}>
-              <strong style={{ color: 'var(--neo-cyan)', fontSize: '0.88rem' }}>2. Crossover:</strong>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-sub)', marginTop: '4px' }}>
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+              <strong style={{ color: '#38bdf8', fontSize: '0.88rem' }}>2. Crossover:</strong>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
                 Pairs of top parents recombine synaptic weights like biological chromosomes.
               </p>
             </div>
-            <div style={{ background: '#0f172a', padding: '12px', borderRadius: '10px', border: '2px solid #000000', boxShadow: '2px 2px 0px #000000' }}>
-              <strong style={{ color: 'var(--neo-yellow)', fontSize: '0.88rem' }}>3. Mutation:</strong>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-sub)', marginTop: '4px' }}>
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-subtle)' }}>
+              <strong style={{ color: '#fbbf24', fontSize: '0.88rem' }}>3. Mutation:</strong>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
                 Weights are perturbed by Gaussian noise to discover novel flight strategies.
               </p>
             </div>
           </div>
-          <p style={{ fontSize: '0.86rem', color: 'var(--neo-yellow)', fontWeight: '600' }}>
-            🧪 Classroom What-If: Drag the Mutation Slider to 50% to see chaotic extinction, or drop Elitism to 0% to see champions get forgotten!
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fbbf24', fontSize: '0.86rem', fontWeight: '500' }}>
+            <Lightbulb size={16} />
+            <span>Classroom What-If: Drag the Mutation Slider to 50% to see chaotic extinction, or drop Elitism to 0% to see champions get forgotten!</span>
+          </div>
         </div>
       )
     },
     {
       title: 'Autonomous UAV Robotics & Convergence (Subtheme 1A)',
       badge: 'Step 4: Real-World Robotics Impact',
-      icon: <Award size={26} color="#000000" strokeWidth={2.5} />,
-      pillColor: 'var(--neo-purple)',
+      icon: <Award size={24} color="#c084fc" />,
       content: (
         <div>
-          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#FFFFFF' }}>
+          <p style={{ marginBottom: '14px', lineHeight: '1.6', fontSize: '0.92rem', color: '#ffffff' }}>
             By Generation 15–25, the birds navigate smoothly through variable speeds, moving pipes, and wind shear.
           </p>
           <div style={{
-            background: '#0f172a',
-            border: '2px solid #000000',
-            borderLeft: '6px solid var(--neo-purple)',
-            boxShadow: '3px 3px 0px #000000',
+            background: 'rgba(168, 85, 247, 0.08)',
+            borderLeft: '4px solid #a855f7',
+            border: '1px solid rgba(168, 85, 247, 0.25)',
             padding: '14px 16px',
-            borderRadius: '10px',
+            borderRadius: '8px',
             marginBottom: '14px'
           }}>
-            <strong style={{ color: 'var(--neo-purple)', fontSize: '0.92rem' }}>Industrial Robotics & UAV Drone Impact:</strong>
-            <p style={{ fontSize: '0.86rem', color: 'var(--text-sub)', marginTop: '4px', lineHeight: '1.5' }}>
+            <strong style={{ color: '#c084fc', fontSize: '0.92rem' }}>Industrial Robotics & UAV Drone Impact:</strong>
+            <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: '1.5' }}>
               The 9 sensory inputs mimic LiDAR and ultrasonic distance rays on autonomous drones. 
               Because the neural network is ultra-lightweight (under 300 parameters), it runs in microseconds on low-power edge microcontrollers 
               without needing internet connectivity or cloud servers!
             </p>
           </div>
-          <p style={{ fontSize: '0.88rem', color: 'var(--neo-emerald)', fontWeight: '700' }}>
-            🎯 Closing Thesis for Judges: "AI is not black magic. It is Darwinian selection, linear algebra, and iterative computational optimization."
+          <p style={{ fontSize: '0.88rem', color: '#34d399', fontWeight: '600' }}>
+            Closing Thesis for Judges: "AI is not black magic. It is Darwinian selection, linear algebra, and iterative computational optimization."
           </p>
         </div>
       )
@@ -155,46 +151,45 @@ export function WalkthroughModal({ isOpen, onClose }) {
     <div style={{
       position: 'fixed',
       inset: 0,
-      background: 'rgba(3, 7, 18, 0.88)',
-      backdropFilter: 'blur(8px)',
+      background: 'rgba(3, 7, 18, 0.85)',
+      backdropFilter: 'blur(12px)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '20px',
+      padding: '24px',
       zIndex: 1000
     }}>
-      <div className="bento-card" style={{
+      <div className="sleek-card" style={{
         width: '100%',
-        maxWidth: '660px',
+        maxWidth: '640px',
         padding: '28px',
         position: 'relative',
-        background: '#151d30',
-        border: '3px solid #000000',
-        boxShadow: '8px 8px 0px #000000'
+        background: '#0d1322',
+        border: '1px solid rgba(56, 189, 248, 0.3)',
+        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8)'
       }}>
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="neo-btn neo-btn-coral"
+          className="sleek-btn sleek-btn-neutral"
           style={{
             position: 'absolute',
-            top: '18px',
-            right: '18px',
-            padding: '6px 10px'
+            top: '20px',
+            right: '20px',
+            padding: '8px 10px'
           }}
         >
-          <X size={18} strokeWidth={2.5} />
+          <X size={16} />
         </button>
 
         {/* Step Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
           <div style={{
-            width: '48px',
-            height: '48px',
+            width: '46px',
+            height: '46px',
             borderRadius: '12px',
-            background: steps[currentStep].pillColor,
-            border: '2.5px solid #000000',
-            boxShadow: '2px 2px 0px #000000',
+            background: 'rgba(255, 255, 255, 0.04)',
+            border: '1px solid var(--border-subtle)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -202,15 +197,15 @@ export function WalkthroughModal({ isOpen, onClose }) {
             {steps[currentStep].icon}
           </div>
           <div>
-            <span className="neo-pill neo-pill-yellow" style={{ fontSize: '0.68rem', marginBottom: '4px' }}>
+            <span className="sleek-badge sleek-badge-sky" style={{ marginBottom: '4px' }}>
               {steps[currentStep].badge}
             </span>
             <h3 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.25rem',
-              fontWeight: '900',
-              color: '#FFFFFF',
-              marginTop: '2px'
+              fontSize: '1.2rem',
+              fontWeight: '700',
+              color: '#ffffff',
+              marginTop: '4px'
             }}>
               {steps[currentStep].title}
             </h3>
@@ -218,7 +213,7 @@ export function WalkthroughModal({ isOpen, onClose }) {
         </div>
 
         {/* Content Body */}
-        <div style={{ minHeight: '220px', marginBottom: '22px' }}>
+        <div style={{ minHeight: '210px', marginBottom: '20px' }}>
           {steps[currentStep].content}
         </div>
 
@@ -227,7 +222,7 @@ export function WalkthroughModal({ isOpen, onClose }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderTop: '2.5px solid #000000',
+          borderTop: '1px solid var(--border-subtle)',
           paddingTop: '18px'
         }}>
           {/* Progress Indicators */}
@@ -237,14 +232,12 @@ export function WalkthroughModal({ isOpen, onClose }) {
                 key={idx}
                 onClick={() => setCurrentStep(idx)}
                 style={{
-                  width: idx === currentStep ? '28px' : '10px',
-                  height: '10px',
-                  borderRadius: '999px',
-                  background: idx === currentStep ? 'var(--neo-yellow)' : '#334155',
-                  border: '1.5px solid #000000',
-                  boxShadow: idx === currentStep ? '1px 1px 0px #000000' : 'none',
+                  width: idx === currentStep ? '24px' : '8px',
+                  height: '8px',
+                  borderRadius: '4px',
+                  background: idx === currentStep ? '#0ea5e9' : 'rgba(255, 255, 255, 0.15)',
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease'
+                  transition: 'all 0.2s ease'
                 }}
               />
             ))}
@@ -254,10 +247,10 @@ export function WalkthroughModal({ isOpen, onClose }) {
             {currentStep > 0 && (
               <button 
                 onClick={() => setCurrentStep(currentStep - 1)}
-                className="neo-btn neo-btn-neutral"
-                style={{ padding: '8px 16px', fontSize: '0.84rem' }}
+                className="sleek-btn sleek-btn-neutral"
+                style={{ padding: '8px 14px', fontSize: '0.82rem' }}
               >
-                <ChevronLeft size={16} strokeWidth={2.5} />
+                <ChevronLeft size={15} />
                 <span>Previous</span>
               </button>
             )}
@@ -265,17 +258,17 @@ export function WalkthroughModal({ isOpen, onClose }) {
             {currentStep < steps.length - 1 ? (
               <button 
                 onClick={() => setCurrentStep(currentStep + 1)}
-                className="neo-btn neo-btn-primary"
-                style={{ padding: '8px 18px', fontSize: '0.84rem' }}
+                className="sleek-btn sleek-btn-primary"
+                style={{ padding: '8px 16px', fontSize: '0.82rem' }}
               >
                 <span>Next Concept</span>
-                <ChevronRight size={16} strokeWidth={2.5} />
+                <ChevronRight size={15} />
               </button>
             ) : (
               <button 
                 onClick={onClose}
-                className="neo-btn neo-btn-emerald"
-                style={{ padding: '8px 20px', fontSize: '0.84rem' }}
+                className="sleek-btn sleek-btn-emerald"
+                style={{ padding: '8px 18px', fontSize: '0.82rem' }}
               >
                 <span>Ready to Explore Sandbox</span>
               </button>

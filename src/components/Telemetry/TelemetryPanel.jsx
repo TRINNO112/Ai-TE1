@@ -26,73 +26,65 @@ export function TelemetryPanel({ telemetry, gaStats }) {
       id: 'gen',
       label: 'Generation',
       value: `Gen ${generation}`,
-      sub: 'Evolution cycle',
-      icon: <Activity size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-purple)',
-      accent: 'var(--neo-purple)'
+      sub: 'Active Epoch',
+      icon: <Activity size={16} color="#38bdf8" />,
+      accent: 'var(--accent-sky)'
     },
     {
       id: 'alive',
-      label: 'Alive Agents',
+      label: 'Active Agents',
       value: `${alive} / ${total}`,
-      sub: `${Math.round((alive / (total || 1)) * 100)}% flying`,
-      icon: <Users size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-emerald)',
-      accent: 'var(--neo-emerald)'
+      sub: `${Math.round((alive / (total || 1)) * 100)}% Surviving`,
+      icon: <Users size={16} color="#34d399" />,
+      accent: 'var(--accent-emerald)'
     },
     {
       id: 'score',
-      label: 'Best Score',
+      label: 'Epoch Best Score',
       value: bestScore,
-      sub: 'Pipes passed',
-      icon: <TrendingUp size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-yellow)',
-      accent: 'var(--neo-yellow)'
+      sub: 'Obstacles Cleared',
+      icon: <TrendingUp size={16} color="#fbbf24" />,
+      accent: 'var(--accent-amber)'
     },
     {
       id: 'fitness',
-      label: 'Current Fitness',
+      label: 'Epoch Fitness',
       value: bestFitness.toLocaleString(),
-      sub: 'Objective loss',
-      icon: <Gauge size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-cyan)',
-      accent: 'var(--neo-cyan)'
+      sub: 'Objective Score',
+      icon: <Gauge size={16} color="#22d3ee" />,
+      accent: 'var(--accent-cyan)'
     },
     {
       id: 'best-fitness',
-      label: '🏆 Record Fitness',
+      label: 'Record Fitness',
       value: bestFitnessEver.toLocaleString(),
-      sub: 'All-time champion',
-      icon: <Trophy size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-yellow)',
-      accent: 'var(--neo-yellow)'
+      sub: 'All-Time Champion',
+      icon: <Trophy size={16} color="#fbbf24" />,
+      accent: 'var(--accent-amber)'
     },
     {
       id: 'best-score',
-      label: '🏆 Record Score',
+      label: 'Record Score',
       value: bestScoreEver,
-      sub: 'All-time max',
-      icon: <Award size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-coral)',
-      accent: 'var(--neo-coral)'
+      sub: 'All-Time Peak',
+      icon: <Award size={16} color="#f43f5e" />,
+      accent: 'var(--accent-rose)'
     },
     {
       id: 'speed',
       label: 'Corridor Velocity',
       value: `${speed}x`,
-      sub: speed > 2.5 ? 'Adaptive Ramp' : 'Base Speed',
-      icon: <Zap size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-cyan)',
-      accent: 'var(--neo-cyan)'
+      sub: speed > 2.5 ? 'Adaptive Ramp' : 'Cruising Velocity',
+      icon: <Zap size={16} color="#38bdf8" />,
+      accent: 'var(--accent-sky)'
     },
     {
       id: 'gap',
-      label: 'Gap Aperture',
+      label: 'Corridor Aperture',
       value: `${gap}px`,
-      sub: gap < 140 ? 'Narrowing Gap' : 'Standard Flight',
-      icon: <Maximize2 size={18} color="#000000" strokeWidth={2.5} />,
-      badgeColor: 'var(--neo-emerald)',
-      accent: 'var(--neo-emerald)'
+      sub: gap < 140 ? 'Narrow Flight' : 'Standard Gap',
+      icon: <Maximize2 size={16} color="#34d399" />,
+      accent: 'var(--accent-emerald)'
     }
   ];
 
@@ -101,30 +93,29 @@ export function TelemetryPanel({ telemetry, gaStats }) {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
       gap: '12px',
-      marginBottom: '16px'
+      margin: '0 24px 16px 24px'
     }}>
       {cards.map(card => (
         <div 
           key={card.id}
-          className="bento-card"
+          className="sleek-card"
           style={{
-            padding: '12px 14px',
-            background: '#151d30',
-            border: '2.5px solid #000000',
-            boxShadow: '3px 3px 0px #000000',
-            borderTop: `4px solid ${card.accent}`,
+            padding: '14px 18px',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            borderTop: `3px solid ${card.accent}`,
+            background: 'rgba(12, 18, 32, 0.75)'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
             <span style={{
-              fontSize: '0.74rem',
-              color: 'var(--text-sub)',
+              fontSize: '0.72rem',
+              color: 'var(--text-secondary)',
               fontWeight: '700',
               textTransform: 'uppercase',
-              letterSpacing: '0.04em'
+              letterSpacing: '0.04em',
+              fontFamily: 'var(--font-mono)'
             }}>
               {card.label}
             </span>
@@ -132,8 +123,8 @@ export function TelemetryPanel({ telemetry, gaStats }) {
               width: '26px',
               height: '26px',
               borderRadius: '6px',
-              background: card.badgeColor,
-              border: '1.5px solid #000000',
+              background: 'rgba(255, 255, 255, 0.04)',
+              border: '1px solid var(--border-subtle)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -145,9 +136,9 @@ export function TelemetryPanel({ telemetry, gaStats }) {
           <div>
             <div style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '1.3rem',
-              fontWeight: '900',
-              color: '#FFFFFF',
+              fontSize: '1.35rem',
+              fontWeight: '800',
+              color: '#ffffff',
               letterSpacing: '-0.02em',
               lineHeight: '1.2'
             }}>
@@ -157,7 +148,7 @@ export function TelemetryPanel({ telemetry, gaStats }) {
               fontSize: '0.68rem',
               color: 'var(--text-muted)',
               fontFamily: 'var(--font-body)',
-              marginTop: '3px'
+              marginTop: '4px'
             }}>
               {card.sub}
             </div>

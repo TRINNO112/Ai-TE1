@@ -5,7 +5,8 @@ import {
   Calculator, 
   Sliders, 
   ListOrdered, 
-  Activity
+  Activity,
+  Layers
 } from 'lucide-react';
 import { NeuralNetworkCanvas } from './NeuralNetworkCanvas.jsx';
 import { FitnessGraphCanvas } from './FitnessGraphCanvas.jsx';
@@ -22,20 +23,19 @@ export function VisualizerTabs({
   const [activeTab, setActiveTab] = useState('brain');
 
   const tabs = [
-    { id: 'brain', label: 'Neural Brain', icon: <Brain size={16} strokeWidth={2.5} /> },
-    { id: 'math', label: 'Math Inspector (1B)', icon: <Calculator size={16} strokeWidth={2.5} /> },
-    { id: 'graph', label: 'Fitness Curve', icon: <TrendingUp size={16} strokeWidth={2.5} /> },
-    { id: 'weights', label: 'Weight Matrix', icon: <Sliders size={16} strokeWidth={2.5} /> },
-    { id: 'decisions', label: 'Decisions Stream', icon: <Activity size={16} strokeWidth={2.5} /> },
-    { id: 'log', label: 'Generation Log', icon: <ListOrdered size={16} strokeWidth={2.5} /> }
+    { id: 'brain', label: 'Neural Brain', icon: <Brain size={15} /> },
+    { id: 'math', label: 'Math Inspector (1B)', icon: <Calculator size={15} /> },
+    { id: 'graph', label: 'Fitness Curve', icon: <TrendingUp size={15} /> },
+    { id: 'weights', label: 'Weight Matrix', icon: <Sliders size={15} /> },
+    { id: 'decisions', label: 'Decisions Stream', icon: <Activity size={15} /> },
+    { id: 'log', label: 'Generation Log', icon: <ListOrdered size={15} /> }
   ];
 
   return (
-    <div className="bento-card" style={{
+    <div className="sleek-card" style={{
       padding: '20px 24px',
-      background: '#151d30',
-      border: '2.5px solid #000000',
-      boxShadow: '4px 4px 0px #000000',
+      background: 'rgba(12, 18, 32, 0.85)',
+      border: '1px solid var(--border-subtle)',
       display: 'flex',
       flexDirection: 'column'
     }}>
@@ -44,7 +44,7 @@ export function VisualizerTabs({
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        borderBottom: '2.5px solid #000000',
+        borderBottom: '1px solid var(--border-subtle)',
         paddingBottom: '14px',
         marginBottom: '18px',
         overflowX: 'auto'
@@ -55,11 +55,11 @@ export function VisualizerTabs({
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`neo-btn ${isActive ? 'neo-btn-primary' : 'neo-btn-neutral'}`}
+              className={`sleek-btn ${isActive ? 'sleek-btn-primary' : 'sleek-btn-neutral'}`}
               style={{
-                padding: '8px 16px',
-                fontSize: '0.82rem',
-                borderRadius: '10px',
+                padding: '8px 14px',
+                fontSize: '0.8rem',
+                borderRadius: '8px',
                 whiteSpace: 'nowrap'
               }}
             >
@@ -75,11 +75,11 @@ export function VisualizerTabs({
         {activeTab === 'brain' && (
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <span style={{ fontSize: '0.86rem', fontWeight: '800', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
-                Champion Neural Network Architecture & Live Synapses
+              <span style={{ fontSize: '0.86rem', fontWeight: '700', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                Champion Neural Architecture & Synaptic Activation Radar
               </span>
-              <span className="neo-pill neo-pill-slate" style={{ fontSize: '0.68rem' }}>
-                Green = Positive (+) • Red = Negative (-)
+              <span className="sleek-badge sleek-badge-slate">
+                Green = Excitatory (+) • Red = Inhibitory (-)
               </span>
             </div>
             <NeuralNetworkCanvas brain={brain} bestBird={bestBird} />
@@ -93,10 +93,10 @@ export function VisualizerTabs({
         {activeTab === 'graph' && (
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <span style={{ fontSize: '0.86rem', fontWeight: '800', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+              <span style={{ fontSize: '0.86rem', fontWeight: '700', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
                 Evolutionary Trajectory & Fitness Convergence
               </span>
-              <span className="neo-pill neo-pill-slate" style={{ fontSize: '0.68rem' }}>
+              <span className="sleek-badge sleek-badge-slate">
                 Fitness = Score × 1000 + Frames - ΔY
               </span>
             </div>

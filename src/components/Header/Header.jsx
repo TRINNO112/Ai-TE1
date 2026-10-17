@@ -6,7 +6,9 @@ import {
   VolumeX, 
   RotateCcw, 
   Layers,
-  Sparkles
+  Sparkles,
+  Bot,
+  Binary
 } from 'lucide-react';
 
 export function Header({
@@ -17,122 +19,120 @@ export function Header({
   onReset
 }) {
   return (
-    <header className="bento-card" style={{
-      margin: '16px 20px 12px 20px',
-      padding: '16px 24px',
+    <header className="sleek-card" style={{
+      margin: '20px 24px 16px 24px',
+      padding: '18px 28px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
       flexWrap: 'wrap',
-      gap: '16px',
-      background: '#151d30',
-      border: '2.5px solid #000000',
-      boxShadow: '4px 4px 0px #000000'
+      gap: '20px',
+      border: '1px solid var(--border-subtle)',
+      background: 'rgba(12, 18, 32, 0.85)'
     }}>
-      {/* Title & Branding */}
+      {/* Title & Exhibition Branding */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
         <div style={{
-          width: '50px',
-          height: '50px',
-          borderRadius: '14px',
-          background: 'var(--neo-yellow)',
-          border: '2.5px solid #000000',
-          boxShadow: '2px 2px 0px #000000',
+          width: '48px',
+          height: '48px',
+          borderRadius: '12px',
+          background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)',
+          border: '1px solid rgba(56, 189, 248, 0.3)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          boxShadow: '0 0 20px rgba(14, 165, 233, 0.2)',
           flexShrink: 0
         }}>
-          <Brain size={28} color="#000000" strokeWidth={2.5} />
+          <Brain size={26} color="#38bdf8" />
         </div>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
             <h1 style={{
               fontFamily: 'var(--font-display)',
               fontSize: '1.45rem',
-              fontWeight: '900',
+              fontWeight: '800',
               letterSpacing: '-0.02em',
-              color: '#FFFFFF'
+              color: '#ffffff'
             }}>
-              AI Neuroevolution Sandbox
+              AI Neuroevolution Simulator
             </h1>
-            <span className="neo-pill neo-pill-purple" style={{ fontSize: '0.72rem' }}>
+            <span className="sleek-badge sleek-badge-sky">
               GCERT & NCERT 2026–27
             </span>
-            <span className="neo-pill neo-pill-yellow" style={{ fontSize: '0.72rem' }}>
+            <span className="sleek-badge sleek-badge-emerald">
               NEP 2020 Aligned
             </span>
           </div>
           <p style={{
             fontSize: '0.82rem',
-            color: 'var(--text-sub)',
+            color: 'var(--text-secondary)',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            marginTop: '3px',
+            gap: '10px',
+            marginTop: '4px',
             fontFamily: 'var(--font-body)'
           }}>
-            <span style={{ color: 'var(--neo-cyan)', fontWeight: '600' }}>Subtheme 1(A) AI for Life & Drone Robotics</span>
-            <span>•</span>
-            <span style={{ color: 'var(--neo-emerald)', fontWeight: '600' }}>Subtheme 1(B) Mathematical Modelling (z = W · x + b)</span>
+            <span style={{ color: '#38bdf8', fontWeight: '500' }}>Subtheme 1(A) AI for Life & UAV Robotics</span>
+            <span style={{ color: 'var(--text-muted)' }}>•</span>
+            <span style={{ color: '#34d399', fontWeight: '500' }}>Subtheme 1(B) Mathematical Modelling (z = W · x + b)</span>
           </p>
         </div>
       </div>
 
       {/* Header Actions */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-        {/* Architecture Pill */}
+        {/* Topology Pill */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
           padding: '8px 14px',
-          borderRadius: '10px',
-          background: '#0f172a',
-          border: '2px solid #000000',
-          boxShadow: '2px 2px 0px #000000',
+          borderRadius: '8px',
+          background: 'rgba(255, 255, 255, 0.04)',
+          border: '1px solid var(--border-subtle)',
           fontSize: '0.82rem',
           fontFamily: 'var(--font-mono)'
         }}>
-          <Layers size={15} color="var(--neo-purple)" />
-          <span style={{ color: 'var(--text-muted)' }}>Topology:</span>
-          <span style={{ color: 'var(--neo-yellow)', fontWeight: '800' }}>
+          <Layers size={14} color="#38bdf8" />
+          <span style={{ color: 'var(--text-muted)' }}>TOPOLOGY:</span>
+          <span style={{ color: '#ffffff', fontWeight: '700' }}>
             [{architecture.join(' → ')}]
           </span>
         </div>
 
-        {/* Guided Walkthrough Button */}
+        {/* Classroom Walkthrough Button */}
         <button 
           onClick={onOpenWalkthrough}
-          className="neo-btn neo-btn-cyan"
+          className="sleek-btn sleek-btn-primary"
           title="Interactive 4-Step Pedagogical Guide for Students, Teachers & Science Fair Judges"
         >
-          <GraduationCap size={18} strokeWidth={2.5} />
+          <GraduationCap size={16} />
           <span>Classroom Walkthrough</span>
         </button>
 
         {/* Sound Toggle */}
         <button 
           onClick={onToggleSound}
-          className="neo-btn neo-btn-neutral"
+          className="sleek-btn sleek-btn-neutral"
           title={soundEnabled ? 'Mute Procedural Web Audio Synth' : 'Enable Procedural Web Audio Synth'}
-          style={{ padding: '10px 14px' }}
+          style={{ padding: '10px 12px' }}
         >
           {soundEnabled ? (
-            <Volume2 size={18} color="var(--neo-emerald)" strokeWidth={2.5} />
+            <Volume2 size={16} color="#34d399" />
           ) : (
-            <VolumeX size={18} color="var(--text-muted)" strokeWidth={2.5} />
+            <VolumeX size={16} color="var(--text-muted)" />
           )}
         </button>
 
         {/* Reset Button */}
         <button 
           onClick={onReset}
-          className="neo-btn neo-btn-coral"
+          className="sleek-btn sleek-btn-neutral"
           title="Reset evolutionary population back to Generation 1"
           style={{ padding: '10px 14px' }}
         >
-          <RotateCcw size={18} strokeWidth={2.5} />
+          <RotateCcw size={15} color="#f43f5e" />
           <span>Reset</span>
         </button>
       </div>

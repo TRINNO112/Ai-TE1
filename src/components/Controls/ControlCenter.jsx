@@ -12,7 +12,8 @@ import {
   Radar, 
   Camera,
   Layers,
-  Sparkles
+  Sparkles,
+  Compass
 } from 'lucide-react';
 
 export function ControlCenter({
@@ -39,61 +40,59 @@ export function ControlCenter({
   onToggleFreezeFrame
 }) {
   return (
-    <div className="bento-card" style={{
+    <div className="sleek-card" style={{
       padding: '20px 24px',
-      background: '#151d30',
-      border: '2.5px solid #000000',
-      boxShadow: '4px 4px 0px #000000',
-      marginBottom: '16px'
+      background: 'rgba(12, 18, 32, 0.85)',
+      border: '1px solid var(--border-subtle)'
     }}>
       {/* Title Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Sliders size={18} color="var(--neo-yellow)" />
+          <Compass size={17} color="#38bdf8" />
           <h3 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: '1.05rem',
-            fontWeight: '800',
-            color: '#FFFFFF',
+            fontSize: '1rem',
+            fontWeight: '700',
+            color: '#ffffff',
             textTransform: 'uppercase',
             letterSpacing: '0.04em'
           }}>
-            Classroom Simulation Controls
+            Simulation Command Deck
           </h3>
         </div>
-        <span className="neo-pill neo-pill-yellow" style={{ fontSize: '0.68rem' }}>
-          What-If Engine
+        <span className="sleek-badge sleek-badge-sky">
+          What-If Laboratory
         </span>
       </div>
 
       {/* Primary Action Buttons */}
-      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '18px' }}>
+      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '18px' }}>
         <button 
           onClick={onTogglePlay}
-          className={`neo-btn ${isRunning ? 'neo-btn-coral' : 'neo-btn-emerald'}`}
-          style={{ flex: '1 1 150px', padding: '12px 18px', fontSize: '0.92rem' }}
+          className={`sleek-btn ${isRunning ? 'sleek-btn-rose' : 'sleek-btn-emerald'}`}
+          style={{ flex: '1 1 150px', padding: '12px 20px', fontSize: '0.88rem' }}
         >
-          {isRunning ? <Pause size={18} strokeWidth={2.5} /> : <Play size={18} strokeWidth={2.5} />}
+          {isRunning ? <Pause size={17} /> : <Play size={17} />}
           <span>{isRunning ? 'Pause Evolution' : 'Start Evolution'}</span>
         </button>
 
         <button 
           onClick={onToggleFreezeFrame}
-          className={`neo-btn ${freezeFrame ? 'neo-btn-coral' : 'neo-btn-cyan'}`}
+          className={`sleek-btn ${freezeFrame ? 'sleek-btn-rose' : 'sleek-btn-neutral'}`}
           title="Pause on decision point to inspect input vector & math dot products"
-          style={{ padding: '12px 16px' }}
+          style={{ padding: '12px 18px', fontSize: '0.88rem' }}
         >
-          <Camera size={18} strokeWidth={2.5} />
+          <Camera size={16} color={freezeFrame ? '#ffffff' : '#38bdf8'} />
           <span>{freezeFrame ? 'Resume From Freeze' : 'Freeze-Frame (Inspect)'}</span>
         </button>
 
         <button 
           onClick={onReset}
-          className="neo-btn neo-btn-neutral"
+          className="sleek-btn sleek-btn-neutral"
           title="Clear current population and start Generation 1"
           style={{ padding: '12px 16px' }}
         >
-          <RotateCcw size={18} strokeWidth={2.5} />
+          <RotateCcw size={16} />
           <span>Reset</span>
         </button>
       </div>
@@ -101,24 +100,23 @@ export function ControlCenter({
       {/* Sliders Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
-        gap: '14px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        gap: '12px',
         marginBottom: '18px'
       }}>
         {/* Speed Slider */}
         <div style={{
-          background: '#0f172a',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '12px 14px',
-          borderRadius: '12px',
-          border: '2px solid #000000',
-          boxShadow: '2px 2px 0px #000000'
+          borderRadius: '10px',
+          border: '1px solid var(--border-subtle)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.82rem' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-sub)', fontWeight: '700' }}>
-              <FastForward size={14} color="var(--neo-yellow)" />
-              <span>Sim Speed</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
+              <FastForward size={14} color="#38bdf8" />
+              <span>Simulation Speed</span>
             </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', color: 'var(--neo-yellow)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#38bdf8' }}>
               {speed}x
             </span>
           </div>
@@ -133,18 +131,17 @@ export function ControlCenter({
 
         {/* Mutation Slider */}
         <div style={{
-          background: '#0f172a',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '12px 14px',
-          borderRadius: '12px',
-          border: '2px solid #000000',
-          boxShadow: '2px 2px 0px #000000'
+          borderRadius: '10px',
+          border: '1px solid var(--border-subtle)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.82rem' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-sub)', fontWeight: '700' }}>
-              <Dna size={14} color="var(--neo-coral)" />
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
+              <Dna size={14} color="#f59e0b" />
               <span>Mutation Rate</span>
             </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', color: 'var(--neo-coral)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#fbbf24' }}>
               {Math.round(mutationRate * 100)}%
             </span>
           </div>
@@ -159,18 +156,17 @@ export function ControlCenter({
 
         {/* Elitism Slider */}
         <div style={{
-          background: '#0f172a',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '12px 14px',
-          borderRadius: '12px',
-          border: '2px solid #000000',
-          boxShadow: '2px 2px 0px #000000'
+          borderRadius: '10px',
+          border: '1px solid var(--border-subtle)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.82rem' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-sub)', fontWeight: '700' }}>
-              <ShieldCheck size={14} color="var(--neo-emerald)" />
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
+              <ShieldCheck size={14} color="#10b981" />
               <span>Elitism (Stability)</span>
             </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', color: 'var(--neo-emerald)' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#34d399' }}>
               {Math.round(elitismRate * 100)}%
             </span>
           </div>
@@ -185,18 +181,17 @@ export function ControlCenter({
 
         {/* Topology Selector */}
         <div style={{
-          background: '#0f172a',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '12px 14px',
-          borderRadius: '12px',
-          border: '2px solid #000000',
-          boxShadow: '2px 2px 0px #000000',
+          borderRadius: '10px',
+          border: '1px solid var(--border-subtle)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', fontSize: '0.82rem' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-sub)', fontWeight: '700' }}>
-              <Layers size={14} color="var(--neo-purple)" />
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
+              <Layers size={14} color="#a855f7" />
               <span>Neural Architecture</span>
             </span>
           </div>
@@ -204,13 +199,13 @@ export function ControlCenter({
             value={networkSize}
             onChange={(e) => onChangeNetworkSize(e.target.value)}
             style={{
-              background: '#151d30',
-              color: '#FFFFFF',
-              border: '2px solid #000000',
-              borderRadius: '8px',
-              padding: '8px 10px',
+              background: '#0a0f1d',
+              color: '#ffffff',
+              border: '1px solid var(--border-medium)',
+              borderRadius: '6px',
+              padding: '6px 10px',
               fontSize: '0.82rem',
-              fontWeight: '700',
+              fontWeight: '600',
               fontFamily: 'var(--font-mono)',
               outline: 'none',
               cursor: 'pointer'
@@ -228,29 +223,29 @@ export function ControlCenter({
       <div style={{
         display: 'flex',
         flexWrap: 'wrap',
-        gap: '14px',
+        gap: '12px',
         paddingTop: '14px',
-        borderTop: '2px solid #000000',
-        fontSize: '0.84rem'
+        borderTop: '1px solid var(--border-subtle)',
+        fontSize: '0.82rem'
       }}>
         <label style={{
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
           cursor: 'pointer',
-          color: '#FFFFFF',
-          fontWeight: '700',
-          background: '#0f172a',
+          color: 'var(--text-secondary)',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '6px 12px',
           borderRadius: '8px',
-          border: '1.5px solid #000000'
+          border: '1px solid var(--border-subtle)'
         }}>
           <input 
             type="checkbox" 
             checked={showRaycasts} 
             onChange={(e) => onToggleRaycasts(e.target.checked)}
+            style={{ accentColor: '#0ea5e9' }}
           />
-          <Radar size={15} color="var(--neo-cyan)" />
+          <Radar size={14} color="#38bdf8" />
           <span>LiDAR Sensory Rays</span>
         </label>
 
@@ -259,20 +254,20 @@ export function ControlCenter({
           alignItems: 'center',
           gap: '8px',
           cursor: 'pointer',
-          color: '#FFFFFF',
-          fontWeight: '700',
-          background: '#0f172a',
+          color: 'var(--text-secondary)',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '6px 12px',
           borderRadius: '8px',
-          border: '1.5px solid #000000'
+          border: '1px solid var(--border-subtle)'
         }}>
           <input 
             type="checkbox" 
             checked={showAllBirds} 
             onChange={(e) => onToggleShowAllBirds(e.target.checked)}
+            style={{ accentColor: '#0ea5e9' }}
           />
-          <Eye size={15} color="var(--neo-yellow)" />
-          <span>Show All 150 Birds</span>
+          <Eye size={14} color="#38bdf8" />
+          <span>Show All 150 Agents</span>
         </label>
 
         <label style={{
@@ -280,20 +275,20 @@ export function ControlCenter({
           alignItems: 'center',
           gap: '8px',
           cursor: 'pointer',
-          color: '#FFFFFF',
-          fontWeight: '700',
-          background: '#0f172a',
+          color: 'var(--text-secondary)',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '6px 12px',
           borderRadius: '8px',
-          border: '1.5px solid #000000'
+          border: '1px solid var(--border-subtle)'
         }}>
           <input 
             type="checkbox" 
             checked={turboMode} 
             onChange={(e) => onToggleTurboMode(e.target.checked)}
+            style={{ accentColor: '#eab308' }}
           />
-          <Zap size={15} color="var(--neo-emerald)" />
-          <span>Turbo Mode (Headless 500x)</span>
+          <Zap size={14} color="#fbbf24" />
+          <span>Turbo Acceleration (500x Headless)</span>
         </label>
 
         <label style={{
@@ -301,19 +296,19 @@ export function ControlCenter({
           alignItems: 'center',
           gap: '8px',
           cursor: 'pointer',
-          color: '#FFFFFF',
-          fontWeight: '700',
-          background: '#0f172a',
+          color: 'var(--text-secondary)',
+          background: 'rgba(255, 255, 255, 0.03)',
           padding: '6px 12px',
           borderRadius: '8px',
-          border: '1.5px solid #000000'
+          border: '1px solid var(--border-subtle)'
         }}>
           <input 
             type="checkbox" 
             checked={simpleMode} 
             onChange={(e) => onToggleSimpleMode(e.target.checked)}
+            style={{ accentColor: '#10b981' }}
           />
-          <span>🌱 Simple Mode (No Wind/Moving Pipes)</span>
+          <span>Simplified Obstacles (No Wind/Oscillations)</span>
         </label>
       </div>
     </div>

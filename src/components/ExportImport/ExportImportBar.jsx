@@ -28,12 +28,11 @@ export function ExportImportBar({
   };
 
   return (
-    <div className="bento-card" style={{
+    <div className="sleek-card" style={{
       padding: '16px 24px',
-      margin: '0 20px 24px 20px',
-      background: '#151d30',
-      border: '2.5px solid #000000',
-      boxShadow: '4px 4px 0px #000000',
+      margin: '0 24px 24px 24px',
+      background: 'rgba(12, 18, 32, 0.85)',
+      border: '1px solid var(--border-subtle)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -41,15 +40,15 @@ export function ExportImportBar({
       gap: '14px'
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <Database size={18} color="var(--neo-cyan)" />
+        <Database size={16} color="#38bdf8" />
         <span style={{
-          fontSize: '0.88rem',
-          color: '#FFFFFF',
-          fontWeight: '800',
+          fontSize: '0.84rem',
+          color: '#ffffff',
+          fontWeight: '700',
           textTransform: 'uppercase',
           letterSpacing: '0.04em'
         }}>
-          Model Weights & Research Dossier Export
+          Model Weights & Research Dossier Console
         </span>
       </div>
 
@@ -57,31 +56,31 @@ export function ExportImportBar({
         {/* Load Pre-trained Champion */}
         <button 
           onClick={onLoadPretrainedChampion}
-          className="neo-btn neo-btn-primary"
-          style={{ padding: '8px 14px', fontSize: '0.82rem' }}
+          className="sleek-btn sleek-btn-primary"
+          style={{ padding: '8px 14px', fontSize: '0.8rem' }}
           title="Instant load saved exhibition champion model (Score 100+)"
         >
-          <Sparkles size={16} strokeWidth={2.5} />
+          <Sparkles size={15} />
           <span>Load Pre-Trained Champion</span>
         </button>
 
         {/* Export Brain */}
         <button 
           onClick={onExportBrain}
-          className="neo-btn neo-btn-cyan"
-          style={{ padding: '8px 14px', fontSize: '0.82rem' }}
+          className="sleek-btn sleek-btn-neutral"
+          style={{ padding: '8px 14px', fontSize: '0.8rem' }}
         >
-          <Download size={16} strokeWidth={2.5} />
+          <Download size={15} color="#38bdf8" />
           <span>Export Brain (JSON)</span>
         </button>
 
         {/* Import Brain */}
         <button 
           onClick={() => fileInputRef.current?.click()}
-          className="neo-btn neo-btn-purple"
-          style={{ padding: '8px 14px', fontSize: '0.82rem' }}
+          className="sleek-btn sleek-btn-neutral"
+          style={{ padding: '8px 14px', fontSize: '0.8rem' }}
         >
-          <Upload size={16} strokeWidth={2.5} />
+          <Upload size={15} color="#c084fc" />
           <span>Import Brain</span>
         </button>
         <input 
@@ -95,21 +94,21 @@ export function ExportImportBar({
         {/* Export Log */}
         <button 
           onClick={onExportLog}
-          className="neo-btn neo-btn-emerald"
-          style={{ padding: '8px 14px', fontSize: '0.82rem' }}
+          className="sleek-btn sleek-btn-neutral"
+          style={{ padding: '8px 14px', fontSize: '0.8rem' }}
         >
-          <FileText size={16} strokeWidth={2.5} />
+          <FileText size={15} color="#34d399" />
           <span>Export CSV Dossier</span>
         </button>
 
         {/* Clear Storage */}
         <button 
           onClick={onClearStorage}
-          className="neo-btn neo-btn-coral"
-          style={{ padding: '8px 12px', fontSize: '0.82rem' }}
+          className="sleek-btn sleek-btn-neutral"
+          style={{ padding: '8px 12px', fontSize: '0.8rem' }}
           title="Clear localStorage saved state"
         >
-          <Trash2 size={16} strokeWidth={2.5} />
+          <Trash2 size={15} color="#f43f5e" />
         </button>
       </div>
     </div>
