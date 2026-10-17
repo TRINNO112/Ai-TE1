@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Neobrutalist Foundation Palette */
+  --bg-canvas: #0b0f19;
+  --bg-surface: #111827;
+  --bg-card: #151d30;
+  --bg-card-alt: #1a243b;
+
+  --border-color: #000000;
+  --border-width: 2.5px;
+  --border-light: rgba(255, 255, 255, 0.12);
+
+  /* Tactile Hard Offset Shadows */
+  --shadow-offset: 4px 4px 0px #000000;
+  --shadow-offset-hover: 6px 6px 0px #000000;
+  --shadow-offset-active: 1px 1px 0px #000000;
+  --shadow-sm: 2px 2px 0px #000000;
+
+  /* Vibrant Neobrutalist Accent Tokens */
+  --neo-yellow: #FDC800;
+  --neo-emerald: #00E599;
+  --neo-cyan: #00D8F6;
+  --neo-coral: #FF4D4D;
+  --neo-purple: #A855F7;
+  --neo-indigo: #6366F1;
+  --neo-slate: #334155;
+
+  /* Typography */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+
+  /* Text colors */
+  --text-main: #FFFFFF;
+  --text-sub: #94A3B8;
+  --text-muted: #64748B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px),
+    linear-gradient(180deg, #090d16 0%, #0d121f 100%);
+  background-size: 24px 24px, 100% 100%;
+  color: var(--text-main);
+  font-family: var(--font-display);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Bento Box Container */
+.bento-card {
+  background: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--shadow-offset);
+  position: relative;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  border-color: #000000;
+  box-shadow: var(--shadow-offset-hover);
+  transform: translate(-1px, -1px);
+}
+
+/* Neobrutalist Tactile Buttons */
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  color: #000000;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-offset);
+  cursor: pointer;
+  transition: all 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  text-decoration: none;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-offset-hover);
+}
+
+.neo-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: var(--shadow-offset-active);
+}
+
+/* Button Color Variants */
+.neo-btn-primary {
+  background: var(--neo-yellow);
+  color: #000000;
+}
+
+.neo-btn-emerald {
+  background: var(--neo-emerald);
+  color: #000000;
+}
+
+.neo-btn-cyan {
+  background: var(--neo-cyan);
+  color: #000000;
+}
+
+.neo-btn-purple {
+  background: var(--neo-purple);
+  color: #FFFFFF;
+}
+
+.neo-btn-coral {
+  background: var(--neo-coral);
+  color: #FFFFFF;
+}
+
+.neo-btn-neutral {
+  background: #1e293b;
+  color: #FFFFFF;
+  border-color: #000000;
+}
+.neo-btn-neutral:hover {
+  background: #334155;
+}
+
+/* Tactile Pills / Badges */
+.neo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #000000;
+  border: 2px solid var(--border-color);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.neo-pill-yellow { background: var(--neo-yellow); }
+.neo-pill-emerald { background: var(--neo-emerald); }
+.neo-pill-cyan { background: var(--neo-cyan); }
+.neo-pill-purple { background: var(--neo-purple); color: #FFFFFF; }
+.neo-pill-coral { background: var(--neo-coral); color: #FFFFFF; }
+.neo-pill-slate { background: #334155; color: #FFFFFF; }
+
+/* Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #0f172a;
+  border: 2px solid #000000;
+  border-radius: 999px;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.6);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--neo-yellow);
+  border: 2.5px solid #000000;
+  box-shadow: 2px 2px 0px #000000;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #ffe066;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(0.95);
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--neo-emerald);
+  cursor: pointer;
+  border: 2px solid #000000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border: 1.5px solid #000000;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neo-yellow);
+}

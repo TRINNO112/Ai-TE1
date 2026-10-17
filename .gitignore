@@ -24,5 +24,7 @@ secrets.json
 *.swo
 
 # Build & Logs
+dist/
+.vite/
 logs/
 *.log
