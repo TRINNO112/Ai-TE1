@@ -13,7 +13,9 @@ import {
   Camera,
   Layers,
   Sparkles,
-  Compass
+  Compass,
+  Lock,
+  Gauge
 } from 'lucide-react';
 
 export function ControlCenter({
@@ -39,6 +41,21 @@ export function ControlCenter({
   freezeFrame,
   onToggleFreezeFrame
 }) {
+  const SPEED_PRESETS = [1, 2, 5, 10, 25, 50, 100];
+  const MUTATION_PRESETS = [
+    { label: '5% Stable', val: 0.05 },
+    { label: '15% Standard', val: 0.15 },
+    { label: '30% Dynamic', val: 0.30 },
+    { label: '45% Exploratory', val: 0.45 },
+    { label: '60% Chaos', val: 0.60 }
+  ];
+  const ELITISM_PRESETS = [
+    { label: '2% (Top 3)', val: 0.02 },
+    { label: '5% (Top 7)', val: 0.05 },
+    { label: '10% (Top 15)', val: 0.10 },
+    { label: '20% (Top 30)', val: 0.20 }
+  ];
+
   return (
     <div className="sleek-card" style={{
       padding: '20px 24px',
@@ -100,76 +117,134 @@ export function ControlCenter({
       {/* Sliders Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: '12px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+        gap: '14px',
         marginBottom: '18px'
       }}>
-        {/* Speed Slider */}
+        {/* Speed Slider & Multi-Physics Presets */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.03)',
-          padding: '12px 14px',
+          padding: '14px 16px',
           borderRadius: '10px',
-          border: '1px solid var(--border-subtle)'
+          border: '1px solid var(--border-subtle)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px'
         }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.82rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.82rem' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
               <FastForward size={14} color="#38bdf8" />
               <span>Simulation Speed</span>
             </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#38bdf8' }}>
-              {speed}x
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#38bdf8', fontSize: '0.95rem' }}>
+                {speed}x
+              </span>
+              <span className={`sleek-badge ${speed >= 50 ? 'sleek-badge-amber' : speed >= 10 ? 'sleek-badge-cyan' : 'sleek-badge-slate'}`} style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
+                {speed >= 50 ? 'Hyperwarp' : speed >= 10 ? 'High Speed' : 'Realtime'}
+              </span>
+            </div>
           </div>
+
           <input 
             type="range" 
             min="1" 
-            max="20" 
+            max="100" 
             value={speed}
             onChange={(e) => onChangeSpeed(parseInt(e.target.value))}
           />
+
+          {/* Quick Preset Buttons */}
+          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '2px' }}>
+            {SPEED_PRESETS.map((p) => (
+              <button
+                key={p}
+                onClick={() => onChangeSpeed(p)}
+                className={`sleek-pill ${speed === p ? 'sleek-pill-active' : ''}`}
+              >
+                {p}x
+              </button>
+            ))}
+          </div>
+          <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
+            Sub-stepped at 60 FPS: {speed} physics cycles per frame, 0% GPU strain.
+          </div>
         </div>
 
-        {/* Mutation Slider */}
+        {/* Mutation Rate Slider with Strict Manual Lock */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.03)',
-          padding: '12px 14px',
+          padding: '14px 16px',
           borderRadius: '10px',
-          border: '1px solid var(--border-subtle)'
+          border: '1px solid var(--border-subtle)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px'
         }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.82rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.82rem' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
               <Dna size={14} color="#f59e0b" />
-              <span>Mutation Rate</span>
+              <span>Genetic Variation</span>
             </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#fbbf24' }}>
-              {Math.round(mutationRate * 100)}%
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#fbbf24', fontSize: '0.95rem' }}>
+                {Math.round(mutationRate * 100)}%
+              </span>
+              <span className="sleek-badge sleek-badge-emerald" style={{ fontSize: '0.62rem', padding: '2px 6px' }} title="Manual lock active: system will never automatically change your rate">
+                <Lock size={10} style={{ marginRight: '3px' }} />
+                Locked
+              </span>
+            </div>
           </div>
+
           <input 
             type="range" 
             min="1" 
-            max="50" 
+            max="80" 
             value={Math.round(mutationRate * 100)}
             onChange={(e) => onChangeMutation(parseInt(e.target.value) / 100)}
           />
+
+          {/* Quick Mutation Presets */}
+          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '2px' }}>
+            {MUTATION_PRESETS.map((p) => {
+              const isActive = Math.round(mutationRate * 100) === Math.round(p.val * 100);
+              return (
+                <button
+                  key={p.val}
+                  onClick={() => onChangeMutation(p.val)}
+                  className={`sleek-pill ${isActive ? 'sleek-pill-amber-active' : ''}`}
+                >
+                  {p.label}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
+            Manual control preserved across all generations.
+          </div>
         </div>
 
         {/* Elitism Slider */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.03)',
-          padding: '12px 14px',
+          padding: '14px 16px',
           borderRadius: '10px',
-          border: '1px solid var(--border-subtle)'
+          border: '1px solid var(--border-subtle)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px'
         }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.82rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.82rem' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
               <ShieldCheck size={14} color="#10b981" />
               <span>Elitism (Stability)</span>
             </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#34d399' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#34d399', fontSize: '0.95rem' }}>
               {Math.round(elitismRate * 100)}%
             </span>
           </div>
+
           <input 
             type="range" 
             min="1" 
@@ -177,19 +252,39 @@ export function ControlCenter({
             value={Math.round(elitismRate * 100)}
             onChange={(e) => onChangeElitism(parseInt(e.target.value) / 100)}
           />
+
+          {/* Quick Elitism Presets */}
+          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '2px' }}>
+            {ELITISM_PRESETS.map((p) => {
+              const isActive = Math.round(elitismRate * 100) === Math.round(p.val * 100);
+              return (
+                <button
+                  key={p.val}
+                  onClick={() => onChangeElitism(p.val)}
+                  className={`sleek-pill ${isActive ? 'sleek-pill-active' : ''}`}
+                >
+                  {p.label}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
+            Guarantees top champions survive unmodified.
+          </div>
         </div>
 
         {/* Topology Selector */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.03)',
-          padding: '12px 14px',
+          padding: '14px 16px',
           borderRadius: '10px',
           border: '1px solid var(--border-subtle)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          gap: '8px'
         }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', fontSize: '0.82rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2px', fontSize: '0.82rem' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
               <Layers size={14} color="#a855f7" />
               <span>Neural Architecture</span>
@@ -203,7 +298,7 @@ export function ControlCenter({
               color: '#ffffff',
               border: '1px solid var(--border-medium)',
               borderRadius: '6px',
-              padding: '6px 10px',
+              padding: '8px 10px',
               fontSize: '0.82rem',
               fontWeight: '600',
               fontFamily: 'var(--font-mono)',
@@ -216,6 +311,9 @@ export function ControlCenter({
             <option value="large">Large [9 → 20 → 20 → 1] (641 params)</option>
             <option value="xlarge">XL [9 → 32 → 32 → 1] (1,377 params)</option>
           </select>
+          <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
+            Adjusts parameter capacity for complex dynamic barriers.
+          </div>
         </div>
       </div>
 

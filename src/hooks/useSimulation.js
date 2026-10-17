@@ -163,14 +163,10 @@ export function useSimulation(canvasRef) {
     const populationResults = game.getResults();
     const { brains, stats } = ga.evolve(populationResults);
 
-    // Auto-tune mutation if evolution stalls for 5 generations
+    // Track best fitness improvements without modifying user-selected mutationRate
     if (stats.bestFitness > previousBestFitnessRef.current) {
       previousBestFitnessRef.current = stats.bestFitness;
       lastImprovementGenRef.current = stats.generation;
-    } else if (stats.generation - lastImprovementGenRef.current > 5) {
-      // Temporarily boost mutation to escape local minima
-      ga.mutationRate = Math.min(0.45, ga.mutationRate * 1.3);
-      setMutationRate(ga.mutationRate);
     }
 
     // Celebration on record

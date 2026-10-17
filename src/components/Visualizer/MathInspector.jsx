@@ -106,11 +106,11 @@ export function MathInspector({ brain, bestBird }) {
           <button
             key={idx}
             onClick={() => setSelectedLayer(idx)}
-            className={`btn ${selectedLayer === idx ? 'btn-primary' : 'btn-secondary'}`}
-            style={{ padding: '6px 14px', fontSize: '0.8rem' }}
+            className={`sleek-btn ${selectedLayer === idx ? 'sleek-btn-primary' : 'sleek-btn-neutral'}`}
+            style={{ padding: '6px 14px', fontSize: '0.8rem', borderRadius: '8px' }}
           >
             <span>Layer {idx + 1} ({layer.fromLayerSize} → {layer.toLayerSize})</span>
-            {layer.isOutputLayer && <span style={{ fontSize: '0.7rem', color: '#fef08a' }}>★ Output</span>}
+            {layer.isOutputLayer && <span className="sleek-badge sleek-badge-amber" style={{ fontSize: '0.62rem', padding: '1px 5px' }}>Output</span>}
           </button>
         ))}
       </div>

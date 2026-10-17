@@ -36,20 +36,24 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
 
     const layers = brain.layers;
     const activations = brain.getActivations() || [];
-    const paddingX = 80;
-    const paddingY = 40;
-    const layerSpacing = (w - paddingX * 2) / (layers.length - 1);
+    const paddingLeft = 175;
+    const paddingRight = 135;
+    const paddingTop = 40;
+    const paddingBottom = 48;
+    const availableW = w - paddingLeft - paddingRight;
+    const layerSpacing = availableW / Math.max(layers.length - 1, 1);
 
     // Calculate node coordinate positions
     const nodePositions = [];
     for (let i = 0; i < layers.length; i++) {
-      const x = paddingX + i * layerSpacing;
+      const x = paddingLeft + i * layerSpacing;
       const count = layers[i];
-      const spacing = (h - paddingY * 2) / Math.max(count - 1, 1);
+      const availableH = h - paddingTop - paddingBottom;
+      const spacing = availableH / Math.max(count - 1, 1);
       const layerPositions = [];
 
       for (let j = 0; j < count; j++) {
-        const y = count === 1 ? h / 2 : paddingY + j * spacing;
+        const y = count === 1 ? h / 2 : paddingTop + j * spacing;
         layerPositions.push({ x, y });
       }
       nodePositions.push(layerPositions);
@@ -91,35 +95,35 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
         // Node Glow
         if (act > 0.4) {
           ctx.beginPath();
-          ctx.arc(x, y, 12, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(168, 85, 247, ${act * 0.4})`;
+          ctx.arc(x, y, 14, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(168, 85, 247, ${act * 0.45})`;
           ctx.fill();
         }
 
         // Node Circle
         ctx.beginPath();
-        ctx.arc(x, y, 7, 0, Math.PI * 2);
+        ctx.arc(x, y, 8, 0, Math.PI * 2);
 
         // Fill based on activation
         if (i === 0) {
-          ctx.fillStyle = `rgba(56, 189, 248, ${0.3 + act * 0.7})`;
+          ctx.fillStyle = `rgba(56, 189, 248, ${0.35 + act * 0.65})`;
         } else if (i === nodePositions.length - 1) {
           ctx.fillStyle = act > 0.5 ? '#10b981' : '#64748b';
         } else {
-          ctx.fillStyle = `rgba(192, 132, 252, ${0.2 + act * 0.8})`;
+          ctx.fillStyle = `rgba(192, 132, 252, ${0.25 + act * 0.75})`;
         }
         ctx.fill();
 
         ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 1.2;
+        ctx.lineWidth = 1.4;
         ctx.stroke();
 
-        // Labels for Input Layer
+        // Labels for Input Layer (generous 175px left margin ensures 0 clipping)
         if (i === 0 && INPUT_LABELS[j]) {
-          ctx.font = '10px monospace';
+          ctx.font = '10px "JetBrains Mono", monospace';
           ctx.fillStyle = '#94a3b8';
           ctx.textAlign = 'right';
-          ctx.fillText(INPUT_LABELS[j], x - 12, y + 3);
+          ctx.fillText(INPUT_LABELS[j], x - 14, y + 3.5);
         }
 
         // Label for Output Layer
@@ -128,7 +132,7 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
           ctx.fillStyle = act > 0.5 ? '#34d399' : '#94a3b8';
           ctx.textAlign = 'left';
           const decisionText = act > 0.5 ? `FLAP (${(act * 100).toFixed(0)}%)` : `GLIDE (${(act * 100).toFixed(0)}%)`;
-          ctx.fillText(decisionText, x + 14, y + 4);
+          ctx.fillText(decisionText, x + 16, y + 4);
         }
       }
     }
@@ -137,18 +141,18 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
     ctx.font = '11px system-ui';
     ctx.textAlign = 'left';
     ctx.fillStyle = '#34d399';
-    ctx.fillRect(20, h - 18, 10, 4);
-    ctx.fillText('+ Excitatory Weight', 35, h - 14);
+    ctx.fillRect(40, h - 20, 12, 4);
+    ctx.fillText('+ Excitatory Weight', 58, h - 16);
 
     ctx.fillStyle = '#f43f5e';
-    ctx.fillRect(160, h - 18, 10, 4);
-    ctx.fillText('- Inhibitory Weight', 175, h - 14);
+    ctx.fillRect(210, h - 20, 12, 4);
+    ctx.fillText('- Inhibitory Weight', 228, h - 16);
 
     ctx.fillStyle = '#a855f7';
     ctx.beginPath();
-    ctx.arc(310, h - 16, 4, 0, Math.PI * 2);
+    ctx.arc(385, h - 18, 4.5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillText('Neuron Activation', 320, h - 14);
+    ctx.fillText('Neuron Activation', 396, h - 16);
 
   }, [brain, bestBird]);
 
@@ -156,15 +160,15 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
     <div style={{ position: 'relative', width: '100%', overflowX: 'auto' }}>
       <canvas
         ref={canvasRef}
-        width={580}
-        height={340}
+        width={840}
+        height={440}
         style={{
           display: 'block',
           width: '100%',
-          maxWidth: '580px',
+          maxWidth: '100%',
           borderRadius: '12px',
           border: '1px solid var(--border-subtle)',
-          margin: '0 auto'
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)'
         }}
       />
     </div>

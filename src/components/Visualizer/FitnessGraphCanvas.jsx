@@ -22,7 +22,7 @@ export function FitnessGraphCanvas({ generationLog }) {
       return;
     }
 
-    const padding = { top: 30, right: 24, bottom: 35, left: 55 };
+    const padding = { top: 32, right: 30, bottom: 38, left: 65 };
     const graphW = w - padding.left - padding.right;
     const graphH = h - padding.top - padding.bottom;
 
@@ -109,15 +109,15 @@ export function FitnessGraphCanvas({ generationLog }) {
     <div style={{ width: '100%', overflowX: 'auto' }}>
       <canvas
         ref={canvasRef}
-        width={580}
-        height={320}
+        width={840}
+        height={380}
         style={{
           display: 'block',
           width: '100%',
-          maxWidth: '580px',
+          maxWidth: '100%',
           borderRadius: '12px',
           border: '1px solid var(--border-subtle)',
-          margin: '0 auto'
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)'
         }}
       />
     </div>
