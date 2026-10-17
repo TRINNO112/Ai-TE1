@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learns Flappy Bird — Neuroevolution</title>
+    <meta name="description"
+        content="Watch an AI learn to play Flappy Bird through neuroevolution. Neural networks evolve through a genetic algorithm in real-time.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-left">
+            <h1>🧠 AI Learns Flappy Bird</h1>
+            <span class="subtitle">Neuroevolution in Real-Time</span>
+        </div>
+        <div class="header-right">
+            <span class="arch-label">Network:</span>
+            <span id="archDisplay" class="arch-display">[9 → 12 → 12 → 1]</span>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main id="mainLayout">
+
+        <!-- LEFT: Game + Controls -->
+        <section class="game-section">
+            <div class="game-container">
+                <canvas id="gameCanvas" width="400" height="600"></canvas>
+                <div id="turboDisplay" class="turbo-display hidden">
+                    <div class="turbo-header">⚡ TURBO MODE ACTIVE</div>
+                    <div class="turbo-stats">
+                        <div class="t-stat"><span>Gens/sec:</span> <span id="t-gensPerSec">0</span></div>
+                        <div class="t-stat"><span>Best Score:</span> <span id="t-bestScore">0</span></div>
+                        <div class="t-stat"><span>Avg Score:</span> <span id="t-avgScore">0</span></div>
+                        <div class="t-stat"><span>Best Fitness:</span> <span id="t-bestFitness">0</span></div>
+                    </div>
+                    <div class="turbo-console" id="turboConsole">
+                        > Initializing headless engine...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls-panel">
+                <button id="btnStartStop" class="btn btn-primary">▶ Start Training</button>
+                <button id="btnReset" class="btn btn-secondary">🔄 Reset</button>
+                <button id="btnAntigravityPlay" class="btn btn-special">🚀 Antigravity Play</button>
+
+                <div class="control-group">
+                    <label>Speed</label>
+                    <input type="range" id="speedSlider" min="1" max="20" value="1">
+                    <span id="speedLabel" class="speed-val">1x</span>
+                </div>
+
+                <div class="control-group">
+                    <label>Elitism (Stability)</label>
+                    <input type="range" id="elitismSlider" min="1" max="50" value="5">
+                    <span id="elitismLabel" class="speed-val">5%</span>
+                </div>
+
+                <div class="control-group">
+                    <label>Mutation (Exploration)</label>
+                    <input type="range" id="mutationSlider" min="1" max="50" value="15">
+                    <span id="mutationLabel" class="speed-val">15%</span>
+                </div>
+
+                <div class="control-group">
+                    <label>Network Size</label>
+                    <select id="networkSize">
+                        <option value="small">Small [9→8→1]</option>
+                        <option value="medium" selected>Medium [9→12→12→1]</option>
+                        <option value="large">Large [9→20→20→1]</option>
+                        <option value="xlarge">XL [9→32→32→1]</option>
+                    </select>
+                </div>
+
+                <div class="control-group toggle-group">
+                    <label for="showAllBirds">Show All Birds</label>
+                    <input type="checkbox" id="showAllBirds" checked>
+                </div>
+
+                <div class="control-group toggle-group turbo-toggle">
+                    <label for="turboMode">⚡ Turbo Mode (Headless)</label>
+                    <input type="checkbox" id="turboMode">
+                </div>
+
+                <div class="control-group toggle-group">
+                    <label for="simpleMode">🌱 Simple Mode (No Obstacles)</label>
+                    <input type="checkbox" id="simpleMode">
+                </div>
+
+                <div id="turboLiveGroup" class="control-group toggle-group hidden">
+                    <label for="turboLiveView">👁️ Live Turbo View (Slower)</label>
+                    <input type="checkbox" id="turboLiveView">
+                </div>
+
+                <div class="control-group toggle-group">
+                    <label for="autoTune">🤖 Auto-Tune Evolution</label>
+                    <input type="checkbox" id="autoTune" checked>
+                </div>
+            </div>
+
+            <!-- Stats Panel -->
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <span class="stat-label">Generation</span>
+                    <span class="stat-value" id="statGeneration">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Alive</span>
+                    <span class="stat-value" id="statAlive">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Best Score</span>
+                    <span class="stat-value highlight" id="statBestScore">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Best Fitness</span>
+                    <span class="stat-value" id="statBestFitness">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">🏆 Best Ever Fitness</span>
+                    <span class="stat-value gold" id="statBestEver">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">🏆 Best Ever Score</span>
+                    <span class="stat-value gold" id="statBestEverScore">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">⚡ Pipe Speed</span>
+                    <span class="stat-value" id="statSpeed">-</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">📏 Gap Size</span>
+                    <span class="stat-value" id="statGap">-</span>
+                </div>
+            </div>
+
+            <!-- Difficulty Badges -->
+            <div class="difficulty-panel">
+                <span class="diff-label">Active Obstacles:</span>
+                <div id="difficultyBadges"><span class="diff-badge easy">🟢 Easy</span></div>
+            </div>
+        </section>
+
+        <!-- RIGHT: Data Panels -->
+        <section class="data-section">
+
+            <!-- Tabs -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="brain">🧠 Brain</button>
+                <button class="tab-btn" data-tab="graph">📈 Fitness</button>
+                <button class="tab-btn" data-tab="log">📋 Log</button>
+                <button class="tab-btn" data-tab="weights">⚖️ Weights</button>
+                <button class="tab-btn" data-tab="decisions">💡 Decisions</button>
+            </div>
+
+            <!-- Tab: Brain (Neural Network Diagram) -->
+            <div class="tab-content active" id="tab-brain">
+                <div class="panel">
+                    <h3>Neural Network — Best Bird's Brain</h3>
+                    <p class="panel-subtitle">Green = positive weight, Red = negative. Brightness = activation.</p>
+                    <canvas id="nnCanvas" width="550" height="350"></canvas>
+                </div>
+            </div>
+
+            <!-- Tab: Fitness Graph -->
+            <div class="tab-content" id="tab-graph">
+                <div class="panel">
+                    <h3>Fitness Over Generations</h3>
+                    <p class="panel-subtitle">Watch the AI get smarter over time</p>
+                    <canvas id="fitnessGraph" width="500" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- Tab: Generation Log -->
+            <div class="tab-content" id="tab-log">
+                <div class="panel">
+                    <h3>Generation Log</h3>
+                    <p class="panel-subtitle">Every generation's performance data</p>
+                    <div id="genLogContainer" class="scrollable-container">
+                        <p class="no-data">Training log will appear here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Weights -->
+            <div class="tab-content" id="tab-weights">
+                <div class="panel">
+                    <h3>Weight Inspector</h3>
+                    <p class="panel-subtitle">Every number in the AI's brain — this IS what it "learned"</p>
+                    <div id="weightContainer" class="scrollable-container">
+                        <p class="no-data">Weight data will appear here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Decisions -->
+            <div class="tab-content" id="tab-decisions">
+                <div class="panel">
+                    <h3>Decision Viewer</h3>
+                    <p class="panel-subtitle">What the best bird is "thinking" right now</p>
+                    <div id="decisionContainer">
+                        <p class="no-data">Decision data will appear here...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export/Import Buttons -->
+            <div class="export-panel">
+                <button id="btnExportBrain" class="btn btn-export">💾 Export Brain (JSON)</button>
+                <button id="btnExportLog" class="btn btn-export">📊 Export Log</button>
+                <button id="btnImportBrain" class="btn btn-import">📂 Import Brain</button>
+                <input type="file" id="importFile" accept=".json" style="display:none">
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <span>AI Flappy Bird — Neural Network + Genetic Algorithm | The AI's "knowledge" = weights & biases (just
+            numbers!)</span>
+    </footer>
+
+    <!-- Scripts (order matters) -->
+    <script src="neural-network.js"></script>
+    <script src="genetic-algorithm.js"></script>
+    <script src="game.js"></script>
+    <script src="visualization.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
