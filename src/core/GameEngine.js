@@ -11,33 +11,33 @@ import { soundEngine } from './AudioSynthesizer.js';
 
 export const DIFFICULTY = {
     variableSpeed: {
-        startScore: 15,
-        baseSpeed: 2.5,
-        maxSpeed: 4.0,
-        rampRate: 0.04
+        startScore: 35,
+        baseSpeed: 2.0,
+        maxSpeed: 3.2,
+        rampRate: 0.015
     },
     movingPipes: {
-        startScore: 30,
+        startScore: 45,
         chance: 0.25,
-        speed: 0.8,
-        range: 40
+        speed: 0.5,
+        range: 30
     },
     shrinkingGaps: {
         startScore: 50,
-        baseGap: 140,
-        minGap: 100,
-        shrinkRate: 1
+        baseGap: 160,
+        minGap: 120,
+        shrinkRate: 0.5
     },
     windZones: {
-        startScore: 75,
-        chance: 0.3,
-        force: 0.25,
+        startScore: 80,
+        chance: 0.25,
+        force: 0.15,
         width: 80
     },
     doublePipes: {
-        startScore: 100,
+        startScore: 120,
         chance: 0.2,
-        spacing: 120
+        spacing: 160
     }
 };
 
@@ -349,7 +349,8 @@ export class GameEngine {
         this.birds = [];
         this.pipes = [];
         this.windZones = [];
-        this.pipeSpawnInterval = 90;
+        this.pipeSpawnInterval = 135; // Generous 270px spacing between obstacles
+        this.initialRunwayFrames = 150; // Runway buffer so drones have calm open airspace before pipe 1
         this.frameCount = 0;
         this.gameOver = false;
 
@@ -390,7 +391,7 @@ export class GameEngine {
         if (this.simpleMode) {
             this.currentSpeed = DIFFICULTY.variableSpeed.baseSpeed;
             this.currentGap = DIFFICULTY.shrinkingGaps.baseGap;
-            this.activeDifficulties = ['🌱 Simple Mode'];
+            this.activeDifficulties = ['Simple Mode'];
             return;
         }
 
@@ -403,7 +404,7 @@ export class GameEngine {
                 DIFFICULTY.variableSpeed.baseSpeed + extra,
                 DIFFICULTY.variableSpeed.maxSpeed
             );
-            this.activeDifficulties.push('⚡ Variable Speed');
+            this.activeDifficulties.push('Variable Speed');
         } else {
             this.currentSpeed = DIFFICULTY.variableSpeed.baseSpeed;
         }
@@ -414,14 +415,14 @@ export class GameEngine {
                 DIFFICULTY.shrinkingGaps.baseGap - shrink,
                 DIFFICULTY.shrinkingGaps.minGap
             );
-            this.activeDifficulties.push('📏 Narrow Corridor');
+            this.activeDifficulties.push('Narrow Corridor');
         } else {
             this.currentGap = DIFFICULTY.shrinkingGaps.baseGap;
         }
 
-        if (score >= DIFFICULTY.movingPipes.startScore) this.activeDifficulties.push('🔄 Oscillating Obstacles');
-        if (score >= DIFFICULTY.windZones.startScore) this.activeDifficulties.push('💨 Wind Shear');
-        if (score >= DIFFICULTY.doublePipes.startScore) this.activeDifficulties.push('🔀 Double Barriers');
+        if (score >= DIFFICULTY.movingPipes.startScore) this.activeDifficulties.push('Oscillating Obstacles');
+        if (score >= DIFFICULTY.windZones.startScore) this.activeDifficulties.push('Wind Shear');
+        if (score >= DIFFICULTY.doublePipes.startScore) this.activeDifficulties.push('Double Barriers');
     }
 
     spawnPipe() {
@@ -473,13 +474,14 @@ export class GameEngine {
         }
 
         if (!firstPipe) {
+            const halfGap = this.currentGap / 2;
             return {
                 distance: 400,
-                topPipeBottom: this.height / 2 - 70,
-                bottomPipeTop: this.height / 2 + 70,
+                topPipeBottom: this.height / 2 - halfGap,
+                bottomPipeTop: this.height / 2 + halfGap,
                 pipeMovement: 0,
-                secondTopPipeBottom: this.height / 2 - 70,
-                secondBottomPipeTop: this.height / 2 + 70,
+                secondTopPipeBottom: this.height / 2 - halfGap,
+                secondBottomPipeTop: this.height / 2 + halfGap,
                 firstPipeObj: null
             };
         }
@@ -508,7 +510,9 @@ export class GameEngine {
 
         this.updateDifficulty();
 
-        if (this.frameCount % this.pipeSpawnInterval === 0) {
+        const canSpawn = this.frameCount >= this.initialRunwayFrames && 
+            (this.frameCount - this.initialRunwayFrames) % this.pipeSpawnInterval === 0;
+        if (canSpawn) {
             this.spawnPipe();
         }
 

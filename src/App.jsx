@@ -84,6 +84,9 @@ export default function App() {
             turboMode={turboMode}
             turboStats={turboStats}
             activeDifficulties={activeDifficulties}
+            telemetry={telemetry}
+            gaStats={gaStats}
+            onToggleTurboMode={() => setTurboMode(false)}
           />
 
           <ControlCenter

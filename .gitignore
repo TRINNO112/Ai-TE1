@@ -23,6 +23,10 @@ secrets.json
 *.swp
 *.swo
 
+# Prompt files
+*prompt*
+*PROMPT*
+
 # Build & Logs
 dist/
 .vite/

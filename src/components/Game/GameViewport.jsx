@@ -5,8 +5,13 @@ export function GameViewport({
   canvasRef,
   turboMode,
   turboStats,
-  activeDifficulties
+  activeDifficulties,
+  telemetry,
+  gaStats,
+  onToggleTurboMode
 }) {
+  const currentRecord = Math.max(gaStats?.bestScoreEver ?? 0, telemetry?.bestScore ?? 0);
+
   return (
     <div className="sleek-card" style={{
       position: 'relative',
@@ -59,92 +64,127 @@ export function GameViewport({
           }}
         />
 
-        {/* Turbo Mode Headless Overlay */}
+        {/* Turbo Mode Headless Cockpit HUD */}
         {turboMode && (
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(7, 10, 19, 0.94)',
-            backdropFilter: 'blur(8px)',
+            background: 'rgba(7, 10, 19, 0.95)',
+            backdropFilter: 'blur(10px)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '24px',
+            padding: '24px 20px',
             textAlign: 'center',
             zIndex: 10
           }}>
             <div style={{
               width: '56px',
               height: '56px',
-              borderRadius: '14px',
+              borderRadius: '16px',
               background: 'rgba(234, 179, 8, 0.15)',
               border: '1px solid rgba(234, 179, 8, 0.4)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              marginBottom: '14px'
+              marginBottom: '14px',
+              boxShadow: '0 0 24px rgba(234, 179, 8, 0.25)'
             }}>
               <Zap size={28} color="#fbbf24" />
             </div>
 
             <h3 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.25rem',
+              fontSize: '1.15rem',
               fontWeight: '800',
               color: '#fef08a',
-              marginBottom: '6px'
+              marginBottom: '6px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em'
             }}>
-              TURBO ACCELERATION ACTIVE
+              Headless Neural Turbo Active
             </h3>
             <p style={{
-              fontSize: '0.82rem',
+              fontSize: '0.78rem',
               color: 'var(--text-secondary)',
-              marginBottom: '18px',
-              maxWidth: '300px',
-              fontFamily: 'var(--font-body)'
+              marginBottom: '16px',
+              maxWidth: '310px',
+              fontFamily: 'var(--font-body)',
+              lineHeight: '1.4'
             }}>
-              Bypassing graphics pipeline to compute linear forward-passes and genetic recombination at 500x speed.
+              Graphics pipeline detached. Executing high-frequency forward passes and generational crossovers directly in CPU cache.
             </p>
 
+            {/* Live 6-Metric Telemetry Deck */}
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(2, 1fr)',
               gap: '10px',
               width: '100%',
-              maxWidth: '300px',
-              background: 'rgba(255, 255, 255, 0.04)',
-              padding: '12px 14px',
-              borderRadius: '10px',
+              maxWidth: '330px',
+              background: 'rgba(255, 255, 255, 0.03)',
+              padding: '14px',
+              borderRadius: '12px',
               border: '1px solid var(--border-subtle)',
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.85rem'
+              marginBottom: '18px'
             }}>
-              <div>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase' }}>Gens / Sec</span>
-                <div style={{ color: '#38bdf8', fontWeight: '700', fontSize: '1.1rem' }}>
-                  {turboStats?.gensPerSec ?? 0}
+              <div style={{ textAlign: 'left', padding: '4px 6px' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Epoch Gen</span>
+                <div style={{ color: '#c084fc', fontWeight: '800', fontSize: '1.15rem' }}>
+                  Gen {gaStats?.generation ?? 1}
                 </div>
               </div>
-              <div>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase' }}>Generation</span>
-                <div style={{ color: '#c084fc', fontWeight: '700', fontSize: '1.1rem' }}>
-                  #{turboStats?.generation ?? 0}
+
+              <div style={{ textAlign: 'left', padding: '4px 6px' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Live Epoch Score</span>
+                <div style={{ color: '#38bdf8', fontWeight: '800', fontSize: '1.15rem' }}>
+                  {telemetry?.bestScore ?? 0}
                 </div>
               </div>
-              <div>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase' }}>Best Score</span>
-                <div style={{ color: '#34d399', fontWeight: '700', fontSize: '1.1rem' }}>
-                  {turboStats?.bestScore ?? 0}
+
+              <div style={{ textAlign: 'left', padding: '4px 6px' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Surviving Agents</span>
+                <div style={{ color: '#34d399', fontWeight: '800', fontSize: '1.15rem' }}>
+                  {telemetry?.alive ?? 0} <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>/ 150</span>
                 </div>
               </div>
-              <div>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase' }}>Best Fitness</span>
-                <div style={{ color: '#fbbf24', fontWeight: '700', fontSize: '1.1rem' }}>
-                  {turboStats?.bestFitness?.toLocaleString() ?? 0}
+
+              <div style={{ textAlign: 'left', padding: '4px 6px' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>All-Time Peak</span>
+                <div style={{ color: '#f43f5e', fontWeight: '800', fontSize: '1.15rem' }}>
+                  {currentRecord}
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'left', padding: '4px 6px' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Physics Throughput</span>
+                <div style={{ color: '#fbbf24', fontWeight: '700', fontSize: '0.95rem' }}>
+                  {(turboStats?.stepsPerSec ?? 0).toLocaleString()} <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>ops/s</span>
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'left', padding: '4px 6px' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Gen Rate</span>
+                <div style={{ color: '#22d3ee', fontWeight: '700', fontSize: '0.95rem' }}>
+                  {turboStats?.gensPerSec ?? 0} <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>gen/s</span>
                 </div>
               </div>
             </div>
+
+            {/* Action Return Button */}
+            <button
+              onClick={onToggleTurboMode}
+              className="sleek-btn sleek-btn-primary"
+              style={{
+                padding: '10px 22px',
+                fontSize: '0.82rem',
+                borderRadius: '8px'
+              }}
+            >
+              <span>Return to Visual Cockpit</span>
+            </button>
           </div>
         )}
       </div>

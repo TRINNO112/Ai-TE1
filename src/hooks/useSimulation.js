@@ -208,7 +208,7 @@ export function useSimulation(canvasRef) {
     }
   }, []);
 
-  // Headless Turbo Step Loop
+  // Headless Turbo Step Loop with Live Telemetry Streaming
   const runTurboBatch = useCallback(() => {
     const game = gameRef.current;
     const ga = gaRef.current;
@@ -216,19 +216,50 @@ export function useSimulation(canvasRef) {
 
     const start = performance.now();
     let gensFinished = 0;
+    let stepsInBatch = 0;
+    let latestTelem = null;
 
-    // Run generations in tight headless batch
+    // Run generations in tight headless batch (18ms time slice)
     while (performance.now() - start < 18) {
-      const telem = game.update();
-      if (telem.gameOver) {
+      latestTelem = game.update();
+      stepsInBatch++;
+      if (latestTelem.gameOver) {
         advanceGeneration();
         gensFinished++;
       }
     }
 
+    const elapsed = performance.now() - start;
+    const stepsPerSec = elapsed > 0 ? Math.round((stepsInBatch / elapsed) * 1000) : 0;
+
+    // Stream live metrics to UI during headless mode
+    if (latestTelem) {
+      setTelemetry(latestTelem);
+      setActiveDifficulties(latestTelem.activeDifficulties || []);
+      const topBird = game.getBestBird();
+      if (topBird) {
+        setBestBird(topBird);
+        if (topBird.brain) setChampionBrain(topBird.brain);
+      }
+      if (latestTelem.score > ga.bestScoreEver) {
+        ga.bestScoreEver = latestTelem.score;
+      }
+      if (latestTelem.bestFitness > ga.bestFitnessEver) {
+        ga.bestFitnessEver = latestTelem.bestFitness;
+      }
+      setGaStats({
+        generation: ga.generation,
+        bestFitnessEver: ga.bestFitnessEver,
+        bestScoreEver: ga.bestScoreEver
+      });
+    }
+
     setTurboStats({
-      gensPerSec: Math.round(gensFinished * 55),
+      gensPerSec: Math.round(gensFinished * (1000 / Math.max(elapsed, 1))),
+      stepsPerSec: stepsPerSec,
       generation: ga.generation,
+      alive: latestTelem ? latestTelem.alive : 0,
+      currentScore: latestTelem ? latestTelem.score : 0,
       bestScore: ga.bestScoreEver,
       bestFitness: ga.bestFitnessEver
     });

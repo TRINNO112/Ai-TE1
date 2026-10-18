@@ -16,10 +16,11 @@ export function TelemetryPanel({ telemetry, gaStats }) {
   const total = telemetry?.total ?? 150;
   const bestScore = telemetry?.bestScore ?? 0;
   const bestFitness = telemetry?.bestFitness ?? 0;
-  const bestFitnessEver = gaStats?.bestFitnessEver ?? bestFitness;
-  const bestScoreEver = gaStats?.bestScoreEver ?? bestScore;
-  const speed = telemetry?.speed ?? 2.5;
-  const gap = telemetry?.gap ?? 140;
+  const bestFitnessEver = Math.max(gaStats?.bestFitnessEver ?? 0, bestFitness);
+  const bestScoreEver = Math.max(gaStats?.bestScoreEver ?? 0, bestScore);
+  const isNewRecord = bestScore > 0 && bestScore >= (gaStats?.bestScoreEver ?? 0);
+  const speed = telemetry?.speed ?? 2.0;
+  const gap = telemetry?.gap ?? 160;
 
   const cards = [
     {

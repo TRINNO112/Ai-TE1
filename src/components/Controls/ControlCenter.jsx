@@ -13,6 +13,9 @@ import {
   Camera,
   Layers,
   Sparkles,
+  GraduationCap,
+  Flame,
+  BrainCircuit,
   Compass,
   Lock,
   Gauge
@@ -54,6 +57,49 @@ export function ControlCenter({
     { label: '5% (Top 7)', val: 0.05 },
     { label: '10% (Top 15)', val: 0.10 },
     { label: '20% (Top 30)', val: 0.20 }
+  ];
+
+  const SCENARIOS = [
+    {
+      id: 'quick',
+      title: 'Student Demo',
+      badge: 'Fast Learning',
+      arch: 'small',
+      mutation: 0.15,
+      elitism: 0.05,
+      desc: 'Small [9→8→1]. Learns level flight in 2–4 gens. Perfect for classroom.',
+      icon: <GraduationCap size={14} color="#38bdf8" />
+    },
+    {
+      id: 'balanced',
+      title: 'NCERT Standard',
+      badge: 'Golden Ratio',
+      arch: 'medium',
+      mutation: 0.15,
+      elitism: 0.05,
+      desc: 'Medium [9→12→12→1]. Balances exploration and memory for moving gaps.',
+      icon: <BrainCircuit size={14} color="#34d399" />
+    },
+    {
+      id: 'deep',
+      title: 'UAV Autopilot',
+      badge: 'Deep Capacity',
+      arch: 'large',
+      mutation: 0.10,
+      elitism: 0.10,
+      desc: 'Large [9→20→20→1]. High-capacity weights for wind shear foresight.',
+      icon: <Compass size={14} color="#c084fc" />
+    },
+    {
+      id: 'chaos',
+      title: 'Chaos Escape',
+      badge: 'High Variance',
+      arch: 'medium',
+      mutation: 0.45,
+      elitism: 0.02,
+      desc: 'High 45% mutation to escape stagnation when drones trap in local minima.',
+      icon: <Flame size={14} color="#fbbf24" />
+    }
   ];
 
   return (
@@ -112,6 +158,64 @@ export function ControlCenter({
           <RotateCcw size={16} />
           <span>Reset</span>
         </button>
+      </div>
+      {/* Pedagogical Architectural Scenarios */}
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.02)',
+        border: '1px solid var(--border-subtle)',
+        borderRadius: '12px',
+        padding: '12px 14px',
+        marginBottom: '18px'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+          <span style={{ fontSize: '0.74rem', fontWeight: '700', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            Pedagogical Scenarios & Architecture Presets
+          </span>
+          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>
+            One-click parameter tuning for classroom demos
+          </span>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(135px, 1fr))', gap: '8px' }}>
+          {SCENARIOS.map(sc => {
+            const isMatch = networkSize === sc.arch && Math.round(mutationRate * 100) === Math.round(sc.mutation * 100);
+            return (
+              <button
+                key={sc.id}
+                onClick={() => {
+                  onChangeNetworkSize(sc.arch);
+                  onChangeMutation(sc.mutation);
+                  onChangeElitism(sc.elitism);
+                }}
+                className="sleek-btn"
+                style={{
+                  padding: '8px 10px',
+                  fontSize: '0.74rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  textAlign: 'left',
+                  border: isMatch ? '1px solid #38bdf8' : '1px solid var(--border-subtle)',
+                  background: isMatch ? 'rgba(14, 165, 233, 0.14)' : 'rgba(255, 255, 255, 0.03)',
+                  boxShadow: isMatch ? '0 0 12px rgba(14, 165, 233, 0.2)' : 'none',
+                  borderRadius: '8px'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ffffff', fontWeight: '700', width: '100%', justifyContent: 'space-between' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    {sc.icon}
+                    <span>{sc.title}</span>
+                  </span>
+                  <span className={`sleek-badge ${isMatch ? 'sleek-badge-sky' : 'sleek-badge-slate'}`} style={{ fontSize: '0.58rem', padding: '1px 4px' }}>
+                    {sc.badge}
+                  </span>
+                </div>
+                <div style={{ fontSize: '0.66rem', color: 'var(--text-muted)', marginTop: '4px', lineHeight: '1.25' }}>
+                  {sc.desc}
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Sliders Grid */}
