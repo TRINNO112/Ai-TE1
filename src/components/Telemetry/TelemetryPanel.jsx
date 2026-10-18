@@ -70,27 +70,25 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
     },
     {
       id: 'score',
-      label: obstaclesEnabled ? 'OBSTACLES CLEARED' : 'OBSTACLES STATUS',
-      value: obstaclesEnabled ? bestScore : 'Disarmed',
-      sub: obstaclesEnabled ? (
+      label: 'PIPES CLEARED',
+      value: bestScore,
+      sub: (
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px', fontSize: '0.72rem' }}>
-          <span style={{ color: 'var(--text-muted)' }}>All-Time Peak:</span>
+          <span style={{ color: 'var(--text-muted)' }}>Peak:</span>
           <strong style={{ color: '#D97706', fontFamily: 'var(--font-mono)' }}>{bestScoreEver}</strong>
-        </div>
-      ) : (
-        <div style={{ marginTop: '4px', fontSize: '0.72rem', color: '#0284C7', fontWeight: '600' }}>
-          Open Runway • Hover Training
+          <span style={{ color: 'var(--text-muted)' }}>•</span>
+          <span style={{ color: obstaclesEnabled ? '#D97706' : '#059669', fontWeight: '700' }}>
+            {obstaclesEnabled ? 'Dynamic Hazards' : 'Static Corridor'}
+          </span>
         </div>
       ),
       badge: obstaclesEnabled ? (
-        isScoreRecord && bestScore > 0 ? (
-          <span className="sleek-badge sleek-badge-amber" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
-            <Flame size={10} style={{ marginRight: '3px' }} /> Record
-          </span>
-        ) : null
+        <span className="sleek-badge sleek-badge-amber" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
+          <Flame size={10} style={{ marginRight: '3px' }} /> Hazards Active
+        </span>
       ) : (
-        <span className="sleek-badge sleek-badge-sky" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
-          Open Sky
+        <span className="sleek-badge sleek-badge-emerald" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
+          Standard Pipes
         </span>
       ),
       icon: <Trophy size={18} color="#D97706" />,

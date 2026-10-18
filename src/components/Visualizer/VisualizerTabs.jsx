@@ -41,7 +41,10 @@ export function VisualizerTabs({
     <div className="sleek-card" style={{
       padding: '16px 18px',
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      minWidth: 0,
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
       {/* Tab Navigation Header (Swipeable on Mobile) */}
       <div className="mobile-tabs-scroll">
@@ -68,10 +71,10 @@ export function VisualizerTabs({
       </div>
 
       {/* Tab Content Body */}
-      <div>
+      <div style={{ minWidth: 0, width: '100%' }}>
         {activeTab === 'brain' && (
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+          <div style={{ minWidth: 0, width: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
               <span style={{ fontSize: '0.86rem', fontWeight: '800', color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
                 Champion Neural Architecture & Synaptic Activation Radar
               </span>
@@ -96,8 +99,8 @@ export function VisualizerTabs({
         )}
 
         {activeTab === 'graph' && (
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+          <div style={{ minWidth: 0, width: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
               <span style={{ fontSize: '0.86rem', fontWeight: '800', color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
                 Evolutionary Trajectory & Fitness Convergence
               </span>

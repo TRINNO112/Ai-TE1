@@ -31,44 +31,61 @@ console.log('====================================================');
 console.log('AI NEUROEVOLUTION ENGINE: AUTOMATED TEST SUITE');
 console.log('====================================================\n');
 
-// TEST 1: Default Obstacles Disarmed Mode
+// TEST 1: Default Standard Corridor vs Dynamic Hazards Mode
 console.log('--- TEST GROUP 1: Obstacles Mode Verification ---');
 {
   const mockCanvas = { width: 400, height: 600, getContext: () => null };
   const game = new GameEngine(mockCanvas);
   
-  assert(game.obstaclesEnabled === false, 'Obstacles are disarmed by default (normal condition)');
+  assert(game.obstaclesEnabled === false, 'Dynamic hazards are disarmed by default (normal condition)');
 
   const brains = Array.from({ length: 20 }, () => new NeuralNetwork([9, 8, 1]));
   game.init(brains);
 
-  // Run 200 frames with obstacles disarmed
-  for (let f = 0; f < 200; f++) {
+  // Run 300 frames with dynamic hazards disarmed
+  for (let f = 0; f < 300; f++) {
+    for (const b of game.birds) {
+      b.alive = true;
+      b.y = 300;
+      b.velocity = 0;
+    }
+    game.gameOver = false;
     game.update();
   }
 
-  assert(game.pipes.length === 0, 'No pipes spawned during Open Sky runway training (200 frames)');
+  assert(game.pipes.length > 0, `Standard static pipes successfully spawn for training (Pipes active: ${game.pipes.length})`);
+  assert(game.windZones.length === 0, 'No chaotic wind zones spawn under normal static condition');
+  const hasOscillating = game.pipes.some(p => p.oscillating);
+  assert(!hasOscillating, 'No swinging/moving pipes spawn under normal static condition');
+
   const telem1 = game.getTelemetry();
   assert(telem1.obstaclesEnabled === false, 'Telemetry reports obstaclesEnabled: false');
-  assert(telem1.activeDifficulties.includes('Open Sky Runway'), 'Active difficulties indicates Open Sky Runway');
+  assert(telem1.activeDifficulties.includes('Standard Corridor (Static Pipes)'), 'Active difficulties indicates Standard Corridor (Static Pipes)');
 
-  // Now Activate Obstacles with fresh flight batch
+  // Now Activate Dynamic Hazards
   game.init(brains);
   game.setObstaclesEnabled(true);
-  assert(game.obstaclesEnabled === true, 'setObstaclesEnabled(true) arms the corridor');
+  assert(game.obstaclesEnabled === true, 'setObstaclesEnabled(true) arms dynamic hazards');
 
-  // Run 300 frames to allow pipe spawning (initial runway = 150 frames, spawn interval = 135)
+  // Run 300 frames to allow pipe spawning
   for (let f = 0; f < 300; f++) {
+    for (const b of game.birds) {
+      b.alive = true;
+      b.y = 300;
+      b.velocity = 0;
+    }
+    game.gameOver = false;
     game.update();
   }
 
-  assert(game.pipes.length > 0, `Pipes successfully spawned when armed (Pipes active: ${game.pipes.length})`);
+  assert(game.pipes.length > 0, `Pipes active in dynamic corridor: ${game.pipes.length}`);
   const telem2 = game.getTelemetry();
   assert(telem2.obstaclesEnabled === true, 'Telemetry reports obstaclesEnabled: true');
 
-  // Disarm again
+  // Disarm dynamic hazards back to standard static corridor
   game.setObstaclesEnabled(false);
-  assert(game.pipes.length === 0, 'Disarming obstacles immediately clears active pipes and resets corridor');
+  assert(game.windZones.length === 0, 'Disarming dynamic hazards clears wind zones');
+  assert(!game.pipes.some(p => p.oscillating), 'Disarming dynamic hazards stops pipe oscillations');
 }
 
 // TEST 2: Multi-Physics Speed & Sub-stepping

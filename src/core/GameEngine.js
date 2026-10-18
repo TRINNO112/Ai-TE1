@@ -376,6 +376,14 @@ export class GameEngine {
         }
     }
 
+    setCanvas(canvas) {
+        if (!canvas) return;
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.width = canvas.width;
+        this.height = canvas.height;
+    }
+
     init(brains) {
         this.birds = brains.map((brain, i) => new Bird(80, this.height / 2, brain, i));
         this.pipes = [];
@@ -390,10 +398,12 @@ export class GameEngine {
 
     setObstaclesEnabled(enabled) {
         this.obstaclesEnabled = !!enabled;
+        this.dynamicObstaclesEnabled = this.obstaclesEnabled;
         if (!this.obstaclesEnabled) {
-            this.pipes = [];
             this.windZones = [];
-            this.activeDifficulties = [];
+            for (const p of this.pipes) {
+                p.oscillating = false;
+            }
         }
     }
 
@@ -436,11 +446,13 @@ export class GameEngine {
     }
 
     spawnPipe() {
-        if (this.simpleMode) {
-            this.pipes.push(new Pipe(this.width, this.height, this.currentGap, false));
+        if (!this.obstaclesEnabled || this.simpleMode) {
+            // Standard normal condition: Static standard corridor pipes
+            this.pipes.push(new Pipe(this.width, this.height, DIFFICULTY.shrinkingGaps.baseGap, false));
             return;
         }
 
+        // Advanced Dynamic Hazards Mode: Moving pipes, wind shear, shrinking gaps, double barriers
         const score = this.maxScoreThisGen;
         const shouldOscillate = score >= DIFFICULTY.movingPipes.startScore &&
             Math.random() < DIFFICULTY.movingPipes.chance;
@@ -518,17 +530,18 @@ export class GameEngine {
             }
         }
 
+        const canSpawn = this.frameCount >= this.initialRunwayFrames && 
+            (this.frameCount - this.initialRunwayFrames) % this.pipeSpawnInterval === 0;
+        if (canSpawn) {
+            this.spawnPipe();
+        }
+
         if (this.obstaclesEnabled) {
             this.updateDifficulty();
-
-            const canSpawn = this.frameCount >= this.initialRunwayFrames && 
-                (this.frameCount - this.initialRunwayFrames) % this.pipeSpawnInterval === 0;
-            if (canSpawn) {
-                this.spawnPipe();
-            }
         } else {
             this.currentSpeed = DIFFICULTY.variableSpeed.baseSpeed;
-            this.activeDifficulties = ['Open Sky Runway'];
+            this.currentGap = DIFFICULTY.shrinkingGaps.baseGap;
+            this.activeDifficulties = ['Standard Corridor (Static Pipes)'];
         }
 
         for (const pipe of this.pipes) {
@@ -680,21 +693,14 @@ export class GameEngine {
         ctx.font = 'bold 22px "Outfit", system-ui, sans-serif';
         ctx.textAlign = 'center';
         
+        ctx.fillText(`SCORE: ${this.maxScoreThisGen}`, this.width / 2, 36);
+        ctx.font = '600 11px system-ui, sans-serif';
         if (this.obstaclesEnabled) {
-            ctx.fillText(`SCORE: ${this.maxScoreThisGen}`, this.width / 2, 36);
-            if (this.activeDifficulties.length > 0) {
-                ctx.font = '600 11px system-ui, sans-serif';
-                ctx.fillStyle = '#6D28D9';
-                ctx.fillText(this.activeDifficulties.join(' • '), this.width / 2, 54);
-            }
+            ctx.fillStyle = '#D97706';
+            ctx.fillText(this.activeDifficulties.join(' • '), this.width / 2, 54);
         } else {
-            // Pedagogical status banner when obstacles are disarmed
-            ctx.font = '800 11px "JetBrains Mono", monospace';
-            ctx.fillStyle = '#0284C7';
-            ctx.fillText('OPEN SKY RUNWAY • OBSTACLES DISARMED', this.width / 2, 34);
-            ctx.font = '600 10px system-ui, sans-serif';
-            ctx.fillStyle = '#334155';
-            ctx.fillText('Hover & altitude balance training active', this.width / 2, 50);
+            ctx.fillStyle = '#059669';
+            ctx.fillText('STANDARD CORRIDOR • DYNAMIC HAZARDS DISARMED', this.width / 2, 54);
         }
 
         if (this.freezeFrame) {

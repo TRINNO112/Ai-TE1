@@ -19,7 +19,10 @@ export function GameViewport({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      minWidth: 0,
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
       {/* Active Obstacles Badge Banner */}
       <div style={{
@@ -48,16 +51,24 @@ export function GameViewport({
         borderRadius: '12px',
         overflow: 'hidden',
         border: '1.5px solid var(--border-strong)',
-        boxShadow: 'var(--shadow-card)'
+        boxShadow: 'var(--shadow-card)',
+        width: '100%',
+        maxWidth: '400px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: '#E0F2FE'
       }}>
         <canvas
           ref={canvasRef}
           width={400}
-          height={600}
+          height={480}
           style={{
             display: 'block',
+            width: '100%',
             maxWidth: '100%',
             height: 'auto',
+            aspectRatio: '400 / 480',
             background: '#E0F2FE'
           }}
         />

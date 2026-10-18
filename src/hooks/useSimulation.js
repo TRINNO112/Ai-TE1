@@ -118,6 +118,15 @@ export function useSimulation(canvasRef) {
     }
   }, [showRaycasts, simpleMode, freezeFrame, obstaclesEnabled]);
 
+  // Keep canvas context attached when switching between Mobile & Desktop cockpits
+  useEffect(() => {
+    const game = gameRef.current;
+    if (game && canvasRef.current && game.canvas !== canvasRef.current) {
+      game.setCanvas(canvasRef.current);
+      game.draw(showAllBirds);
+    }
+  });
+
   useEffect(() => {
     if (gaRef.current) {
       gaRef.current.elitismRate = elitismRate;
@@ -278,6 +287,11 @@ export function useSimulation(canvasRef) {
     const loop = () => {
       const game = gameRef.current;
       if (!game) return;
+
+      // Sync active canvas if ref switched between mobile and desktop
+      if (canvasRef.current && game.canvas !== canvasRef.current) {
+        game.setCanvas(canvasRef.current);
+      }
 
       // Execute physics steps according to simulationSpeed
       let telem;

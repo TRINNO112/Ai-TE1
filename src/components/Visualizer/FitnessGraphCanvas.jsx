@@ -108,21 +108,27 @@ export function FitnessGraphCanvas({ generationLog }) {
   }, [generationLog]);
 
   return (
-    <div style={{ width: '100%', overflowX: 'auto' }}>
-      <canvas
-        ref={canvasRef}
-        width={840}
-        height={380}
-        style={{
-          display: 'block',
-          width: '100%',
-          maxWidth: '100%',
-          borderRadius: '12px',
-          border: '1.5px solid var(--border-medium)',
-          boxShadow: 'var(--shadow-card)',
-          background: '#FFFFFF'
-        }}
-      />
+    <div style={{ position: 'relative', width: '100%', minWidth: 0 }}>
+      <div className="mobile-scroll-container">
+        <div style={{ minWidth: '680px' }}>
+          <canvas
+            ref={canvasRef}
+            width={780}
+            height={380}
+            style={{
+              display: 'block',
+              width: '100%',
+              borderRadius: '12px',
+              border: '1.5px solid var(--border-medium)',
+              boxShadow: 'var(--shadow-card)',
+              background: '#FFFFFF'
+            }}
+          />
+        </div>
+      </div>
+      <div className="mobile-scroll-hint">
+        ⇄ Swipe horizontally to inspect full fitness curve & generations
+      </div>
     </div>
   );
 }

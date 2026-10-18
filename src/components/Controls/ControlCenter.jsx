@@ -168,7 +168,10 @@ export function ControlCenter({
 
   return (
     <div className="sleek-card" style={{
-      padding: '20px 24px'
+      padding: '20px 24px',
+      minWidth: 0,
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
       {/* Title Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
@@ -254,35 +257,35 @@ export function ControlCenter({
             justifyContent: 'center',
             flexShrink: 0
           }}>
-            {obstaclesEnabled ? <ShieldAlert size={18} color="#D97706" /> : <Shield size={18} color="#0284C7" />}
+            {obstaclesEnabled ? <ShieldAlert size={18} color="#D97706" /> : <Shield size={18} color="#059669" />}
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontWeight: '800', fontSize: '0.92rem', color: '#0F172A' }}>
-                Obstacles Mode: {obstaclesEnabled ? 'Armed (Pipes Spawning)' : 'Disarmed (Open Runway)'}
+                Obstacles Mode: {obstaclesEnabled ? 'Dynamic Hazards Active (Wind & Motion)' : 'Standard Corridor (Static Pipes)'}
               </span>
-              <span className={`sleek-badge ${obstaclesEnabled ? 'sleek-badge-amber' : 'sleek-badge-sky'}`} style={{ fontSize: '0.62rem' }}>
-                {obstaclesEnabled ? 'Navigation Active' : 'Normal: Disarmed'}
+              <span className={`sleek-badge ${obstaclesEnabled ? 'sleek-badge-amber' : 'sleek-badge-emerald'}`} style={{ fontSize: '0.62rem' }}>
+                {obstaclesEnabled ? 'Dynamic Hazards' : 'Normal: Static Pipes'}
               </span>
               <InfoTip
-                title="Obstacles Mode Function"
-                content="Under normal conditions, obstacles are disarmed so birds first train altitude stability and level cruising balance. Turn ON when you want to test navigation through dynamic pipes."
+                title="Obstacles Mode Configuration"
+                content="Under normal conditions, standard static pipes spawn continuously so birds learn level gap clearance. Activate Dynamic Hazards only when you want to introduce oscillating moving pipes, wind shear, and variable speed."
               />
             </div>
             <div style={{ fontSize: '0.74rem', color: 'var(--text-secondary)', marginTop: '2px', fontWeight: '500' }}>
               {obstaclesEnabled 
-                ? 'Corridors active: Birds must scan aperture gaps and dive/climb to avoid collisions.' 
-                : 'Open sky runway: Flocks practice smooth hovering and level cruise without pipe collisions.'}
+                ? 'Dynamic hazards active: Moving oscillating pipes, wind shear zones, and variable speed scaling.' 
+                : 'Standard corridor active: Fixed static pipes spawn continuously for steady gap clearance.'}
             </div>
           </div>
         </div>
 
         <button
           onClick={onToggleObstacles}
-          className={`sleek-btn ${obstaclesEnabled ? 'sleek-btn-amber' : 'sleek-btn-primary'}`}
+          className={`sleek-btn ${obstaclesEnabled ? 'sleek-btn-amber' : 'sleek-btn-emerald'}`}
           style={{ padding: '8px 16px', fontSize: '0.8rem', borderRadius: '8px' }}
         >
-          {obstaclesEnabled ? 'Disarm Obstacles (Open Sky)' : 'Activate Obstacles (Spawn Pipes)'}
+          {obstaclesEnabled ? 'Deactivate Hazards (Return to Static Pipes)' : 'Activate Dynamic Hazards (Wind & Motion)'}
         </button>
       </div>
 
