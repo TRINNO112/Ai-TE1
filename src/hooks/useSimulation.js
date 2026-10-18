@@ -25,6 +25,7 @@ export function useSimulation(canvasRef) {
   const [showRaycasts, setShowRaycasts] = useState(true);
   const [freezeFrame, setFreezeFrame] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
+  const [obstaclesEnabled, setObstaclesEnabled] = useState(false); // Default: Disarmed (Open sky runway)
 
   // Reactive state for UI updates
   const [telemetry, setTelemetry] = useState({
@@ -113,8 +114,9 @@ export function useSimulation(canvasRef) {
       gameRef.current.showRaycasts = showRaycasts;
       gameRef.current.simpleMode = simpleMode;
       gameRef.current.freezeFrame = freezeFrame;
+      gameRef.current.setObstaclesEnabled(obstaclesEnabled);
     }
-  }, [showRaycasts, simpleMode, freezeFrame]);
+  }, [showRaycasts, simpleMode, freezeFrame, obstaclesEnabled]);
 
   useEffect(() => {
     if (gaRef.current) {
@@ -505,6 +507,8 @@ export function useSimulation(canvasRef) {
     soundEnabled,
     toggleSound,
     resetSimulation,
+    obstaclesEnabled,
+    setObstaclesEnabled,
     telemetry,
     gaStats,
     generationLog,

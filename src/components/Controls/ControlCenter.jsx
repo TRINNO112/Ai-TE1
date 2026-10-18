@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Play, 
   Pause, 
@@ -18,8 +18,70 @@ import {
   BrainCircuit,
   Compass,
   Lock,
-  Gauge
+  Gauge,
+  Info,
+  ShieldAlert,
+  Shield
 } from 'lucide-react';
+
+/**
+ * Infographic Icon with clean educational tooltip for students & teachers
+ */
+function InfoTip({ title, content }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <span style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', marginLeft: '6px' }}>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpen(prev => !prev);
+        }}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        style={{
+          background: 'none',
+          border: 'none',
+          padding: '2px',
+          cursor: 'pointer',
+          color: open ? '#38bdf8' : 'var(--text-muted)',
+          display: 'flex',
+          alignItems: 'center',
+          transition: 'color 0.15s ease'
+        }}
+        title="Click or hover for student explanation"
+      >
+        <Info size={13} />
+      </button>
+
+      {open && (
+        <span style={{
+          position: 'absolute',
+          bottom: '100%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          marginBottom: '8px',
+          width: '230px',
+          background: '#0c1220',
+          border: '1px solid rgba(56, 189, 248, 0.45)',
+          borderRadius: '8px',
+          padding: '10px 12px',
+          fontSize: '0.72rem',
+          color: '#e2e8f0',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.7)',
+          zIndex: 1000,
+          pointerEvents: 'none',
+          lineHeight: '1.4',
+          textAlign: 'left'
+        }}>
+          {title && <span style={{ display: 'block', fontWeight: '700', color: '#38bdf8', marginBottom: '4px' }}>{title}</span>}
+          <span>{content}</span>
+        </span>
+      )}
+    </span>
+  );
+}
 
 export function ControlCenter({
   isRunning,
@@ -42,7 +104,9 @@ export function ControlCenter({
   showRaycasts,
   onToggleRaycasts,
   freezeFrame,
-  onToggleFreezeFrame
+  onToggleFreezeFrame,
+  obstaclesEnabled = false,
+  onToggleObstacles
 }) {
   const SPEED_PRESETS = [1, 2, 5, 10, 25, 50, 100];
   const MUTATION_PRESETS = [
@@ -122,6 +186,10 @@ export function ControlCenter({
           }}>
             Simulation Command Deck
           </h3>
+          <InfoTip 
+            title="Command Deck" 
+            content="Real-time control parameters for the Genetic Algorithm and physical flight environment. Changes take effect on the current population instantly."
+          />
         </div>
         <span className="sleek-badge sleek-badge-sky">
           What-If Laboratory
@@ -129,7 +197,7 @@ export function ControlCenter({
       </div>
 
       {/* Primary Action Buttons */}
-      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '18px' }}>
+      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '16px' }}>
         <button 
           onClick={onTogglePlay}
           className={`sleek-btn ${isRunning ? 'sleek-btn-rose' : 'sleek-btn-emerald'}`}
@@ -159,22 +227,88 @@ export function ControlCenter({
           <span>Reset</span>
         </button>
       </div>
+
+      {/* Obstacles Activation Mode Card (Normal condition: Disarmed by default) */}
+      <div style={{
+        background: obstaclesEnabled 
+          ? 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(239, 68, 68, 0.08) 100%)' 
+          : 'linear-gradient(135deg, rgba(14, 165, 233, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%)',
+        border: obstaclesEnabled ? '1px solid rgba(245, 158, 11, 0.4)' : '1px solid rgba(14, 165, 233, 0.35)',
+        borderRadius: '12px',
+        padding: '12px 16px',
+        marginBottom: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '12px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '8px',
+            background: obstaclesEnabled ? 'rgba(245, 158, 11, 0.18)' : 'rgba(14, 165, 233, 0.18)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0
+          }}>
+            {obstaclesEnabled ? <ShieldAlert size={18} color="#fbbf24" /> : <Shield size={18} color="#38bdf8" />}
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: '0.92rem', color: '#ffffff' }}>
+                Obstacles Mode: {obstaclesEnabled ? 'Armed (Pipes Spawning)' : 'Disarmed (Open Runway)'}
+              </span>
+              <span className={`sleek-badge ${obstaclesEnabled ? 'sleek-badge-amber' : 'sleek-badge-sky'}`} style={{ fontSize: '0.62rem' }}>
+                {obstaclesEnabled ? 'Navigation Active' : 'Normal: Disarmed'}
+              </span>
+              <InfoTip
+                title="Obstacles Mode Function"
+                content="Under normal conditions, obstacles are disarmed so birds first train altitude stability and level cruising balance. Turn ON when you want to test navigation through dynamic pipes."
+              />
+            </div>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+              {obstaclesEnabled 
+                ? 'Corridors active: Birds must scan aperture gaps and dive/climb to avoid collisions.' 
+                : 'Open sky runway: Flocks practice smooth hovering and level cruise without pipe collisions.'}
+            </div>
+          </div>
+        </div>
+
+        <button
+          onClick={onToggleObstacles}
+          className={`sleek-btn ${obstaclesEnabled ? 'sleek-btn-amber' : 'sleek-btn-primary'}`}
+          style={{ padding: '8px 16px', fontSize: '0.8rem', borderRadius: '8px' }}
+        >
+          {obstaclesEnabled ? 'Disarm Obstacles (Open Sky)' : 'Activate Obstacles (Spawn Pipes)'}
+        </button>
+      </div>
+
       {/* Pedagogical Architectural Scenarios */}
       <div style={{
         background: 'rgba(255, 255, 255, 0.02)',
         border: '1px solid var(--border-subtle)',
         borderRadius: '12px',
         padding: '12px 14px',
-        marginBottom: '18px'
+        marginBottom: '16px'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-          <span style={{ fontSize: '0.74rem', fontWeight: '700', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-            Pedagogical Scenarios & Architecture Presets
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ fontSize: '0.74rem', fontWeight: '700', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Pedagogical Scenarios & Presets
+            </span>
+            <InfoTip
+              title="Classroom Presets"
+              content="Pre-calibrated parameter sets designed for teachers demonstrating AI concepts: quick learning for 3-minute demos, golden ratio for standards, and high mutation to escape local minima."
+            />
+          </div>
           <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>
-            One-click parameter tuning for classroom demos
+            One-click calibration
           </span>
         </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(135px, 1fr))', gap: '8px' }}>
           {SCENARIOS.map(sc => {
             const isMatch = networkSize === sc.arch && Math.round(mutationRate * 100) === Math.round(sc.mutation * 100);
@@ -223,7 +357,7 @@ export function ControlCenter({
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
         gap: '14px',
-        marginBottom: '18px'
+        marginBottom: '16px'
       }}>
         {/* Speed Slider & Multi-Physics Presets */}
         <div style={{
@@ -239,6 +373,10 @@ export function ControlCenter({
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
               <FastForward size={14} color="#38bdf8" />
               <span>Simulation Speed</span>
+              <InfoTip
+                title="Simulation Speed"
+                content="Accelerates physics evaluations per frame (up to 100x). Higher speeds calculate multiple mathematical steps per render frame so you can evolve 50 generations in minutes."
+              />
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#38bdf8', fontSize: '0.95rem' }}>
@@ -258,24 +396,24 @@ export function ControlCenter({
             onChange={(e) => onChangeSpeed(parseInt(e.target.value))}
           />
 
-          {/* Quick Preset Buttons */}
+          {/* Quick Speed Presets */}
           <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '2px' }}>
-            {SPEED_PRESETS.map((p) => (
+            {SPEED_PRESETS.map((s) => (
               <button
-                key={p}
-                onClick={() => onChangeSpeed(p)}
-                className={`sleek-pill ${speed === p ? 'sleek-pill-active' : ''}`}
+                key={s}
+                onClick={() => onChangeSpeed(s)}
+                className={`sleek-pill ${speed === s ? 'sleek-pill-active' : ''}`}
               >
-                {p}x
+                {s}x
               </button>
             ))}
           </div>
           <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
-            Sub-stepped at 60 FPS: {speed} physics cycles per frame, 0% GPU strain.
+            Fast-forwards multi-generational convergence seamlessly.
           </div>
         </div>
 
-        {/* Mutation Rate Slider with Strict Manual Lock */}
+        {/* Mutation Rate Slider */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.03)',
           padding: '14px 16px',
@@ -287,16 +425,19 @@ export function ControlCenter({
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.82rem' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
-              <Dna size={14} color="#f59e0b" />
-              <span>Genetic Variation</span>
+              <Dna size={14} color="#34d399" />
+              <span>Mutation Rate</span>
+              <InfoTip
+                title="Mutation Rate (DNA Variation)"
+                content="How frequently child neural weights are modified. Low (5%) creates slight adjustments; High (45%) introduces exploratory chaos to escape local minima traps."
+              />
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#fbbf24', fontSize: '0.95rem' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#34d399', fontSize: '0.95rem' }}>
                 {Math.round(mutationRate * 100)}%
               </span>
-              <span className="sleek-badge sleek-badge-emerald" style={{ fontSize: '0.62rem', padding: '2px 6px' }} title="Manual lock active: system will never automatically change your rate">
-                <Lock size={10} style={{ marginRight: '3px' }} />
-                Locked
+              <span className={`sleek-badge ${mutationRate >= 0.4 ? 'sleek-badge-amber' : mutationRate >= 0.15 ? 'sleek-badge-emerald' : 'sleek-badge-slate'}`} style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
+                {mutationRate >= 0.4 ? 'High Variance' : mutationRate >= 0.15 ? 'Optimal' : 'Conservative'}
               </span>
             </div>
           </div>
@@ -317,7 +458,7 @@ export function ControlCenter({
                 <button
                   key={p.val}
                   onClick={() => onChangeMutation(p.val)}
-                  className={`sleek-pill ${isActive ? 'sleek-pill-amber-active' : ''}`}
+                  className={`sleek-pill ${isActive ? 'sleek-pill-active' : ''}`}
                 >
                   {p.label}
                 </button>
@@ -325,7 +466,7 @@ export function ControlCenter({
             })}
           </div>
           <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.2' }}>
-            Manual control preserved across all generations.
+            Probability of synaptic weight perturbation per gene.
           </div>
         </div>
 
@@ -341,12 +482,21 @@ export function ControlCenter({
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.82rem' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
-              <ShieldCheck size={14} color="#10b981" />
-              <span>Elitism (Stability)</span>
+              <ShieldCheck size={14} color="#fbbf24" />
+              <span>Elitism Quota</span>
+              <InfoTip
+                title="Elitism Quota"
+                content="Protects the best performing champion birds so their brains are copied into the next generation without mutation. 5% prevents regression while leaving 95% space for exploration."
+              />
             </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#34d399', fontSize: '0.95rem' }}>
-              {Math.round(elitismRate * 100)}%
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#fbbf24', fontSize: '0.95rem' }}>
+                {Math.round(elitismRate * 100)}%
+              </span>
+              <span className={`sleek-badge ${elitismRate >= 0.1 ? 'sleek-badge-amber' : 'sleek-badge-slate'}`} style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
+                {elitismRate >= 0.1 ? 'High Preservation' : 'Balanced (5%)'}
+              </span>
+            </div>
           </div>
 
           <input 
@@ -392,6 +542,10 @@ export function ControlCenter({
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
               <Layers size={14} color="#a855f7" />
               <span>Neural Architecture</span>
+              <InfoTip
+                title="Neural Architecture (Topology)"
+                content="Defines how many neurons and hidden layers are in each brain. Small [9→8→1] converges fastest (Gen 2); Medium [9→12→12→1] balances memory and aerodynamic control."
+              />
             </span>
           </div>
           <select 
@@ -449,6 +603,10 @@ export function ControlCenter({
           />
           <Radar size={14} color="#38bdf8" />
           <span>LiDAR Sensory Rays</span>
+          <InfoTip 
+            title="LiDAR Rays"
+            content="Visualizes the 9 sensory vectors scanning the altitude, distance to next pipe, gap center, and upper/lower obstacle edges."
+          />
         </label>
 
         <label style={{
@@ -470,6 +628,10 @@ export function ControlCenter({
           />
           <Eye size={14} color="#38bdf8" />
           <span>Show All 150 Agents</span>
+          <InfoTip 
+            title="Flock Rendering"
+            content="Renders all 150 exploring drones simultaneously with semi-transparent hulls, highlighting the current epoch champion in gold."
+          />
         </label>
 
         <label style={{
@@ -487,30 +649,14 @@ export function ControlCenter({
             type="checkbox" 
             checked={turboMode} 
             onChange={(e) => onToggleTurboMode(e.target.checked)}
-            style={{ accentColor: '#eab308' }}
+            style={{ accentColor: '#0ea5e9' }}
           />
           <Zap size={14} color="#fbbf24" />
-          <span>Turbo Acceleration (500x Headless)</span>
-        </label>
-
-        <label style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          cursor: 'pointer',
-          color: 'var(--text-secondary)',
-          background: 'rgba(255, 255, 255, 0.03)',
-          padding: '6px 12px',
-          borderRadius: '8px',
-          border: '1px solid var(--border-subtle)'
-        }}>
-          <input 
-            type="checkbox" 
-            checked={simpleMode} 
-            onChange={(e) => onToggleSimpleMode(e.target.checked)}
-            style={{ accentColor: '#10b981' }}
+          <span>Headless Turbo Stream</span>
+          <InfoTip 
+            title="Headless Mode"
+            content="Disables canvas painting to run hundreds of generations per second with continuous live telemetry streaming."
           />
-          <span>Simplified Obstacles (No Wind/Oscillations)</span>
         </label>
       </div>
     </div>

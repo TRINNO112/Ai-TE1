@@ -37,6 +37,8 @@ export default function App() {
     soundEnabled,
     toggleSound,
     resetSimulation,
+    obstaclesEnabled,
+    setObstaclesEnabled,
     telemetry,
     gaStats,
     generationLog,
@@ -66,6 +68,7 @@ export default function App() {
       <TelemetryPanel
         telemetry={telemetry}
         gaStats={gaStats}
+        obstaclesEnabled={obstaclesEnabled}
       />
 
       {/* Main Spacious Command Cockpit */}
@@ -111,6 +114,8 @@ export default function App() {
             onToggleRaycasts={setShowRaycasts}
             freezeFrame={freezeFrame}
             onToggleFreezeFrame={() => setFreezeFrame(prev => !prev)}
+            obstaclesEnabled={obstaclesEnabled}
+            onToggleObstacles={() => setObstaclesEnabled(prev => !prev)}
           />
         </section>
 

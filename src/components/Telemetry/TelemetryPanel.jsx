@@ -10,22 +10,9 @@ import {
   CheckCircle2
 } from 'lucide-react';
 
-/**
- * Format numbers compactly to avoid layout-breaking text overflow (e.g. 328649.989 -> 328.6k)
- */
-export function formatCompactNumber(val) {
-  if (val === null || val === undefined || isNaN(val)) return '0';
-  const num = Number(val);
-  if (num >= 1_000_000) {
-    return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
-  }
-  if (num >= 10_000) {
-    return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'k';
-  }
-  return Math.round(num).toLocaleString();
-}
+import { formatCompactNumber } from '../../utils/numberFormat.js';
 
-export function TelemetryPanel({ telemetry, gaStats }) {
+export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false }) {
   const generation = gaStats?.generation ?? 1;
   const alive = telemetry?.alive ?? 0;
   const total = telemetry?.total ?? 150;
@@ -82,19 +69,29 @@ export function TelemetryPanel({ telemetry, gaStats }) {
     },
     {
       id: 'score',
-      label: 'OBSTACLES CLEARED',
-      value: bestScore,
-      sub: (
+      label: obstaclesEnabled ? 'OBSTACLES CLEARED' : 'OBSTACLES STATUS',
+      value: obstaclesEnabled ? bestScore : 'Disarmed',
+      sub: obstaclesEnabled ? (
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px', fontSize: '0.72rem' }}>
           <span style={{ color: 'var(--text-muted)' }}>All-Time Peak:</span>
           <strong style={{ color: '#fbbf24', fontFamily: 'var(--font-mono)' }}>{bestScoreEver}</strong>
         </div>
+      ) : (
+        <div style={{ marginTop: '4px', fontSize: '0.72rem', color: '#38bdf8' }}>
+          Open Runway • Hover Training
+        </div>
       ),
-      badge: isScoreRecord && bestScore > 0 ? (
-        <span className="sleek-badge sleek-badge-amber" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
-          <Flame size={10} style={{ marginRight: '3px' }} /> Record
+      badge: obstaclesEnabled ? (
+        isScoreRecord && bestScore > 0 ? (
+          <span className="sleek-badge sleek-badge-amber" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
+            <Flame size={10} style={{ marginRight: '3px' }} /> Record
+          </span>
+        ) : null
+      ) : (
+        <span className="sleek-badge sleek-badge-sky" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
+          Open Sky
         </span>
-      ) : null,
+      ),
       icon: <Trophy size={18} color="#fbbf24" />,
       accent: 'var(--accent-amber)'
     },

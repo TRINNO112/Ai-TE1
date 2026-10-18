@@ -361,6 +361,7 @@ export class GameEngine {
         this.simpleMode = false;
         this.showRaycasts = true; // Pedagogical LiDAR raycast mode
         this.freezeFrame = false;
+        this.obstaclesEnabled = false; // Normal condition: obstacles are disarmed by default
 
         // Background scenery
         this.clouds = [];
@@ -385,6 +386,15 @@ export class GameEngine {
         this.currentSpeed = DIFFICULTY.variableSpeed.baseSpeed;
         this.currentGap = DIFFICULTY.shrinkingGaps.baseGap;
         this.activeDifficulties = [];
+    }
+
+    setObstaclesEnabled(enabled) {
+        this.obstaclesEnabled = !!enabled;
+        if (!this.obstaclesEnabled) {
+            this.pipes = [];
+            this.windZones = [];
+            this.activeDifficulties = [];
+        }
     }
 
     updateDifficulty() {
@@ -508,12 +518,17 @@ export class GameEngine {
             }
         }
 
-        this.updateDifficulty();
+        if (this.obstaclesEnabled) {
+            this.updateDifficulty();
 
-        const canSpawn = this.frameCount >= this.initialRunwayFrames && 
-            (this.frameCount - this.initialRunwayFrames) % this.pipeSpawnInterval === 0;
-        if (canSpawn) {
-            this.spawnPipe();
+            const canSpawn = this.frameCount >= this.initialRunwayFrames && 
+                (this.frameCount - this.initialRunwayFrames) % this.pipeSpawnInterval === 0;
+            if (canSpawn) {
+                this.spawnPipe();
+            }
+        } else {
+            this.currentSpeed = DIFFICULTY.variableSpeed.baseSpeed;
+            this.activeDifficulties = ['Open Sky Runway'];
         }
 
         for (const pipe of this.pipes) {
@@ -601,7 +616,8 @@ export class GameEngine {
             gameOver: this.gameOver,
             speed: Math.round(this.currentSpeed * 10) / 10,
             gap: Math.round(this.currentGap),
-            activeDifficulties: [...this.activeDifficulties]
+            activeDifficulties: [...this.activeDifficulties],
+            obstaclesEnabled: this.obstaclesEnabled
         };
     }
 
@@ -669,14 +685,24 @@ export class GameEngine {
 
         // HUD Overlay
         ctx.fillStyle = 'rgba(255,255,255,0.95)';
-        ctx.font = 'bold 24px "Outfit", system-ui, sans-serif';
+        ctx.font = 'bold 22px "Outfit", system-ui, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText(`SCORE: ${this.maxScoreThisGen}`, this.width / 2, 38);
-
-        if (this.activeDifficulties.length > 0) {
-            ctx.font = '500 11px system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
-            ctx.fillText(this.activeDifficulties.join(' • '), this.width / 2, 58);
+        
+        if (this.obstaclesEnabled) {
+            ctx.fillText(`SCORE: ${this.maxScoreThisGen}`, this.width / 2, 36);
+            if (this.activeDifficulties.length > 0) {
+                ctx.font = '500 11px system-ui, sans-serif';
+                ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
+                ctx.fillText(this.activeDifficulties.join(' • '), this.width / 2, 54);
+            }
+        } else {
+            // Pedagogical status banner when obstacles are disarmed
+            ctx.font = '700 11px "JetBrains Mono", monospace';
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillText('OPEN SKY RUNWAY • OBSTACLES DISARMED', this.width / 2, 34);
+            ctx.font = '400 10px system-ui, sans-serif';
+            ctx.fillStyle = 'rgba(148, 163, 184, 0.8)';
+            ctx.fillText('Hover & altitude balance training active', this.width / 2, 50);
         }
 
         if (this.freezeFrame) {
@@ -687,9 +713,9 @@ export class GameEngine {
             ctx.lineWidth = 4;
             ctx.strokeRect(4, 4, this.width - 8, this.height - 8);
             ctx.fillStyle = '#f87171';
-            ctx.font = 'bold 16px monospace';
+            ctx.font = 'bold 15px monospace';
             ctx.textAlign = 'center';
-            ctx.fillText('⏸ FREEZE-FRAME SENSORY INSPECTOR', this.width / 2, 90);
+            ctx.fillText('FREEZE-FRAME SENSORY INSPECTOR', this.width / 2, 90);
             ctx.restore();
         }
     }
