@@ -19,9 +19,7 @@ export function GameViewport({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
-      background: 'rgba(12, 18, 32, 0.85)',
-      border: '1px solid var(--border-subtle)'
+      justifyContent: 'center'
     }}>
       {/* Active Obstacles Badge Banner */}
       <div style={{
@@ -49,8 +47,8 @@ export function GameViewport({
         position: 'relative',
         borderRadius: '12px',
         overflow: 'hidden',
-        border: '1px solid var(--border-subtle)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)'
+        border: '1.5px solid var(--border-strong)',
+        boxShadow: 'var(--shadow-card)'
       }}>
         <canvas
           ref={canvasRef}
@@ -60,7 +58,7 @@ export function GameViewport({
             display: 'block',
             maxWidth: '100%',
             height: 'auto',
-            background: '#070a13'
+            background: '#E0F2FE'
           }}
         />
 
@@ -69,7 +67,7 @@ export function GameViewport({
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(7, 10, 19, 0.95)',
+            background: 'rgba(255, 255, 255, 0.96)',
             backdropFilter: 'blur(10px)',
             display: 'flex',
             flexDirection: 'column',
@@ -83,22 +81,22 @@ export function GameViewport({
               width: '56px',
               height: '56px',
               borderRadius: '16px',
-              background: 'rgba(234, 179, 8, 0.15)',
-              border: '1px solid rgba(234, 179, 8, 0.4)',
+              background: '#FEF3C7',
+              border: '1.5px solid #0F172A',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: '14px',
-              boxShadow: '0 0 24px rgba(234, 179, 8, 0.25)'
+              boxShadow: '2px 2px 0px #0F172A'
             }}>
-              <Zap size={28} color="#fbbf24" />
+              <Zap size={28} color="#D97706" />
             </div>
 
             <h3 style={{
               fontFamily: 'var(--font-display)',
               fontSize: '1.15rem',
               fontWeight: '800',
-              color: '#fef08a',
+              color: 'var(--text-primary)',
               marginBottom: '6px',
               textTransform: 'uppercase',
               letterSpacing: '0.04em'
@@ -123,51 +121,52 @@ export function GameViewport({
               gap: '10px',
               width: '100%',
               maxWidth: '330px',
-              background: 'rgba(255, 255, 255, 0.03)',
+              background: '#F8FAFC',
               padding: '14px',
               borderRadius: '12px',
-              border: '1px solid var(--border-subtle)',
+              border: '1.5px solid #0F172A',
+              boxShadow: '2px 2px 0px #0F172A',
               fontFamily: 'var(--font-mono)',
               marginBottom: '18px'
             }}>
               <div style={{ textAlign: 'left', padding: '4px 6px' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Epoch Gen</span>
-                <div style={{ color: '#c084fc', fontWeight: '800', fontSize: '1.15rem' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block', fontWeight: '700' }}>Epoch Gen</span>
+                <div style={{ color: '#7C3AED', fontWeight: '800', fontSize: '1.15rem' }}>
                   Gen {gaStats?.generation ?? 1}
                 </div>
               </div>
 
               <div style={{ textAlign: 'left', padding: '4px 6px' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Live Epoch Score</span>
-                <div style={{ color: '#38bdf8', fontWeight: '800', fontSize: '1.15rem' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block', fontWeight: '700' }}>Live Epoch Score</span>
+                <div style={{ color: '#0284C7', fontWeight: '800', fontSize: '1.15rem' }}>
                   {telemetry?.bestScore ?? 0}
                 </div>
               </div>
 
               <div style={{ textAlign: 'left', padding: '4px 6px' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Surviving Agents</span>
-                <div style={{ color: '#34d399', fontWeight: '800', fontSize: '1.15rem' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block', fontWeight: '700' }}>Surviving Agents</span>
+                <div style={{ color: '#059669', fontWeight: '800', fontSize: '1.15rem' }}>
                   {telemetry?.alive ?? 0} <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>/ 150</span>
                 </div>
               </div>
 
               <div style={{ textAlign: 'left', padding: '4px 6px' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>All-Time Peak</span>
-                <div style={{ color: '#f43f5e', fontWeight: '800', fontSize: '1.15rem' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block', fontWeight: '700' }}>All-Time Peak</span>
+                <div style={{ color: '#E11D48', fontWeight: '800', fontSize: '1.15rem' }}>
                   {currentRecord}
                 </div>
               </div>
 
               <div style={{ textAlign: 'left', padding: '4px 6px' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Physics Throughput</span>
-                <div style={{ color: '#fbbf24', fontWeight: '700', fontSize: '0.95rem' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block', fontWeight: '700' }}>Physics Throughput</span>
+                <div style={{ color: '#D97706', fontWeight: '800', fontSize: '0.95rem' }}>
                   {(turboStats?.stepsPerSec ?? 0).toLocaleString()} <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>ops/s</span>
                 </div>
               </div>
 
               <div style={{ textAlign: 'left', padding: '4px 6px' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block' }}>Gen Rate</span>
-                <div style={{ color: '#22d3ee', fontWeight: '700', fontSize: '0.95rem' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.68rem', textTransform: 'uppercase', display: 'block', fontWeight: '700' }}>Gen Rate</span>
+                <div style={{ color: '#0284C7', fontWeight: '800', fontSize: '0.95rem' }}>
                   {turboStats?.gensPerSec ?? 0} <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>gen/s</span>
                 </div>
               </div>

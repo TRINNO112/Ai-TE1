@@ -71,15 +71,8 @@ export default function App() {
         obstaclesEnabled={obstaclesEnabled}
       />
 
-      {/* Main Spacious Command Cockpit */}
-      <main style={{
-        flex: 1,
-        padding: '0 24px',
-        display: 'grid',
-        gridTemplateColumns: 'minmax(400px, 460px) minmax(560px, 1fr)',
-        gap: '24px',
-        alignItems: 'start'
-      }}>
+      {/* Main Spacious Command Cockpit (Desktop 2-Col, Mobile 1-Col Stack) */}
+      <main className="app-main-layout">
         {/* Left Column: Flight Viewport & Flight Parameters */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <GameViewport
@@ -141,18 +134,19 @@ export default function App() {
         onClearStorage={clearStorage}
       />
 
-      {/* Sleek Footer */}
+      {/* Presentation Footer */}
       <footer style={{
         padding: '16px 24px',
         textAlign: 'center',
-        borderTop: '1px solid var(--border-subtle)',
-        background: 'rgba(7, 10, 18, 0.9)',
-        fontSize: '0.8rem',
-        color: 'var(--text-muted)',
-        fontFamily: 'var(--font-body)'
+        borderTop: '1.5px solid var(--border-medium)',
+        background: '#FFFFFF',
+        fontSize: '0.82rem',
+        color: 'var(--text-secondary)',
+        fontFamily: 'var(--font-body)',
+        marginTop: 'auto'
       }}>
         <span>
-          Developed for <strong>GCERT & NCERT Children's Science Exhibition 2026–27</strong> (બાળ વૈજ્ઞાનિક પ્રદર્શન) • 
+          Developed for <strong style={{ color: 'var(--text-primary)' }}>GCERT & NCERT Children's Science Exhibition 2026–27</strong> (બાળ વૈજ્ઞાનિક પ્રદર્શન) • 
           Themes: <em>Subtheme 1(A) AI for Better Life</em> & <em>Subtheme 1(B) Mathematical Modelling</em> • 
           Zero External AI Libraries • Pure Canvas API & Linear Algebra (z = W · x + b)
         </span>

@@ -625,26 +625,16 @@ export class GameEngine {
         if (!this.ctx) return;
         const ctx = this.ctx;
 
-        // Space / atmospheric backdrop
+        // Warm Minimalist Light aviation backdrop
         const skyGrad = ctx.createLinearGradient(0, 0, 0, this.height);
-        skyGrad.addColorStop(0, '#090d16');
-        skyGrad.addColorStop(0.5, '#0f172a');
-        skyGrad.addColorStop(1, '#1e1b4b');
+        skyGrad.addColorStop(0, '#E0F2FE');
+        skyGrad.addColorStop(0.6, '#F0F9FF');
+        skyGrad.addColorStop(1, '#FEF9C3');
         ctx.fillStyle = skyGrad;
         ctx.fillRect(0, 0, this.width, this.height);
 
-        // Distant stars / sensor beacons
-        ctx.fillStyle = 'rgba(255,255,255,0.25)';
-        for (let i = 0; i < 28; i++) {
-            const sx = (i * 97 + 13) % this.width;
-            const sy = (i * 53 + 7) % (this.height * 0.65);
-            ctx.beginPath();
-            ctx.arc(sx, sy, 1.2, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
         // Soft Clouds
-        ctx.fillStyle = 'rgba(255,255,255,0.04)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
         for (const cloud of this.clouds) {
             ctx.beginPath();
             ctx.arc(cloud.x, cloud.y, cloud.size, 0, Math.PI * 2);
@@ -664,9 +654,11 @@ export class GameEngine {
             pipe.draw(ctx, this.height);
         }
 
-        // Ground barrier
-        ctx.fillStyle = '#10b981';
-        ctx.fillRect(0, this.height - 3, this.width, 3);
+        // Ground barrier with crisp dark boundary line
+        ctx.fillStyle = '#059669';
+        ctx.fillRect(0, this.height - 6, this.width, 6);
+        ctx.fillStyle = '#0F172A';
+        ctx.fillRect(0, this.height - 7, this.width, 1.5);
 
         const bestBird = this.getBestBird();
 
@@ -683,25 +675,25 @@ export class GameEngine {
             this.drawLiDARRaycasts(ctx, bestBird);
         }
 
-        // HUD Overlay
-        ctx.fillStyle = 'rgba(255,255,255,0.95)';
+        // High-Contrast Light HUD Overlay
+        ctx.fillStyle = '#0F172A';
         ctx.font = 'bold 22px "Outfit", system-ui, sans-serif';
         ctx.textAlign = 'center';
         
         if (this.obstaclesEnabled) {
             ctx.fillText(`SCORE: ${this.maxScoreThisGen}`, this.width / 2, 36);
             if (this.activeDifficulties.length > 0) {
-                ctx.font = '500 11px system-ui, sans-serif';
-                ctx.fillStyle = 'rgba(167, 139, 250, 0.9)';
+                ctx.font = '600 11px system-ui, sans-serif';
+                ctx.fillStyle = '#6D28D9';
                 ctx.fillText(this.activeDifficulties.join(' • '), this.width / 2, 54);
             }
         } else {
             // Pedagogical status banner when obstacles are disarmed
-            ctx.font = '700 11px "JetBrains Mono", monospace';
-            ctx.fillStyle = '#38bdf8';
+            ctx.font = '800 11px "JetBrains Mono", monospace';
+            ctx.fillStyle = '#0284C7';
             ctx.fillText('OPEN SKY RUNWAY • OBSTACLES DISARMED', this.width / 2, 34);
-            ctx.font = '400 10px system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(148, 163, 184, 0.8)';
+            ctx.font = '600 10px system-ui, sans-serif';
+            ctx.fillStyle = '#334155';
             ctx.fillText('Hover & altitude balance training active', this.width / 2, 50);
         }
 

@@ -19,48 +19,44 @@ export function Header({
   onReset
 }) {
   return (
-    <header className="sleek-card" style={{
-      margin: '20px 24px 16px 24px',
-      padding: '18px 28px',
+    <header className="sleek-card app-header-container" style={{
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
       flexWrap: 'wrap',
-      gap: '20px',
-      border: '1px solid var(--border-subtle)',
-      background: 'rgba(12, 18, 32, 0.85)'
+      gap: '16px'
     }}>
       {/* Title & Exhibition Branding */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: '1 1 280px' }}>
         <div style={{
-          width: '48px',
-          height: '48px',
-          borderRadius: '12px',
-          background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)',
-          border: '1px solid rgba(56, 189, 248, 0.3)',
+          width: '42px',
+          height: '42px',
+          borderRadius: '10px',
+          background: '#E0F2FE',
+          border: '1.5px solid #0F172A',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 0 20px rgba(14, 165, 233, 0.2)',
+          boxShadow: '2px 2px 0px #0F172A',
           flexShrink: 0
         }}>
-          <Brain size={26} color="#38bdf8" />
+          <Brain size={24} color="#0284C7" />
         </div>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
             <h1 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: '1.45rem',
+              fontSize: 'clamp(1.15rem, 3.5vw, 1.45rem)',
               fontWeight: '800',
               letterSpacing: '-0.02em',
-              color: '#ffffff'
+              color: 'var(--text-primary)'
             }}>
               AI Neuroevolution Simulator
             </h1>
-            <span className="sleek-badge sleek-badge-sky">
+            <span className="sleek-badge sleek-badge-sky" style={{ fontSize: '0.62rem' }}>
               GCERT & NCERT 2026–27
             </span>
-            <span className="sleek-badge sleek-badge-emerald">
+            <span className="sleek-badge sleek-badge-emerald" style={{ fontSize: '0.62rem' }}>
               NEP 2020 Aligned
             </span>
           </div>
@@ -73,9 +69,9 @@ export function Header({
             marginTop: '4px',
             fontFamily: 'var(--font-body)'
           }}>
-            <span style={{ color: '#38bdf8', fontWeight: '500' }}>Subtheme 1(A) AI for Life & UAV Robotics</span>
+            <span style={{ color: '#0284C7', fontWeight: '700' }}>Subtheme 1(A) AI for Life & UAV Robotics</span>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <span style={{ color: '#34d399', fontWeight: '500' }}>Subtheme 1(B) Mathematical Modelling (z = W · x + b)</span>
+            <span style={{ color: '#059669', fontWeight: '700' }}>Subtheme 1(B) Mathematical Modelling (z = W · x + b)</span>
           </p>
         </div>
       </div>
@@ -89,14 +85,15 @@ export function Header({
           gap: '8px',
           padding: '8px 14px',
           borderRadius: '8px',
-          background: 'rgba(255, 255, 255, 0.04)',
-          border: '1px solid var(--border-subtle)',
+          background: '#F8FAFC',
+          border: '1.5px solid #0F172A',
+          boxShadow: '1px 1px 0px #0F172A',
           fontSize: '0.82rem',
           fontFamily: 'var(--font-mono)'
         }}>
-          <Layers size={14} color="#38bdf8" />
-          <span style={{ color: 'var(--text-muted)' }}>TOPOLOGY:</span>
-          <span style={{ color: '#ffffff', fontWeight: '700' }}>
+          <Layers size={14} color="#0284C7" />
+          <span style={{ color: 'var(--text-secondary)', fontWeight: '600' }}>TOPOLOGY:</span>
+          <span style={{ color: '#0F172A', fontWeight: '800' }}>
             [{architecture.join(' → ')}]
           </span>
         </div>

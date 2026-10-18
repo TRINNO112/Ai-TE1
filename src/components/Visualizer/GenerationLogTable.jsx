@@ -15,45 +15,46 @@ export function GenerationLogTable({ generationLog }) {
       maxHeight: '340px',
       overflowY: 'auto',
       borderRadius: '8px',
-      border: '1px solid var(--border-subtle)',
-      background: 'rgba(11, 15, 25, 0.6)'
+      border: '1.5px solid var(--border-medium)',
+      background: '#FFFFFF',
+      boxShadow: '1px 1px 0px #1E293B'
     }}>
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', textAlign: 'left' }}>
         <thead>
-          <tr style={{ background: 'rgba(255, 255, 255, 0.04)', borderBottom: '1px solid var(--border-subtle)' }}>
-            <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Gen</th>
-            <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Best Score</th>
-            <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Avg Score</th>
-            <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Best Fitness</th>
-            <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Avg Fitness</th>
-            <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Mutation</th>
-            <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Status</th>
+          <tr style={{ background: '#F1F5F9', borderBottom: '1.5px solid #CBD5E1' }}>
+            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Gen</th>
+            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Best Score</th>
+            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Avg Score</th>
+            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Best Fitness</th>
+            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Avg Fitness</th>
+            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Mutation</th>
+            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Status</th>
           </tr>
         </thead>
         <tbody>
           {[...generationLog].reverse().map((entry, idx) => (
-            <tr key={idx} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.03)' }}>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '600', color: '#818cf8' }}>
+            <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0' }}>
+              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#0284C7' }}>
                 #{entry.generation}
               </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#10b981' }}>
+              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '800', color: '#059669' }}>
                 {entry.bestScore}
               </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
                 {entry.avgScore}
               </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '600', color: '#f59e0b' }}>
+              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#D97706' }}>
                 {entry.bestFitness.toLocaleString()}
               </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
                 {entry.avgFitness.toLocaleString()}
               </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
+              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', fontWeight: '600' }}>
                 {Math.round(entry.mutationRate * 100)}%
               </td>
               <td style={{ padding: '7px 12px' }}>
                 {entry.newRecord ? (
-                  <span className="badge badge-amber" style={{ gap: '3px' }}>
+                  <span className="sleek-badge sleek-badge-amber" style={{ gap: '3px' }}>
                     <Trophy size={11} /> Record
                   </span>
                 ) : (

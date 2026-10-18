@@ -24,7 +24,7 @@ export function WeightsTable({ brain }) {
           position: 'relative',
           flex: '1 1 200px'
         }}>
-          <Search size={14} color="#64748b" style={{ position: 'absolute', left: '10px', top: '10px' }} />
+          <Search size={14} color="#64748B" style={{ position: 'absolute', left: '10px', top: '10px' }} />
           <input 
             type="text" 
             placeholder="Search neuron index (e.g. L0 N3)..."
@@ -34,11 +34,13 @@ export function WeightsTable({ brain }) {
               width: '100%',
               padding: '8px 12px 8px 32px',
               borderRadius: '8px',
-              border: '1px solid var(--border-subtle)',
-              background: 'rgba(15, 23, 42, 0.6)',
-              color: 'var(--text-primary)',
+              border: '1.5px solid #0F172A',
+              background: '#FFFFFF',
+              color: '#0F172A',
               fontSize: '0.82rem',
-              outline: 'none'
+              fontWeight: '600',
+              outline: 'none',
+              boxShadow: '1px 1px 0px #0F172A'
             }}
           />
         </div>
@@ -48,7 +50,7 @@ export function WeightsTable({ brain }) {
             <button
               key={type}
               onClick={() => setFilterType(type)}
-              className={`btn ${filterType === type ? 'btn-primary' : 'btn-secondary'}`}
+              className={`sleek-btn ${filterType === type ? 'sleek-btn-primary' : 'sleek-btn-neutral'}`}
               style={{ padding: '6px 12px', fontSize: '0.78rem', textTransform: 'capitalize' }}
             >
               {type}s
@@ -56,7 +58,7 @@ export function WeightsTable({ brain }) {
           ))}
         </div>
 
-        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontWeight: '600' }}>
           Showing {filtered.length} of {table.length} parameters
         </div>
       </div>
@@ -65,16 +67,17 @@ export function WeightsTable({ brain }) {
         maxHeight: '340px',
         overflowY: 'auto',
         borderRadius: '8px',
-        border: '1px solid var(--border-subtle)',
-        background: 'rgba(11, 15, 25, 0.6)'
+        border: '1.5px solid var(--border-medium)',
+        background: '#FFFFFF',
+        boxShadow: '1px 1px 0px #1E293B'
       }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', textAlign: 'left' }}>
           <thead>
-            <tr style={{ background: 'rgba(255, 255, 255, 0.04)', borderBottom: '1px solid var(--border-subtle)' }}>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Type</th>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Synaptic / Node Identifier</th>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Magnitude / Polarity</th>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)', textAlign: 'right' }}>Learned Value</th>
+            <tr style={{ background: '#F1F5F9', borderBottom: '1.5px solid #CBD5E1' }}>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Type</th>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Synaptic / Node Identifier</th>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Magnitude / Polarity</th>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800', textAlign: 'right' }}>Learned Value</th>
             </tr>
           </thead>
           <tbody>
@@ -83,28 +86,28 @@ export function WeightsTable({ brain }) {
               const barWidth = Math.min(Math.abs(row.value) / 2, 1) * 100;
 
               return (
-                <tr key={idx} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.03)' }}>
+                <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '7px 12px' }}>
-                    <span className={`badge ${row.type === 'weight' ? 'badge-cyan' : 'badge-amber'}`} style={{ fontSize: '0.65rem' }}>
+                    <span className={`sleek-badge ${row.type === 'weight' ? 'sleek-badge-sky' : 'sleek-badge-amber'}`} style={{ fontSize: '0.65rem' }}>
                       {row.type}
                     </span>
                   </td>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>
+                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: '#0F172A', fontWeight: '600' }}>
                     {row.label}
                   </td>
                   <td style={{ padding: '7px 12px', width: '140px' }}>
                     <div style={{
                       width: '100%',
                       height: '6px',
-                      background: 'rgba(255, 255, 255, 0.08)',
-                      borderRadius: '3px',
+                      background: '#E2E8F0',
+                      border: '1px solid #0F172A',
+                      borderRadius: '999px',
                       overflow: 'hidden'
                     }}>
                       <div style={{
                         width: `${barWidth}%`,
                         height: '100%',
-                        background: isPos ? '#10b981' : '#f43f5e',
-                        borderRadius: '3px'
+                        background: isPos ? '#059669' : '#E11D48'
                       }} />
                     </div>
                   </td>

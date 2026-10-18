@@ -36,7 +36,7 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
       value: `Gen ${generation}`,
       sub: 'Active Epoch Cycle',
       badge: null,
-      icon: <Activity size={18} color="#38bdf8" />,
+      icon: <Activity size={18} color="#0284C7" />,
       accent: 'var(--accent-sky)'
     },
     {
@@ -47,24 +47,25 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
           <div style={{
             flex: 1,
-            height: '4px',
-            borderRadius: '2px',
-            background: 'rgba(255, 255, 255, 0.08)',
+            height: '6px',
+            borderRadius: '999px',
+            background: '#E2E8F0',
+            border: '1px solid #0F172A',
             overflow: 'hidden'
           }}>
             <div style={{
               width: `${survivalPct}%`,
               height: '100%',
-              background: 'linear-gradient(90deg, #10b981 0%, #34d399 100%)',
+              background: '#059669',
               transition: 'width 0.3s ease'
             }} />
           </div>
-          <span style={{ fontSize: '0.72rem', color: '#34d399', fontWeight: '600' }}>
+          <span style={{ fontSize: '0.72rem', color: '#059669', fontWeight: '700' }}>
             {survivalPct}%
           </span>
         </div>
       ),
-      icon: <Users size={18} color="#34d399" />,
+      icon: <Users size={18} color="#059669" />,
       accent: 'var(--accent-emerald)'
     },
     {
@@ -74,10 +75,10 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
       sub: obstaclesEnabled ? (
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px', fontSize: '0.72rem' }}>
           <span style={{ color: 'var(--text-muted)' }}>All-Time Peak:</span>
-          <strong style={{ color: '#fbbf24', fontFamily: 'var(--font-mono)' }}>{bestScoreEver}</strong>
+          <strong style={{ color: '#D97706', fontFamily: 'var(--font-mono)' }}>{bestScoreEver}</strong>
         </div>
       ) : (
-        <div style={{ marginTop: '4px', fontSize: '0.72rem', color: '#38bdf8' }}>
+        <div style={{ marginTop: '4px', fontSize: '0.72rem', color: '#0284C7', fontWeight: '600' }}>
           Open Runway • Hover Training
         </div>
       ),
@@ -92,7 +93,7 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
           Open Sky
         </span>
       ),
-      icon: <Trophy size={18} color="#fbbf24" />,
+      icon: <Trophy size={18} color="#D97706" />,
       accent: 'var(--accent-amber)'
     },
     {
@@ -103,7 +104,7 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
       sub: (
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px', fontSize: '0.72rem' }}>
           <span style={{ color: 'var(--text-muted)' }}>Peak:</span>
-          <strong style={{ color: '#22d3ee', fontFamily: 'var(--font-mono)' }}>
+          <strong style={{ color: '#0284C7', fontFamily: 'var(--font-mono)' }}>
             {formatCompactNumber(bestFitnessEver)}
           </strong>
         </div>
@@ -113,8 +114,8 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
           <CheckCircle2 size={10} style={{ marginRight: '3px' }} /> Peak
         </span>
       ) : null,
-      icon: <Gauge size={18} color="#22d3ee" />,
-      accent: 'var(--accent-cyan)'
+      icon: <Gauge size={18} color="#0284C7" />,
+      accent: 'var(--accent-sky)'
     },
     {
       id: 'corridor',
@@ -122,35 +123,29 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
       value: `${speed}x Velocity`,
       sub: (
         <div style={{ marginTop: '4px', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-          Aperture: <strong style={{ color: '#a78bfa', fontFamily: 'var(--font-mono)' }}>{gap}px</strong> • {gap < 140 ? 'Narrow' : 'Standard'}
+          Aperture: <strong style={{ color: '#7C3AED', fontFamily: 'var(--font-mono)' }}>{gap}px</strong> • {gap < 140 ? 'Narrow' : 'Standard'}
         </div>
       ),
       badge: null,
-      icon: <Zap size={18} color="#a78bfa" />,
+      icon: <Zap size={18} color="#7C3AED" />,
       accent: 'var(--accent-violet)'
     }
   ];
 
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-      gap: '14px',
-      margin: '0 24px 18px 24px'
-    }}>
+    <div className="app-telemetry-grid">
       {pods.map(pod => (
         <div 
           key={pod.id}
           className="sleek-card"
           title={pod.fullValue || undefined}
           style={{
-            padding: '14px 18px',
+            padding: '12px 14px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            borderTop: `3px solid ${pod.accent}`,
-            background: 'rgba(12, 18, 32, 0.78)',
-            minHeight: '100px'
+            borderTop: `4px solid ${pod.accent}`,
+            minHeight: '94px'
           }}
         >
           {/* Top Label & Icon Header */}
@@ -159,7 +154,7 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
               <span style={{
                 fontSize: '0.74rem',
                 color: 'var(--text-secondary)',
-                fontWeight: '700',
+                fontWeight: '800',
                 letterSpacing: '0.04em',
                 fontFamily: 'var(--font-mono)',
                 whiteSpace: 'nowrap'
@@ -173,8 +168,8 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
               width: '28px',
               height: '28px',
               borderRadius: '7px',
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid var(--border-subtle)',
+              background: '#F1F5F9',
+              border: '1.5px solid #0F172A',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -190,7 +185,7 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
               fontFamily: 'var(--font-mono)',
               fontSize: '1.45rem',
               fontWeight: '800',
-              color: '#ffffff',
+              color: 'var(--text-primary)',
               letterSpacing: '-0.02em',
               lineHeight: '1.2',
               whiteSpace: 'nowrap',

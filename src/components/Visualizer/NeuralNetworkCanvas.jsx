@@ -23,11 +23,11 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
     const h = canvas.height;
 
     ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = '#070a13';
+    ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, w, h);
 
     if (!brain) {
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = '#64748B';
       ctx.font = '13px system-ui';
       ctx.textAlign = 'center';
       ctx.fillText('Neural network topology initializing...', w / 2, h / 2);
@@ -69,12 +69,12 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
 
           const isPositive = wVal > 0;
           const mag = Math.min(Math.abs(wVal), 2.5);
-          const alpha = 0.15 + (mag / 2.5) * 0.65;
+          const alpha = 0.2 + (mag / 2.5) * 0.7;
 
           ctx.strokeStyle = isPositive
-            ? `rgba(52, 211, 153, ${alpha})` // Emerald for positive
-            : `rgba(244, 63, 94, ${alpha})`;  // Rose for negative
-          ctx.lineWidth = Math.max(0.6, (mag / 2.5) * 3);
+            ? `rgba(5, 150, 105, ${alpha})` // Emerald for positive
+            : `rgba(225, 29, 72, ${alpha})`;  // Rose for negative
+          ctx.lineWidth = Math.max(0.8, (mag / 2.5) * 3);
 
           ctx.beginPath();
           ctx.moveTo(from.x, from.y);
@@ -96,7 +96,7 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
         if (act > 0.4) {
           ctx.beginPath();
           ctx.arc(x, y, 14, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(168, 85, 247, ${act * 0.45})`;
+          ctx.fillStyle = `rgba(2, 132, 199, ${act * 0.35})`;
           ctx.fill();
         }
 
@@ -106,22 +106,22 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
 
         // Fill based on activation
         if (i === 0) {
-          ctx.fillStyle = `rgba(56, 189, 248, ${0.35 + act * 0.65})`;
+          ctx.fillStyle = `rgba(2, 132, 199, ${0.35 + act * 0.65})`;
         } else if (i === nodePositions.length - 1) {
-          ctx.fillStyle = act > 0.5 ? '#10b981' : '#64748b';
+          ctx.fillStyle = act > 0.5 ? '#059669' : '#CBD5E1';
         } else {
-          ctx.fillStyle = `rgba(192, 132, 252, ${0.25 + act * 0.75})`;
+          ctx.fillStyle = `rgba(124, 58, 237, ${0.25 + act * 0.75})`;
         }
         ctx.fill();
 
-        ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 1.4;
+        ctx.strokeStyle = '#0F172A';
+        ctx.lineWidth = 1.6;
         ctx.stroke();
 
         // Labels for Input Layer (generous 175px left margin ensures 0 clipping)
         if (i === 0 && INPUT_LABELS[j]) {
-          ctx.font = '10px "JetBrains Mono", monospace';
-          ctx.fillStyle = '#94a3b8';
+          ctx.font = '600 10px "JetBrains Mono", monospace';
+          ctx.fillStyle = '#334155';
           ctx.textAlign = 'right';
           ctx.fillText(INPUT_LABELS[j], x - 14, y + 3.5);
         }
@@ -129,7 +129,7 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
         // Label for Output Layer
         if (i === nodePositions.length - 1) {
           ctx.font = 'bold 11px system-ui';
-          ctx.fillStyle = act > 0.5 ? '#34d399' : '#94a3b8';
+          ctx.fillStyle = act > 0.5 ? '#059669' : '#64748B';
           ctx.textAlign = 'left';
           const decisionText = act > 0.5 ? `FLAP (${(act * 100).toFixed(0)}%)` : `GLIDE (${(act * 100).toFixed(0)}%)`;
           ctx.fillText(decisionText, x + 16, y + 4);
@@ -138,20 +138,23 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
     }
 
     // Legend
-    ctx.font = '11px system-ui';
+    ctx.font = '600 11px system-ui';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#34d399';
+    ctx.fillStyle = '#059669';
     ctx.fillRect(40, h - 20, 12, 4);
+    ctx.fillStyle = '#0F172A';
     ctx.fillText('+ Excitatory Weight', 58, h - 16);
 
-    ctx.fillStyle = '#f43f5e';
+    ctx.fillStyle = '#E11D48';
     ctx.fillRect(210, h - 20, 12, 4);
+    ctx.fillStyle = '#0F172A';
     ctx.fillText('- Inhibitory Weight', 228, h - 16);
 
-    ctx.fillStyle = '#a855f7';
+    ctx.fillStyle = '#0284C7';
     ctx.beginPath();
     ctx.arc(385, h - 18, 4.5, 0, Math.PI * 2);
     ctx.fill();
+    ctx.fillStyle = '#0F172A';
     ctx.fillText('Neuron Activation', 396, h - 16);
 
   }, [brain, bestBird]);
@@ -167,8 +170,9 @@ export function NeuralNetworkCanvas({ brain, bestBird }) {
           width: '100%',
           maxWidth: '100%',
           borderRadius: '12px',
-          border: '1px solid var(--border-subtle)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)'
+          border: '1.5px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-card)',
+          background: '#FFFFFF'
         }}
       />
     </div>

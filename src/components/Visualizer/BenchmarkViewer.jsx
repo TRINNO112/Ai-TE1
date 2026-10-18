@@ -207,29 +207,30 @@ export function BenchmarkViewer({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-      {/* Top Aerospace Dossier Header */}
+      {/* Top Dossier Header */}
       <div style={{
-        background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.14) 0%, rgba(59, 130, 246, 0.08) 100%)',
-        border: '1px solid rgba(14, 165, 233, 0.3)',
+        background: '#E0F2FE',
+        border: '1.5px solid #0F172A',
         borderRadius: '12px',
         padding: '16px 20px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        gap: '12px'
+        gap: '12px',
+        boxShadow: '2px 2px 0px #0F172A'
       }}>
         <div style={{ flex: 1, minWidth: '260px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-            <FlaskConical size={20} color="#38bdf8" />
-            <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', color: '#f0f9ff', fontWeight: '700' }}>
+            <FlaskConical size={20} color="#0284C7" />
+            <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', color: '#0F172A', fontWeight: '800' }}>
               Empirical Laboratory Dossier
             </h4>
             <span className="sleek-badge sleek-badge-sky" style={{ fontSize: '0.65rem' }}>
               24 Controlled Trials
             </span>
           </div>
-          <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: '1.4', fontWeight: '500' }}>
             Empirically verified across 360 generations and 1.8M+ neural evaluations. Designed for student inquiry and teacher demonstrations.
           </p>
         </div>
@@ -237,15 +238,17 @@ export function BenchmarkViewer({
         {/* Applied Notification Pill */}
         {appliedNotification && (
           <div style={{
-            background: 'rgba(16, 185, 129, 0.2)',
-            border: '1px solid #10b981',
+            background: '#DCFCE7',
+            border: '1.5px solid #0F172A',
+            boxShadow: '1px 1px 0px #0F172A',
             borderRadius: '8px',
             padding: '6px 14px',
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
             fontSize: '0.78rem',
-            color: '#34d399',
+            color: '#15803D',
+            fontWeight: '700',
             animation: 'fadeIn 0.2s ease'
           }}>
             <CheckCircle2 size={15} />
@@ -260,21 +263,21 @@ export function BenchmarkViewer({
         gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
         gap: '10px'
       }}>
-        <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)', borderRadius: '8px', padding: '10px 14px' }}>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TOTAL TRIALS</span>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '700', color: '#38bdf8' }}>24 Runs</div>
+        <div style={{ background: '#FFFFFF', border: '1.5px solid #0F172A', boxShadow: '1px 1px 0px #0F172A', borderRadius: '8px', padding: '10px 14px' }}>
+          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontWeight: '700' }}>TOTAL TRIALS</span>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '800', color: '#0284C7' }}>24 Runs</div>
         </div>
-        <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)', borderRadius: '8px', padding: '10px 14px' }}>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>EPOCHS ANALYZED</span>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '700', color: '#34d399' }}>360 Gens</div>
+        <div style={{ background: '#FFFFFF', border: '1.5px solid #0F172A', boxShadow: '1px 1px 0px #0F172A', borderRadius: '8px', padding: '10px 14px' }}>
+          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontWeight: '700' }}>EPOCHS ANALYZED</span>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '800', color: '#059669' }}>360 Gens</div>
         </div>
-        <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)', borderRadius: '8px', padding: '10px 14px' }}>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>NEURAL PASSES</span>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '700', color: '#fbbf24' }}>1.8M+ Decisions</div>
+        <div style={{ background: '#FFFFFF', border: '1.5px solid #0F172A', boxShadow: '1px 1px 0px #0F172A', borderRadius: '8px', padding: '10px 14px' }}>
+          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontWeight: '700' }}>NEURAL PASSES</span>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '800', color: '#D97706' }}>1.8M+ Decisions</div>
         </div>
-        <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--border-subtle)', borderRadius: '8px', padding: '10px 14px' }}>
-          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>VALIDATION</span>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '700', color: '#a78bfa' }}>Deterministic</div>
+        <div style={{ background: '#FFFFFF', border: '1.5px solid #0F172A', boxShadow: '1px 1px 0px #0F172A', borderRadius: '8px', padding: '10px 14px' }}>
+          <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontWeight: '700' }}>VALIDATION</span>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: '800', color: '#7C3AED' }}>Deterministic</div>
         </div>
       </div>
 
@@ -326,19 +329,20 @@ export function BenchmarkViewer({
               <div 
                 key={item.id}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.025)',
-                  border: '1px solid var(--border-subtle)',
+                  background: '#FFFFFF',
+                  border: '1.5px solid var(--border-medium)',
                   borderRadius: '12px',
                   padding: '16px 18px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '12px'
+                  gap: '12px',
+                  boxShadow: '1px 1px 0px #1E293B'
                 }}
               >
                 {/* Title and Badge */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#ffffff', fontSize: '0.95rem' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', color: '#0F172A', fontSize: '0.95rem' }}>
                       {item.name}
                     </span>
                     <span className={`sleek-badge ${item.badgeColor}`} style={{ fontSize: '0.65rem' }}>
@@ -361,18 +365,19 @@ export function BenchmarkViewer({
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
                   gap: '12px',
-                  background: 'rgba(0, 0, 0, 0.25)',
+                  background: '#F8FAFC',
                   borderRadius: '8px',
+                  border: '1px solid #CBD5E1',
                   padding: '10px 14px'
                 }}>
                   {/* Parameter Count */}
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                       <span>Parameters</span>
-                      <strong style={{ color: '#ffffff' }}>{item.params}</strong>
+                      <strong style={{ color: '#0F172A' }}>{item.params}</strong>
                     </div>
-                    <div style={{ height: '4px', background: 'rgba(255,255,255,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
-                      <div style={{ width: `${(item.params / 641) * 100}%`, height: '100%', background: '#38bdf8' }} />
+                    <div style={{ height: '6px', background: '#E2E8F0', border: '1px solid #0F172A', borderRadius: '999px', overflow: 'hidden' }}>
+                      <div style={{ width: `${(item.params / 641) * 100}%`, height: '100%', background: '#0284C7' }} />
                     </div>
                   </div>
 
@@ -380,10 +385,10 @@ export function BenchmarkViewer({
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                       <span>1st Pipe Clearance</span>
-                      <strong style={{ color: '#34d399' }}>Gen {item.firstPipeGen}</strong>
+                      <strong style={{ color: '#059669' }}>Gen {item.firstPipeGen}</strong>
                     </div>
-                    <div style={{ height: '4px', background: 'rgba(255,255,255,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
-                      <div style={{ width: `${Math.max(15, (6 - item.firstPipeGen) / 6 * 100)}%`, height: '100%', background: '#34d399' }} />
+                    <div style={{ height: '6px', background: '#E2E8F0', border: '1px solid #0F172A', borderRadius: '999px', overflow: 'hidden' }}>
+                      <div style={{ width: `${Math.max(15, (6 - item.firstPipeGen) / 6 * 100)}%`, height: '100%', background: '#059669' }} />
                     </div>
                   </div>
 
@@ -391,10 +396,10 @@ export function BenchmarkViewer({
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                       <span>Peak Score Cleared</span>
-                      <strong style={{ color: '#fbbf24' }}>{item.peakScore} pipes</strong>
+                      <strong style={{ color: '#D97706' }}>{item.peakScore} pipes</strong>
                     </div>
-                    <div style={{ height: '4px', background: 'rgba(255,255,255,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
-                      <div style={{ width: `${scoreBarWidth}%`, height: '100%', background: '#fbbf24' }} />
+                    <div style={{ height: '6px', background: '#E2E8F0', border: '1px solid #0F172A', borderRadius: '999px', overflow: 'hidden' }}>
+                      <div style={{ width: `${scoreBarWidth}%`, height: '100%', background: '#D97706' }} />
                     </div>
                   </div>
 
@@ -402,16 +407,16 @@ export function BenchmarkViewer({
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                       <span>Peak Fitness</span>
-                      <strong style={{ color: '#f43f5e' }}>{item.peakFitness}</strong>
+                      <strong style={{ color: '#E11D48' }}>{item.peakFitness}</strong>
                     </div>
-                    <div style={{ height: '4px', background: 'rgba(255,255,255,0.08)', borderRadius: '2px', overflow: 'hidden' }}>
-                      <div style={{ width: `${(parseInt(item.peakFitness.replace(',', '')) / 13547) * 100}%`, height: '100%', background: '#f43f5e' }} />
+                    <div style={{ height: '6px', background: '#E2E8F0', border: '1px solid #0F172A', borderRadius: '999px', overflow: 'hidden' }}>
+                      <div style={{ width: `${(parseInt(item.peakFitness.replace(',', '')) / 13547) * 100}%`, height: '100%', background: '#E11D48' }} />
                     </div>
                   </div>
                 </div>
 
                 {/* Verdict explanation */}
-                <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.45' }}>
+                <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.45', fontWeight: '500' }}>
                   {item.verdict}
                 </p>
               </div>
@@ -425,24 +430,25 @@ export function BenchmarkViewer({
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {mutationData.map((m, idx) => (
             <div key={idx} style={{
-              background: 'rgba(255, 255, 255, 0.025)',
-              border: '1px solid var(--border-subtle)',
+              background: '#FFFFFF',
+              border: '1.5px solid var(--border-medium)',
               borderRadius: '10px',
               padding: '14px 18px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '10px'
+              gap: '10px',
+              boxShadow: '1px 1px 0px #1E293B'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#fbbf24', fontSize: '0.9rem' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', color: '#D97706', fontSize: '0.9rem' }}>
                   {m.rate}
                 </span>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                   <div style={{ display: 'flex', gap: '12px', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>1st Pipe: <strong style={{ color: '#38bdf8' }}>{m.firstPipe}</strong></span>
-                    <span style={{ color: 'var(--text-muted)' }}>Avg Peak: <strong style={{ color: '#34d399' }}>{m.avgPeak}</strong></span>
-                    <span style={{ color: 'var(--text-muted)' }}>Max Score: <strong style={{ color: '#f43f5e' }}>{m.maxScore}</strong></span>
+                    <span style={{ color: 'var(--text-muted)' }}>1st Pipe: <strong style={{ color: '#0284C7' }}>{m.firstPipe}</strong></span>
+                    <span style={{ color: 'var(--text-muted)' }}>Avg Peak: <strong style={{ color: '#059669' }}>{m.avgPeak}</strong></span>
+                    <span style={{ color: 'var(--text-muted)' }}>Max Score: <strong style={{ color: '#E11D48' }}>{m.maxScore}</strong></span>
                   </div>
 
                   <button
@@ -457,11 +463,11 @@ export function BenchmarkViewer({
               </div>
 
               {/* Progress bar */}
-              <div style={{ height: '4px', background: 'rgba(255,255,255,0.06)', borderRadius: '2px', overflow: 'hidden' }}>
-                <div style={{ width: `${m.scoreBarPct}%`, height: '100%', background: 'linear-gradient(90deg, #f59e0b, #ef4444)' }} />
+              <div style={{ height: '6px', background: '#E2E8F0', border: '1px solid #0F172A', borderRadius: '999px', overflow: 'hidden' }}>
+                <div style={{ width: `${m.scoreBarPct}%`, height: '100%', background: '#D97706' }} />
               </div>
 
-              <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.4', fontWeight: '500' }}>
                 {m.note}
               </p>
             </div>
@@ -474,24 +480,25 @@ export function BenchmarkViewer({
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {elitismData.map((e, idx) => (
             <div key={idx} style={{
-              background: 'rgba(255, 255, 255, 0.025)',
-              border: '1px solid var(--border-subtle)',
+              background: '#FFFFFF',
+              border: '1.5px solid var(--border-medium)',
               borderRadius: '10px',
               padding: '14px 18px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '10px'
+              gap: '10px',
+              boxShadow: '1px 1px 0px #1E293B'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#34d399', fontSize: '0.9rem' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', color: '#059669', fontSize: '0.9rem' }}>
                   {e.rate}
                 </span>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                   <div style={{ display: 'flex', gap: '12px', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>1st Pipe: <strong style={{ color: '#38bdf8' }}>{e.firstPipe}</strong></span>
-                    <span style={{ color: 'var(--text-muted)' }}>Avg Peak: <strong style={{ color: '#34d399' }}>{e.avgPeak}</strong></span>
-                    <span style={{ color: 'var(--text-muted)' }}>Peak Fitness: <strong style={{ color: '#fbbf24' }}>{e.peakFit}</strong></span>
+                    <span style={{ color: 'var(--text-muted)' }}>1st Pipe: <strong style={{ color: '#0284C7' }}>{e.firstPipe}</strong></span>
+                    <span style={{ color: 'var(--text-muted)' }}>Avg Peak: <strong style={{ color: '#059669' }}>{e.avgPeak}</strong></span>
+                    <span style={{ color: 'var(--text-muted)' }}>Peak Fitness: <strong style={{ color: '#D97706' }}>{e.peakFit}</strong></span>
                   </div>
 
                   <button
@@ -505,7 +512,7 @@ export function BenchmarkViewer({
                 </div>
               </div>
 
-              <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.4', fontWeight: '500' }}>
                 {e.note}
               </p>
             </div>
@@ -518,24 +525,25 @@ export function BenchmarkViewer({
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {classroomInsights.map((insight, idx) => (
             <div key={idx} style={{
-              background: 'rgba(255, 255, 255, 0.03)',
-              border: `1px solid var(--border-subtle)`,
-              borderLeft: `4px solid ${insight.color}`,
+              background: '#FFFFFF',
+              border: `1.5px solid var(--border-medium)`,
+              borderLeft: `5px solid ${insight.color}`,
               borderRadius: '10px',
-              padding: '14px 18px'
+              padding: '14px 18px',
+              boxShadow: '1px 1px 0px #1E293B'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', flexWrap: 'wrap', gap: '6px' }}>
-                <h5 style={{ fontFamily: 'var(--font-display)', fontSize: '0.92rem', color: '#ffffff', fontWeight: '700' }}>
+                <h5 style={{ fontFamily: 'var(--font-display)', fontSize: '0.92rem', color: '#0F172A', fontWeight: '800' }}>
                   {insight.title}
                 </h5>
                 <span className="sleek-badge sleek-badge-slate" style={{ fontSize: '0.62rem' }}>
                   {insight.badge}
                 </span>
               </div>
-              <div style={{ fontSize: '0.72rem', color: insight.color, fontWeight: '600', marginBottom: '6px' }}>
+              <div style={{ fontSize: '0.72rem', color: insight.color, fontWeight: '700', marginBottom: '6px' }}>
                 {insight.sub}
               </div>
-              <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.45' }}>
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', lineHeight: '1.45', fontWeight: '500' }}>
                 {insight.desc}
               </p>
             </div>
@@ -545,8 +553,8 @@ export function BenchmarkViewer({
 
       {/* Footer Info Box */}
       <div style={{
-        background: 'rgba(255, 255, 255, 0.02)',
-        border: '1px solid var(--border-subtle)',
+        background: '#FAF9F6',
+        border: '1.5px solid var(--border-medium)',
         borderRadius: '8px',
         padding: '10px 16px',
         display: 'flex',
@@ -555,10 +563,11 @@ export function BenchmarkViewer({
         flexWrap: 'wrap',
         gap: '8px',
         fontSize: '0.76rem',
-        color: 'var(--text-muted)'
+        color: 'var(--text-secondary)',
+        boxShadow: '1px 1px 0px #1E293B'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Info size={14} color="#0ea5e9" />
+          <Info size={14} color="#0284C7" />
           <span>Full formal documentation recorded in <code>EMPIRICAL_BENCHMARK_REPORT.md</code></span>
         </div>
         <span className="sleek-badge sleek-badge-emerald" style={{ fontSize: '0.65rem' }}>

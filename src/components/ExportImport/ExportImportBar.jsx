@@ -28,11 +28,7 @@ export function ExportImportBar({
   };
 
   return (
-    <div className="sleek-card" style={{
-      padding: '16px 24px',
-      margin: '0 24px 24px 24px',
-      background: 'rgba(12, 18, 32, 0.85)',
-      border: '1px solid var(--border-subtle)',
+    <div className="sleek-card app-export-bar" style={{
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -40,11 +36,22 @@ export function ExportImportBar({
       gap: '14px'
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <Database size={16} color="#38bdf8" />
+        <div style={{
+          width: '32px',
+          height: '32px',
+          borderRadius: '8px',
+          background: '#E0F2FE',
+          border: '1.5px solid var(--border-strong)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <Database size={16} color="#0284C7" />
+        </div>
         <span style={{
           fontSize: '0.84rem',
-          color: '#ffffff',
-          fontWeight: '700',
+          color: 'var(--text-primary)',
+          fontWeight: '800',
           textTransform: 'uppercase',
           letterSpacing: '0.04em'
         }}>
@@ -52,7 +59,7 @@ export function ExportImportBar({
         </span>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+      <div className="app-export-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
         {/* Load Pre-trained Champion */}
         <button 
           onClick={onLoadPretrainedChampion}
@@ -70,7 +77,7 @@ export function ExportImportBar({
           className="sleek-btn sleek-btn-neutral"
           style={{ padding: '8px 14px', fontSize: '0.8rem' }}
         >
-          <Download size={15} color="#38bdf8" />
+          <Download size={15} color="#0284C7" />
           <span>Export Brain (JSON)</span>
         </button>
 
@@ -80,7 +87,7 @@ export function ExportImportBar({
           className="sleek-btn sleek-btn-neutral"
           style={{ padding: '8px 14px', fontSize: '0.8rem' }}
         >
-          <Upload size={15} color="#c084fc" />
+          <Upload size={15} color="#7C3AED" />
           <span>Import Brain</span>
         </button>
         <input 
@@ -97,7 +104,7 @@ export function ExportImportBar({
           className="sleek-btn sleek-btn-neutral"
           style={{ padding: '8px 14px', fontSize: '0.8rem' }}
         >
-          <FileText size={15} color="#34d399" />
+          <FileText size={15} color="#059669" />
           <span>Export CSV Dossier</span>
         </button>
 
@@ -108,7 +115,7 @@ export function ExportImportBar({
           style={{ padding: '8px 12px', fontSize: '0.8rem' }}
           title="Clear localStorage saved state"
         >
-          <Trash2 size={15} color="#f43f5e" />
+          <Trash2 size={15} color="#E11D48" />
         </button>
       </div>
     </div>

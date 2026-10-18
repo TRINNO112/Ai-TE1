@@ -22,40 +22,41 @@ export function DecisionsViewer({ bestBird }) {
         maxHeight: '340px',
         overflowY: 'auto',
         borderRadius: '8px',
-        border: '1px solid var(--border-subtle)',
-        background: 'rgba(11, 15, 25, 0.6)'
+        border: '1.5px solid var(--border-medium)',
+        background: '#FFFFFF',
+        boxShadow: '1px 1px 0px #1E293B'
       }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', textAlign: 'left' }}>
           <thead>
-            <tr style={{ background: 'rgba(255, 255, 255, 0.04)', borderBottom: '1px solid var(--border-subtle)' }}>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Frame</th>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Action</th>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Sigmoid Output</th>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Altitude (y)</th>
-              <th style={{ padding: '8px 12px', color: 'var(--text-secondary)' }}>Distance to Pipe</th>
+            <tr style={{ background: '#F1F5F9', borderBottom: '1.5px solid #CBD5E1' }}>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Frame</th>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Action</th>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Sigmoid Output</th>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Altitude (y)</th>
+              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Distance to Pipe</th>
             </tr>
           </thead>
           <tbody>
             {[...history].reverse().map((d, idx) => {
               const isFlap = d.action === 'FLAP';
               return (
-                <tr key={idx} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.03)' }}>
+                <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
                     #{d.frame}
                   </td>
                   <td style={{ padding: '7px 12px' }}>
-                    <span className={`badge ${isFlap ? 'badge-emerald' : 'badge-cyan'}`} style={{ gap: '4px' }}>
+                    <span className={`sleek-badge ${isFlap ? 'sleek-badge-emerald' : 'sleek-badge-sky'}`} style={{ gap: '4px' }}>
                       {isFlap ? <ArrowUp size={12} /> : <ArrowRight size={12} />}
                       {d.action}
                     </span>
                   </td>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '600', color: isFlap ? '#34d399' : '#94a3b8' }}>
+                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: isFlap ? '#059669' : '#0284C7' }}>
                     {d.output}
                   </td>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)' }}>
+                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: '#0F172A' }}>
                     {d.inputs[0]}
                   </td>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)' }}>
+                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: '#0F172A' }}>
                     {d.inputs[2]}
                   </td>
                 </tr>

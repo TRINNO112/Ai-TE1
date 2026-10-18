@@ -39,22 +39,12 @@ export function VisualizerTabs({
 
   return (
     <div className="sleek-card" style={{
-      padding: '20px 24px',
-      background: 'rgba(12, 18, 32, 0.85)',
-      border: '1px solid var(--border-subtle)',
+      padding: '16px 18px',
       display: 'flex',
       flexDirection: 'column'
     }}>
-      {/* Tab Navigation Header */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        borderBottom: '1px solid var(--border-subtle)',
-        paddingBottom: '14px',
-        marginBottom: '18px',
-        overflowX: 'auto'
-      }}>
+      {/* Tab Navigation Header (Swipeable on Mobile) */}
+      <div className="mobile-tabs-scroll">
         {tabs.map(tab => {
           const isActive = activeTab === tab.id;
           return (
@@ -63,10 +53,11 @@ export function VisualizerTabs({
               onClick={() => setActiveTab(tab.id)}
               className={`sleek-btn ${isActive ? 'sleek-btn-primary' : 'sleek-btn-neutral'}`}
               style={{
-                padding: '8px 14px',
-                fontSize: '0.8rem',
+                padding: '8px 12px',
+                fontSize: '0.78rem',
                 borderRadius: '8px',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                flexShrink: 0
               }}
             >
               {tab.icon}
@@ -81,7 +72,7 @@ export function VisualizerTabs({
         {activeTab === 'brain' && (
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <span style={{ fontSize: '0.86rem', fontWeight: '700', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+              <span style={{ fontSize: '0.86rem', fontWeight: '800', color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
                 Champion Neural Architecture & Synaptic Activation Radar
               </span>
               <span className="sleek-badge sleek-badge-slate">
@@ -107,7 +98,7 @@ export function VisualizerTabs({
         {activeTab === 'graph' && (
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <span style={{ fontSize: '0.86rem', fontWeight: '700', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+              <span style={{ fontSize: '0.86rem', fontWeight: '800', color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
                 Evolutionary Trajectory & Fitness Convergence
               </span>
               <span className="sleek-badge sleek-badge-slate">
