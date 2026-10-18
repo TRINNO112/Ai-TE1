@@ -6,7 +6,8 @@ import {
   Sliders, 
   ListOrdered, 
   Activity,
-  Layers
+  Layers,
+  FlaskConical
 } from 'lucide-react';
 import { NeuralNetworkCanvas } from './NeuralNetworkCanvas.jsx';
 import { FitnessGraphCanvas } from './FitnessGraphCanvas.jsx';
@@ -14,6 +15,7 @@ import { MathInspector } from './MathInspector.jsx';
 import { WeightsTable } from './WeightsTable.jsx';
 import { DecisionsViewer } from './DecisionsViewer.jsx';
 import { GenerationLogTable } from './GenerationLogTable.jsx';
+import { BenchmarkViewer } from './BenchmarkViewer.jsx';
 
 export function VisualizerTabs({
   brain,
@@ -25,6 +27,7 @@ export function VisualizerTabs({
   const tabs = [
     { id: 'brain', label: 'Neural Brain', icon: <Brain size={15} /> },
     { id: 'math', label: 'Math Inspector (1B)', icon: <Calculator size={15} /> },
+    { id: 'benchmark', label: 'Empirical Benchmark', icon: <FlaskConical size={15} /> },
     { id: 'graph', label: 'Fitness Curve', icon: <TrendingUp size={15} /> },
     { id: 'weights', label: 'Weight Matrix', icon: <Sliders size={15} /> },
     { id: 'decisions', label: 'Decisions Stream', icon: <Activity size={15} /> },
@@ -88,6 +91,10 @@ export function VisualizerTabs({
 
         {activeTab === 'math' && (
           <MathInspector brain={brain} bestBird={bestBird} />
+        )}
+
+        {activeTab === 'benchmark' && (
+          <BenchmarkViewer />
         )}
 
         {activeTab === 'graph' && (

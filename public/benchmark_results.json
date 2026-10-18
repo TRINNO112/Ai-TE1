@@ -1,0 +1,4622 @@
+[
+  {
+    "id": "Small_Arch",
+    "config": {
+      "id": "Small_Arch",
+      "name": "Small Architecture [9-8-1]",
+      "arch": [
+        9,
+        8,
+        1
+      ],
+      "mutationRate": 0.15,
+      "elitismRate": 0.05
+    },
+    "trials": [
+      {
+        "name": "Small Architecture [9-8-1] Trial 1",
+        "arch": [
+          9,
+          8,
+          1
+        ],
+        "paramCount": 89,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 218,
+        "firstObstacleGen": 2,
+        "score10Gen": null,
+        "peakScore": 6,
+        "peakFitness": 13117,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -417,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1578
+          },
+          {
+            "gen": 2,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -387,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1898
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 339,
+            "avgFitness": -369,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 335,
+            "meanWeightMag": 0.1898
+          },
+          {
+            "gen": 4,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2450,
+            "avgFitness": -345,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 446,
+            "meanWeightMag": 0.2321
+          },
+          {
+            "gen": 5,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -293,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2321
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2344,
+            "avgFitness": -334,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2321
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -365,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2321
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -325,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2321
+          },
+          {
+            "gen": 9,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -252,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2589
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2577,
+            "avgFitness": -215,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2589
+          },
+          {
+            "gen": 11,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4712,
+            "avgFitness": -190,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4712,
+            "survivedFrames": 709,
+            "meanWeightMag": 0.2674
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -237,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4712,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2674
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -266,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4712,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2674
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2604,
+            "avgFitness": -194,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4712,
+            "survivedFrames": 600,
+            "meanWeightMag": 0.2674
+          },
+          {
+            "gen": 15,
+            "bestScore": 6,
+            "avgScore": 0.1,
+            "bestFitness": 13117,
+            "avgFitness": -71,
+            "allTimeBestScore": 6,
+            "allTimeBestFitness": 13117,
+            "survivedFrames": 1114,
+            "meanWeightMag": 0.2836
+          }
+        ]
+      },
+      {
+        "name": "Small Architecture [9-8-1] Trial 2",
+        "arch": [
+          9,
+          8,
+          1
+        ],
+        "paramCount": 89,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 119,
+        "firstObstacleGen": 5,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4603,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -441,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1895
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 324,
+            "avgFitness": -412,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 324,
+            "survivedFrames": 320,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 317,
+            "avgFitness": -397,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 324,
+            "survivedFrames": 313,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -401,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 324,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 5,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2445,
+            "avgFitness": -363,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2445,
+            "survivedFrames": 441,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 1894,
+            "avgFitness": -370,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2445,
+            "survivedFrames": 392,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 7,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4583,
+            "avgFitness": -313,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4583,
+            "survivedFrames": 579,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 8,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4603,
+            "avgFitness": -341,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 599,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -324,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 10,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 312,
+            "avgFitness": -371,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 308,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -304,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -307,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 13,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 335,
+            "avgFitness": -361,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 331,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 14,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4588,
+            "avgFitness": -284,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 709,
+            "meanWeightMag": 0.1764
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -284,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4603,
+            "survivedFrames": 448,
+            "meanWeightMag": 0.1764
+          }
+        ]
+      },
+      {
+        "name": "Small Architecture [9-8-1] Trial 3",
+        "arch": [
+          9,
+          8,
+          1
+        ],
+        "paramCount": 89,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 133,
+        "firstObstacleGen": 3,
+        "score10Gen": null,
+        "peakScore": 1,
+        "peakFitness": 2607,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -447,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 306,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1864
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 312,
+            "avgFitness": -401,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 312,
+            "survivedFrames": 308,
+            "meanWeightMag": 0.1844
+          },
+          {
+            "gen": 3,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -373,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1844
+          },
+          {
+            "gen": 4,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -355,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1844
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 324,
+            "avgFitness": -331,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 320,
+            "meanWeightMag": 0.1844
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2453,
+            "avgFitness": -310,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 449,
+            "meanWeightMag": 0.1844
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2455,
+            "avgFitness": -260,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2455,
+            "survivedFrames": 451,
+            "meanWeightMag": 0.2572
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2446,
+            "avgFitness": -264,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2455,
+            "survivedFrames": 442,
+            "meanWeightMag": 0.2572
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2575,
+            "avgFitness": -218,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2575,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2762
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2453,
+            "avgFitness": -243,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2575,
+            "survivedFrames": 449,
+            "meanWeightMag": 0.2762
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -270,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2575,
+            "survivedFrames": 455,
+            "meanWeightMag": 0.2762
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2448,
+            "avgFitness": -242,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2575,
+            "survivedFrames": 444,
+            "meanWeightMag": 0.2762
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -211,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2575,
+            "survivedFrames": 448,
+            "meanWeightMag": 0.2762
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2607,
+            "avgFitness": -205,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2607,
+            "survivedFrames": 603,
+            "meanWeightMag": 0.349
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -245,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2607,
+            "survivedFrames": 448,
+            "meanWeightMag": 0.349
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 3,
+      "avgPeakFitness": 6776,
+      "avgTimeMs": 157,
+      "avgFirstObsGen": "3.3"
+    }
+  },
+  {
+    "id": "Med_Arch",
+    "config": {
+      "id": "Med_Arch",
+      "name": "Medium Architecture [9-12-12-1]",
+      "arch": [
+        9,
+        12,
+        12,
+        1
+      ],
+      "mutationRate": 0.15,
+      "elitismRate": 0.05
+    },
+    "trials": [
+      {
+        "name": "Medium Architecture [9-12-12-1] Trial 1",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 153,
+        "firstObstacleGen": 4,
+        "score10Gen": null,
+        "peakScore": 4,
+        "peakFitness": 8859,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -297,
+            "avgFitness": -458,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 203,
+            "meanWeightMag": 0.1369
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -230,
+            "avgFitness": -453,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 270,
+            "meanWeightMag": 0.1797
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 339,
+            "avgFitness": -439,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 339,
+            "survivedFrames": 335,
+            "meanWeightMag": 0.1369
+          },
+          {
+            "gen": 4,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -403,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2440,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1369
+          },
+          {
+            "gen": 5,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4578,
+            "avgFitness": -383,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 323,
+            "avgFitness": -406,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 319,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -387,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -385,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 318,
+            "avgFitness": -384,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 314,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 10,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -434,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 11,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 319,
+            "avgFitness": -393,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 315,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -386,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 13,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4600,
+            "avgFitness": -334,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4600,
+            "survivedFrames": 596,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 14,
+            "bestScore": 4,
+            "avgScore": 0,
+            "bestFitness": 8859,
+            "avgFitness": -276,
+            "allTimeBestScore": 4,
+            "allTimeBestFitness": 8859,
+            "survivedFrames": 855,
+            "meanWeightMag": 0.2146
+          },
+          {
+            "gen": 15,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -396,
+            "allTimeBestScore": 4,
+            "allTimeBestFitness": 8859,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2146
+          }
+        ]
+      },
+      {
+        "name": "Medium Architecture [9-12-12-1] Trial 2",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 180,
+        "firstObstacleGen": 8,
+        "score10Gen": null,
+        "peakScore": 3,
+        "peakFitness": 6613,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -444,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1465
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 304,
+            "avgFitness": -438,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1465
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -422,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1542
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -421,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 308,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1924
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -399,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 308,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2091
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 311,
+            "avgFitness": -423,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 311,
+            "survivedFrames": 307,
+            "meanWeightMag": 0.239
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -406,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 311,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.239
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -397,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1465
+          },
+          {
+            "gen": 9,
+            "bestScore": 3,
+            "avgScore": 0,
+            "bestFitness": 6613,
+            "avgFitness": -316,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6613,
+            "survivedFrames": 609,
+            "meanWeightMag": 0.2892
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2456,
+            "avgFitness": -367,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6613,
+            "survivedFrames": 452,
+            "meanWeightMag": 0.2892
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2450,
+            "avgFitness": -339,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6613,
+            "survivedFrames": 446,
+            "meanWeightMag": 0.2892
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2583,
+            "avgFitness": -307,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6613,
+            "survivedFrames": 579,
+            "meanWeightMag": 0.2892
+          },
+          {
+            "gen": 13,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4479,
+            "avgFitness": -298,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6613,
+            "survivedFrames": 475,
+            "meanWeightMag": 0.2892
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2464,
+            "avgFitness": -304,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6613,
+            "survivedFrames": 460,
+            "meanWeightMag": 0.2892
+          },
+          {
+            "gen": 15,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4602,
+            "avgFitness": -229,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6613,
+            "survivedFrames": 598,
+            "meanWeightMag": 0.2892
+          }
+        ]
+      },
+      {
+        "name": "Medium Architecture [9-12-12-1] Trial 3",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 156,
+        "firstObstacleGen": 5,
+        "score10Gen": null,
+        "peakScore": 3,
+        "peakFitness": 6712,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -270,
+            "avgFitness": -456,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 230,
+            "meanWeightMag": 0.1492
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -260,
+            "avgFitness": -451,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 240,
+            "meanWeightMag": 0.1614
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -236,
+            "avgFitness": -448,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 264,
+            "meanWeightMag": 0.1614
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -427,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2003
+          },
+          {
+            "gen": 5,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -386,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 312,
+            "avgFitness": -421,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 308,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 336,
+            "avgFitness": -400,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 332,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 326,
+            "avgFitness": -367,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 322,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -369,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2454,
+            "avgFitness": -332,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2454,
+            "survivedFrames": 450,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 11,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 337,
+            "avgFitness": -362,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2454,
+            "survivedFrames": 333,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 12,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -371,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2454,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -374,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2454,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 14,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 332,
+            "avgFitness": -360,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2454,
+            "survivedFrames": 328,
+            "meanWeightMag": 0.2057
+          },
+          {
+            "gen": 15,
+            "bestScore": 3,
+            "avgScore": 0,
+            "bestFitness": 6712,
+            "avgFitness": -267,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6712,
+            "survivedFrames": 709,
+            "meanWeightMag": 0.2057
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 3.3,
+      "avgPeakFitness": 7395,
+      "avgTimeMs": 163,
+      "avgFirstObsGen": "5.7"
+    }
+  },
+  {
+    "id": "Large_Arch",
+    "config": {
+      "id": "Large_Arch",
+      "name": "Large Architecture [9-20-20-1]",
+      "arch": [
+        9,
+        20,
+        20,
+        1
+      ],
+      "mutationRate": 0.15,
+      "elitismRate": 0.05
+    },
+    "trials": [
+      {
+        "name": "Large Architecture [9-20-20-1] Trial 1",
+        "arch": [
+          9,
+          20,
+          20,
+          1
+        ],
+        "paramCount": 641,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 265,
+        "firstObstacleGen": 3,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4578,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 318,
+            "avgFitness": -446,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 318,
+            "survivedFrames": 314,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -422,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 318,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 3,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -346,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -376,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 319,
+            "avgFitness": -392,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 315,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 6,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -331,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 326,
+            "avgFitness": -394,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 322,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 314,
+            "avgFitness": -417,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 310,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 314,
+            "avgFitness": -402,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 310,
+            "meanWeightMag": 0.1214
+          },
+          {
+            "gen": 10,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4578,
+            "avgFitness": -312,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2154
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -357,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2154
+          },
+          {
+            "gen": 12,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 319,
+            "avgFitness": -360,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 315,
+            "meanWeightMag": 0.2154
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -359,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2154
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -379,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2154
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -368,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2154
+          }
+        ]
+      },
+      {
+        "name": "Large Architecture [9-20-20-1] Trial 2",
+        "arch": [
+          9,
+          20,
+          20,
+          1
+        ],
+        "paramCount": 641,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 240,
+        "firstObstacleGen": 6,
+        "score10Gen": null,
+        "peakScore": 1,
+        "peakFitness": 2467,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 314,
+            "avgFitness": -452,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 310,
+            "meanWeightMag": 0.1212
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -444,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1212
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -421,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1212
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -414,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1212
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -409,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1212
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2450,
+            "avgFitness": -380,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 446,
+            "meanWeightMag": 0.1849
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 322,
+            "avgFitness": -411,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 318,
+            "meanWeightMag": 0.1849
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 331,
+            "avgFitness": -384,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 327,
+            "meanWeightMag": 0.1849
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 311,
+            "avgFitness": -392,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 307,
+            "meanWeightMag": 0.1849
+          },
+          {
+            "gen": 10,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 331,
+            "avgFitness": -355,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 327,
+            "meanWeightMag": 0.1849
+          },
+          {
+            "gen": 11,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -392,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2450,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1849
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2467,
+            "avgFitness": -354,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 463,
+            "meanWeightMag": 0.2226
+          },
+          {
+            "gen": 13,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -366,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2226
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2450,
+            "avgFitness": -372,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 446,
+            "meanWeightMag": 0.2226
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -371,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2226
+          }
+        ]
+      },
+      {
+        "name": "Large Architecture [9-20-20-1] Trial 3",
+        "arch": [
+          9,
+          20,
+          20,
+          1
+        ],
+        "paramCount": 641,
+        "mutationRate": 0.15,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 286,
+        "firstObstacleGen": 5,
+        "score10Gen": null,
+        "peakScore": 1,
+        "peakFitness": 2456,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 314,
+            "avgFitness": -439,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 310,
+            "meanWeightMag": 0.1201
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -421,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1201
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -389,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1201
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -398,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1201
+          },
+          {
+            "gen": 5,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2453,
+            "avgFitness": -374,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 449,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -388,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 309,
+            "avgFitness": -377,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 305,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -341,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -399,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2439,
+            "avgFitness": -351,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 11,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 337,
+            "avgFitness": -353,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 333,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -345,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2453,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2456,
+            "avgFitness": -359,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2456,
+            "survivedFrames": 452,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 14,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 321,
+            "avgFitness": -364,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2456,
+            "survivedFrames": 317,
+            "meanWeightMag": 0.1842
+          },
+          {
+            "gen": 15,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 317,
+            "avgFitness": -357,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2456,
+            "survivedFrames": 313,
+            "meanWeightMag": 0.1842
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 1.3,
+      "avgPeakFitness": 3167,
+      "avgTimeMs": 264,
+      "avgFirstObsGen": "4.7"
+    }
+  },
+  {
+    "id": "Mut_05",
+    "config": {
+      "id": "Mut_05",
+      "name": "Mutation 5% (Conservative)",
+      "arch": [
+        9,
+        12,
+        12,
+        1
+      ],
+      "mutationRate": 0.05,
+      "elitismRate": 0.05
+    },
+    "trials": [
+      {
+        "name": "Mutation 5% (Conservative) Trial 1",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.05,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 160,
+        "firstObstacleGen": 10,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4577,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -384,
+            "avgFitness": -458,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 116,
+            "meanWeightMag": 0.1527
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -384,
+            "avgFitness": -457,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 116,
+            "meanWeightMag": 0.1527
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -384,
+            "avgFitness": -456,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 116,
+            "meanWeightMag": 0.1527
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 314,
+            "avgFitness": -439,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 310,
+            "meanWeightMag": 0.1637
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -421,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1637
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -412,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 314,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1637
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 331,
+            "avgFitness": -401,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 331,
+            "survivedFrames": 327,
+            "meanWeightMag": 0.1637
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 323,
+            "avgFitness": -381,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 331,
+            "survivedFrames": 319,
+            "meanWeightMag": 0.1637
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 322,
+            "avgFitness": -381,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 331,
+            "survivedFrames": 318,
+            "meanWeightMag": 0.1637
+          },
+          {
+            "gen": 10,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4576,
+            "avgFitness": -326,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.1836
+          },
+          {
+            "gen": 11,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 312,
+            "avgFitness": -346,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 308,
+            "meanWeightMag": 0.1836
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2446,
+            "avgFitness": -302,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 442,
+            "meanWeightMag": 0.1836
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -342,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1836
+          },
+          {
+            "gen": 14,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -233,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.1859
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -195,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1859
+          }
+        ]
+      },
+      {
+        "name": "Mutation 5% (Conservative) Trial 2",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.05,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 159,
+        "firstObstacleGen": 3,
+        "score10Gen": null,
+        "peakScore": 3,
+        "peakFitness": 6719,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -383,
+            "avgFitness": -458,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 117,
+            "meanWeightMag": 0.1493
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -383,
+            "avgFitness": -456,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 117,
+            "meanWeightMag": 0.1493
+          },
+          {
+            "gen": 3,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2451,
+            "avgFitness": -418,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2451,
+            "survivedFrames": 447,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -408,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2451,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 5,
+            "bestScore": 3,
+            "avgScore": 0,
+            "bestFitness": 6719,
+            "avgFitness": -295,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 715,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 318,
+            "avgFitness": -365,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 314,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -372,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 8,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4586,
+            "avgFitness": -340,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 582,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 334,
+            "avgFitness": -404,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 330,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2577,
+            "avgFitness": -320,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2444,
+            "avgFitness": -321,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 440,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 12,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 334,
+            "avgFitness": -387,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 330,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 13,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 333,
+            "avgFitness": -392,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 329,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 14,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4739,
+            "avgFitness": -298,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 735,
+            "meanWeightMag": 0.1655
+          },
+          {
+            "gen": 15,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 327,
+            "avgFitness": -356,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6719,
+            "survivedFrames": 323,
+            "meanWeightMag": 0.1655
+          }
+        ]
+      },
+      {
+        "name": "Mutation 5% (Conservative) Trial 3",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.05,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 160,
+        "firstObstacleGen": 6,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4576,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -270,
+            "avgFitness": -457,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 230,
+            "meanWeightMag": 0.1453
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 304,
+            "avgFitness": -446,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 304,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1506
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -414,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 308,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1605
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -385,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 308,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1605
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 333,
+            "avgFitness": -368,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 333,
+            "survivedFrames": 329,
+            "meanWeightMag": 0.174
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2341,
+            "avgFitness": -362,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2341,
+            "survivedFrames": 337,
+            "meanWeightMag": 0.1687
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -374,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1804
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2461,
+            "avgFitness": -326,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2461,
+            "survivedFrames": 457,
+            "meanWeightMag": 0.1687
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2463,
+            "avgFitness": -319,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2463,
+            "survivedFrames": 459,
+            "meanWeightMag": 0.1804
+          },
+          {
+            "gen": 10,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4576,
+            "avgFitness": -338,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.1804
+          },
+          {
+            "gen": 11,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4576,
+            "avgFitness": -334,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.1804
+          },
+          {
+            "gen": 12,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 334,
+            "avgFitness": -381,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 330,
+            "meanWeightMag": 0.1804
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -349,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1804
+          },
+          {
+            "gen": 14,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4476,
+            "avgFitness": -298,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 472,
+            "meanWeightMag": 0.1804
+          },
+          {
+            "gen": 15,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 312,
+            "avgFitness": -356,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4576,
+            "survivedFrames": 308,
+            "meanWeightMag": 0.1804
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 2.3,
+      "avgPeakFitness": 5291,
+      "avgTimeMs": 160,
+      "avgFirstObsGen": "6.3"
+    }
+  },
+  {
+    "id": "Mut_30",
+    "config": {
+      "id": "Mut_30",
+      "name": "Mutation 30% (Dynamic)",
+      "arch": [
+        9,
+        12,
+        12,
+        1
+      ],
+      "mutationRate": 0.3,
+      "elitismRate": 0.05
+    },
+    "trials": [
+      {
+        "name": "Mutation 30% (Dynamic) Trial 1",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.3,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 164,
+        "firstObstacleGen": 6,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4582,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -450,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 306,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.163
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 313,
+            "avgFitness": -413,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 313,
+            "survivedFrames": 309,
+            "meanWeightMag": 0.1821
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -407,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 313,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1821
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 325,
+            "avgFitness": -410,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 325,
+            "survivedFrames": 321,
+            "meanWeightMag": 0.1972
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 332,
+            "avgFitness": -407,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 332,
+            "survivedFrames": 328,
+            "meanWeightMag": 0.2736
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2464,
+            "avgFitness": -364,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2464,
+            "survivedFrames": 460,
+            "meanWeightMag": 0.2798
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -353,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2464,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2798
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 327,
+            "avgFitness": -391,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2464,
+            "survivedFrames": 323,
+            "meanWeightMag": 0.2798
+          },
+          {
+            "gen": 9,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4582,
+            "avgFitness": -340,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 578,
+            "meanWeightMag": 0.3223
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2341,
+            "avgFitness": -334,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 448,
+            "meanWeightMag": 0.3223
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2466,
+            "avgFitness": -325,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 462,
+            "meanWeightMag": 0.3223
+          },
+          {
+            "gen": 12,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4574,
+            "avgFitness": -305,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.3223
+          },
+          {
+            "gen": 13,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 323,
+            "avgFitness": -355,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 319,
+            "meanWeightMag": 0.3223
+          },
+          {
+            "gen": 14,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 322,
+            "avgFitness": -365,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 318,
+            "meanWeightMag": 0.3223
+          },
+          {
+            "gen": 15,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 314,
+            "avgFitness": -341,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 310,
+            "meanWeightMag": 0.3223
+          }
+        ]
+      },
+      {
+        "name": "Mutation 30% (Dynamic) Trial 2",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.3,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 161,
+        "firstObstacleGen": 3,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4577,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -444,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 306,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1538
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -208,
+            "avgFitness": -442,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 306,
+            "survivedFrames": 290,
+            "meanWeightMag": 0.1538
+          },
+          {
+            "gen": 3,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -406,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -416,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 333,
+            "avgFitness": -379,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 329,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 316,
+            "avgFitness": -349,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 312,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 317,
+            "avgFitness": -375,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 313,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -380,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -332,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -375,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1906
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -369,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.4022
+          },
+          {
+            "gen": 12,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 333,
+            "avgFitness": -379,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 329,
+            "meanWeightMag": 0.4022
+          },
+          {
+            "gen": 13,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 329,
+            "avgFitness": -389,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 325,
+            "meanWeightMag": 0.4022
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -324,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.404
+          },
+          {
+            "gen": 15,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -311,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.3391
+          }
+        ]
+      },
+      {
+        "name": "Mutation 30% (Dynamic) Trial 3",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.3,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 176,
+        "firstObstacleGen": 7,
+        "score10Gen": null,
+        "peakScore": 6,
+        "peakFitness": 13127,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -388,
+            "avgFitness": -459,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 112,
+            "meanWeightMag": 0.1508
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -388,
+            "avgFitness": -458,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 112,
+            "meanWeightMag": 0.1508
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -248,
+            "avgFitness": -455,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 252,
+            "meanWeightMag": 0.2218
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 305,
+            "avgFitness": -431,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 305,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2248
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 311,
+            "avgFitness": -399,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 311,
+            "survivedFrames": 307,
+            "meanWeightMag": 0.2922
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -421,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 311,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2922
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2446,
+            "avgFitness": -362,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 442,
+            "meanWeightMag": 0.3115
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -351,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.3115
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 320,
+            "avgFitness": -365,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 316,
+            "meanWeightMag": 0.3115
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -328,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.3115
+          },
+          {
+            "gen": 11,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4605,
+            "avgFitness": -323,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4605,
+            "survivedFrames": 601,
+            "meanWeightMag": 0.3713
+          },
+          {
+            "gen": 12,
+            "bestScore": 4,
+            "avgScore": 0,
+            "bestFitness": 8868,
+            "avgFitness": -287,
+            "allTimeBestScore": 4,
+            "allTimeBestFitness": 8868,
+            "survivedFrames": 864,
+            "meanWeightMag": 0.3713
+          },
+          {
+            "gen": 13,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4589,
+            "avgFitness": -313,
+            "allTimeBestScore": 4,
+            "allTimeBestFitness": 8868,
+            "survivedFrames": 585,
+            "meanWeightMag": 0.3713
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2450,
+            "avgFitness": -322,
+            "allTimeBestScore": 4,
+            "allTimeBestFitness": 8868,
+            "survivedFrames": 446,
+            "meanWeightMag": 0.3713
+          },
+          {
+            "gen": 15,
+            "bestScore": 6,
+            "avgScore": 0.1,
+            "bestFitness": 13127,
+            "avgFitness": -210,
+            "allTimeBestScore": 6,
+            "allTimeBestFitness": 13127,
+            "survivedFrames": 1123,
+            "meanWeightMag": 0.3713
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 3.3,
+      "avgPeakFitness": 7429,
+      "avgTimeMs": 167,
+      "avgFirstObsGen": "5.3"
+    }
+  },
+  {
+    "id": "Mut_45",
+    "config": {
+      "id": "Mut_45",
+      "name": "Mutation 45% (Exploratory Chaos)",
+      "arch": [
+        9,
+        12,
+        12,
+        1
+      ],
+      "mutationRate": 0.45,
+      "elitismRate": 0.05
+    },
+    "trials": [
+      {
+        "name": "Mutation 45% (Exploratory Chaos) Trial 1",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.45,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 465,
+        "firstObstacleGen": 3,
+        "score10Gen": null,
+        "peakScore": 3,
+        "peakFitness": 6712,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -458,
+            "avgFitness": -460,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 42,
+            "meanWeightMag": 0.1449
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 330,
+            "avgFitness": -432,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 330,
+            "survivedFrames": 326,
+            "meanWeightMag": 0.2003
+          },
+          {
+            "gen": 3,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -393,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2003
+          },
+          {
+            "gen": 4,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -352,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2003
+          },
+          {
+            "gen": 5,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -361,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2003
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -370,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2003
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -338,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2003
+          },
+          {
+            "gen": 8,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -328,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.3224
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -361,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.3224
+          },
+          {
+            "gen": 10,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -330,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.3224
+          },
+          {
+            "gen": 11,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4590,
+            "avgFitness": -271,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4590,
+            "survivedFrames": 586,
+            "meanWeightMag": 0.3224
+          },
+          {
+            "gen": 12,
+            "bestScore": 3,
+            "avgScore": 0,
+            "bestFitness": 6712,
+            "avgFitness": -276,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6712,
+            "survivedFrames": 709,
+            "meanWeightMag": 0.3224
+          },
+          {
+            "gen": 13,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4478,
+            "avgFitness": -295,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6712,
+            "survivedFrames": 474,
+            "meanWeightMag": 0.3224
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2449,
+            "avgFitness": -316,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6712,
+            "survivedFrames": 445,
+            "meanWeightMag": 0.3224
+          },
+          {
+            "gen": 15,
+            "bestScore": 3,
+            "avgScore": 0,
+            "bestFitness": 6712,
+            "avgFitness": -247,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6712,
+            "survivedFrames": 709,
+            "meanWeightMag": 0.3224
+          }
+        ]
+      },
+      {
+        "name": "Mutation 45% (Exploratory Chaos) Trial 2",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.45,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 620,
+        "firstObstacleGen": 7,
+        "score10Gen": null,
+        "peakScore": 6,
+        "peakFitness": 13547,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -448,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.148
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -209,
+            "avgFitness": -446,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 291,
+            "meanWeightMag": 0.148
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -399,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.148
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -424,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.148
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 334,
+            "avgFitness": -389,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 334,
+            "survivedFrames": 330,
+            "meanWeightMag": 0.1998
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 319,
+            "avgFitness": -407,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 334,
+            "survivedFrames": 315,
+            "meanWeightMag": 0.1998
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -371,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1998
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -387,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.3832
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -351,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.3832
+          },
+          {
+            "gen": 10,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4070,
+            "avgFitness": -340,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4070,
+            "survivedFrames": 568,
+            "meanWeightMag": 0.3832
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -364,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4070,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.3832
+          },
+          {
+            "gen": 12,
+            "bestScore": 6,
+            "avgScore": 0.1,
+            "bestFitness": 13547,
+            "avgFitness": -160,
+            "allTimeBestScore": 6,
+            "allTimeBestFitness": 13547,
+            "survivedFrames": 1543,
+            "meanWeightMag": 0.4848
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2576,
+            "avgFitness": -340,
+            "allTimeBestScore": 6,
+            "allTimeBestFitness": 13547,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.4848
+          },
+          {
+            "gen": 14,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4596,
+            "avgFitness": -325,
+            "allTimeBestScore": 6,
+            "allTimeBestFitness": 13547,
+            "survivedFrames": 592,
+            "meanWeightMag": 0.4848
+          },
+          {
+            "gen": 15,
+            "bestScore": 3,
+            "avgScore": 0,
+            "bestFitness": 6739,
+            "avgFitness": -292,
+            "allTimeBestScore": 6,
+            "allTimeBestFitness": 13547,
+            "survivedFrames": 735,
+            "meanWeightMag": 0.4848
+          }
+        ]
+      },
+      {
+        "name": "Mutation 45% (Exploratory Chaos) Trial 3",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.45,
+        "elitismRate": 0.05,
+        "popSize": 100,
+        "durationMs": 540,
+        "firstObstacleGen": 5,
+        "score10Gen": null,
+        "peakScore": 3,
+        "peakFitness": 6614,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -334,
+            "avgFitness": -458,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 166,
+            "meanWeightMag": 0.1598
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -435,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 306,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -426,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 307,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2145
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 325,
+            "avgFitness": -406,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 325,
+            "survivedFrames": 321,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 5,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -369,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 321,
+            "avgFitness": -385,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 317,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -380,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -374,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -372,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 10,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 313,
+            "avgFitness": -399,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 309,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 11,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 310,
+            "avgFitness": -398,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 306,
+            "meanWeightMag": 0.2098
+          },
+          {
+            "gen": 12,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4585,
+            "avgFitness": -344,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4585,
+            "survivedFrames": 581,
+            "meanWeightMag": 0.4358
+          },
+          {
+            "gen": 13,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 330,
+            "avgFitness": -355,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4585,
+            "survivedFrames": 326,
+            "meanWeightMag": 0.4358
+          },
+          {
+            "gen": 14,
+            "bestScore": 3,
+            "avgScore": 0,
+            "bestFitness": 6614,
+            "avgFitness": -316,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6614,
+            "survivedFrames": 610,
+            "meanWeightMag": 0.4624
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2341,
+            "avgFitness": -324,
+            "allTimeBestScore": 3,
+            "allTimeBestFitness": 6614,
+            "survivedFrames": 337,
+            "meanWeightMag": 0.4624
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 4,
+      "avgPeakFitness": 8958,
+      "avgTimeMs": 542,
+      "avgFirstObsGen": "5.0"
+    }
+  },
+  {
+    "id": "Elit_02",
+    "config": {
+      "id": "Elit_02",
+      "name": "Elitism 2% (Low Retention)",
+      "arch": [
+        9,
+        12,
+        12,
+        1
+      ],
+      "mutationRate": 0.15,
+      "elitismRate": 0.02
+    },
+    "trials": [
+      {
+        "name": "Elitism 2% (Low Retention) Trial 1",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.02,
+        "popSize": 100,
+        "durationMs": 549,
+        "firstObstacleGen": 2,
+        "score10Gen": null,
+        "peakScore": 1,
+        "peakFitness": 2600,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -271,
+            "avgFitness": -455,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 229,
+            "meanWeightMag": 0.1461
+          },
+          {
+            "gen": 2,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -409,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1677
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 315,
+            "avgFitness": -416,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 311,
+            "meanWeightMag": 0.1677
+          },
+          {
+            "gen": 4,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -388,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1677
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 328,
+            "avgFitness": -397,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 324,
+            "meanWeightMag": 0.1677
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -409,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1677
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -388,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1677
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 328,
+            "avgFitness": -402,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 324,
+            "meanWeightMag": 0.1677
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2446,
+            "avgFitness": -367,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 442,
+            "meanWeightMag": 0.2334
+          },
+          {
+            "gen": 10,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -418,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2334
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -372,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2334
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2445,
+            "avgFitness": -364,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 441,
+            "meanWeightMag": 0.2334
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2444,
+            "avgFitness": -383,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 440,
+            "meanWeightMag": 0.2334
+          },
+          {
+            "gen": 14,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 313,
+            "avgFitness": -385,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2446,
+            "survivedFrames": 309,
+            "meanWeightMag": 0.2334
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2600,
+            "avgFitness": -341,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2600,
+            "survivedFrames": 596,
+            "meanWeightMag": 0.3414
+          }
+        ]
+      },
+      {
+        "name": "Elitism 2% (Low Retention) Trial 2",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.02,
+        "popSize": 100,
+        "durationMs": 569,
+        "firstObstacleGen": 2,
+        "score10Gen": null,
+        "peakScore": 1,
+        "peakFitness": 2443,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -224,
+            "avgFitness": -454,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 274,
+            "meanWeightMag": 0.1589
+          },
+          {
+            "gen": 2,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -415,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1688
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 334,
+            "avgFitness": -402,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 330,
+            "meanWeightMag": 0.1688
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 310,
+            "avgFitness": -415,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 306,
+            "meanWeightMag": 0.1688
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -430,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1688
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 310,
+            "avgFitness": -403,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 306,
+            "meanWeightMag": 0.1688
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -386,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2357
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -388,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2357
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -411,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.2357
+          },
+          {
+            "gen": 10,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 324,
+            "avgFitness": -396,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2442,
+            "survivedFrames": 320,
+            "meanWeightMag": 0.2357
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -360,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2628
+          },
+          {
+            "gen": 12,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 314,
+            "avgFitness": -384,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 310,
+            "meanWeightMag": 0.2628
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -343,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 455,
+            "meanWeightMag": 0.2628
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -367,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2628
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -367,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2628
+          }
+        ]
+      },
+      {
+        "name": "Elitism 2% (Low Retention) Trial 3",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.02,
+        "popSize": 100,
+        "durationMs": 576,
+        "firstObstacleGen": 7,
+        "score10Gen": null,
+        "peakScore": 4,
+        "peakFitness": 8847,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -450,
+            "avgFitness": -460,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 50,
+            "meanWeightMag": 0.1573
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -360,
+            "avgFitness": -457,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 140,
+            "meanWeightMag": 0.1705
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -251,
+            "avgFitness": -450,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 247,
+            "meanWeightMag": 0.1931
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 304,
+            "avgFitness": -446,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 304,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1931
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 329,
+            "avgFitness": -421,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 329,
+            "survivedFrames": 325,
+            "meanWeightMag": 0.2197
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 337,
+            "avgFitness": -411,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 337,
+            "survivedFrames": 333,
+            "meanWeightMag": 0.2197
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2344,
+            "avgFitness": -392,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2344,
+            "survivedFrames": 340,
+            "meanWeightMag": 0.2197
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2596,
+            "avgFitness": -335,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2596,
+            "survivedFrames": 592,
+            "meanWeightMag": 0.2637
+          },
+          {
+            "gen": 9,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -336,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2451
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -358,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 463,
+            "meanWeightMag": 0.2451
+          },
+          {
+            "gen": 11,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 2475,
+            "avgFitness": -336,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 471,
+            "meanWeightMag": 0.2451
+          },
+          {
+            "gen": 12,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -336,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4577,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2451
+          },
+          {
+            "gen": 13,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4582,
+            "avgFitness": -343,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 578,
+            "meanWeightMag": 0.2451
+          },
+          {
+            "gen": 14,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 309,
+            "avgFitness": -389,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4582,
+            "survivedFrames": 305,
+            "meanWeightMag": 0.2451
+          },
+          {
+            "gen": 15,
+            "bestScore": 4,
+            "avgScore": 0,
+            "bestFitness": 8847,
+            "avgFitness": -279,
+            "allTimeBestScore": 4,
+            "allTimeBestFitness": 8847,
+            "survivedFrames": 844,
+            "meanWeightMag": 0.3021
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 2,
+      "avgPeakFitness": 4630,
+      "avgTimeMs": 565,
+      "avgFirstObsGen": "3.7"
+    }
+  },
+  {
+    "id": "Elit_15",
+    "config": {
+      "id": "Elit_15",
+      "name": "Elitism 15% (High Preservation)",
+      "arch": [
+        9,
+        12,
+        12,
+        1
+      ],
+      "mutationRate": 0.15,
+      "elitismRate": 0.15
+    },
+    "trials": [
+      {
+        "name": "Elitism 15% (High Preservation) Trial 1",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.15,
+        "popSize": 100,
+        "durationMs": 727,
+        "firstObstacleGen": 3,
+        "score10Gen": null,
+        "peakScore": 1,
+        "peakFitness": 2467,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": -295,
+            "avgFitness": -457,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 0,
+            "survivedFrames": 205,
+            "meanWeightMag": 0.1519
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 306,
+            "avgFitness": -435,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 306,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1793
+          },
+          {
+            "gen": 3,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2341,
+            "avgFitness": -375,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2341,
+            "survivedFrames": 337,
+            "meanWeightMag": 0.1771
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 313,
+            "avgFitness": -362,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2341,
+            "survivedFrames": 309,
+            "meanWeightMag": 0.1771
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 309,
+            "avgFitness": -336,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2341,
+            "survivedFrames": 305,
+            "meanWeightMag": 0.1771
+          },
+          {
+            "gen": 6,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 328,
+            "avgFitness": -334,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2341,
+            "survivedFrames": 324,
+            "meanWeightMag": 0.1771
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 313,
+            "avgFitness": -312,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2341,
+            "survivedFrames": 309,
+            "meanWeightMag": 0.1771
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2439,
+            "avgFitness": -273,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2439,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2199
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2467,
+            "avgFitness": -287,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 463,
+            "meanWeightMag": 0.2199
+          },
+          {
+            "gen": 10,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 333,
+            "avgFitness": -317,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 329,
+            "meanWeightMag": 0.2199
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 1930,
+            "avgFitness": -282,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 428,
+            "meanWeightMag": 0.2199
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -243,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2199
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2458,
+            "avgFitness": -270,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 454,
+            "meanWeightMag": 0.2199
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -273,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 455,
+            "meanWeightMag": 0.2199
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -270,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2467,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2199
+          }
+        ]
+      },
+      {
+        "name": "Elitism 15% (High Preservation) Trial 2",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.15,
+        "popSize": 100,
+        "durationMs": 840,
+        "firstObstacleGen": 5,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4578,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 319,
+            "avgFitness": -452,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 319,
+            "survivedFrames": 315,
+            "meanWeightMag": 0.1446
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 322,
+            "avgFitness": -438,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 322,
+            "survivedFrames": 318,
+            "meanWeightMag": 0.1446
+          },
+          {
+            "gen": 3,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 307,
+            "avgFitness": -405,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 322,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1446
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 308,
+            "avgFitness": -390,
+            "allTimeBestScore": 0,
+            "allTimeBestFitness": 322,
+            "survivedFrames": 304,
+            "meanWeightMag": 0.1446
+          },
+          {
+            "gen": 5,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -343,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2441,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 6,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4578,
+            "avgFitness": -295,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 7,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 326,
+            "avgFitness": -342,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 322,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 8,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 326,
+            "avgFitness": -327,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 322,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 9,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2470,
+            "avgFitness": -252,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 466,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -247,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2577,
+            "avgFitness": -176,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 12,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2441,
+            "avgFitness": -236,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 13,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -198,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 448,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2442,
+            "avgFitness": -198,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.2099
+          },
+          {
+            "gen": 15,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4577,
+            "avgFitness": -96,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4578,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2099
+          }
+        ]
+      },
+      {
+        "name": "Elitism 15% (High Preservation) Trial 3",
+        "arch": [
+          9,
+          12,
+          12,
+          1
+        ],
+        "paramCount": 289,
+        "mutationRate": 0.15,
+        "elitismRate": 0.15,
+        "popSize": 100,
+        "durationMs": 736,
+        "firstObstacleGen": 1,
+        "score10Gen": null,
+        "peakScore": 2,
+        "peakFitness": 4579,
+        "history": [
+          {
+            "gen": 1,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -429,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2440,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1486
+          },
+          {
+            "gen": 2,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 320,
+            "avgFitness": -421,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2440,
+            "survivedFrames": 316,
+            "meanWeightMag": 0.1486
+          },
+          {
+            "gen": 3,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2443,
+            "avgFitness": -394,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1713
+          },
+          {
+            "gen": 4,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 336,
+            "avgFitness": -383,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 332,
+            "meanWeightMag": 0.1713
+          },
+          {
+            "gen": 5,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 338,
+            "avgFitness": -338,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2443,
+            "survivedFrames": 334,
+            "meanWeightMag": 0.1713
+          },
+          {
+            "gen": 6,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2474,
+            "avgFitness": -313,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2474,
+            "survivedFrames": 470,
+            "meanWeightMag": 0.1937
+          },
+          {
+            "gen": 7,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2440,
+            "avgFitness": -255,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2474,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1937
+          },
+          {
+            "gen": 8,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2439,
+            "avgFitness": -266,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2474,
+            "survivedFrames": 439,
+            "meanWeightMag": 0.1937
+          },
+          {
+            "gen": 9,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 323,
+            "avgFitness": -300,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2474,
+            "survivedFrames": 319,
+            "meanWeightMag": 0.1937
+          },
+          {
+            "gen": 10,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2605,
+            "avgFitness": -275,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2605,
+            "survivedFrames": 601,
+            "meanWeightMag": 0.2183
+          },
+          {
+            "gen": 11,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2344,
+            "avgFitness": -284,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2605,
+            "survivedFrames": 340,
+            "meanWeightMag": 0.2183
+          },
+          {
+            "gen": 12,
+            "bestScore": 0,
+            "avgScore": 0,
+            "bestFitness": 327,
+            "avgFitness": -296,
+            "allTimeBestScore": 1,
+            "allTimeBestFitness": 2605,
+            "survivedFrames": 323,
+            "meanWeightMag": 0.2183
+          },
+          {
+            "gen": 13,
+            "bestScore": 2,
+            "avgScore": 0,
+            "bestFitness": 4579,
+            "avgFitness": -175,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4579,
+            "survivedFrames": 575,
+            "meanWeightMag": 0.2183
+          },
+          {
+            "gen": 14,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2450,
+            "avgFitness": -218,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4579,
+            "survivedFrames": 446,
+            "meanWeightMag": 0.2183
+          },
+          {
+            "gen": 15,
+            "bestScore": 1,
+            "avgScore": 0,
+            "bestFitness": 2577,
+            "avgFitness": -239,
+            "allTimeBestScore": 2,
+            "allTimeBestFitness": 4579,
+            "survivedFrames": 574,
+            "meanWeightMag": 0.2183
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "avgPeakScore": 1.7,
+      "avgPeakFitness": 3875,
+      "avgTimeMs": 768,
+      "avgFirstObsGen": "3.0"
+    }
+  }
+]
