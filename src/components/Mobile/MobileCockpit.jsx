@@ -28,7 +28,9 @@ import {
   Gauge, 
   Zap, 
   Layers,
-  ChevronRight
+  ChevronRight,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { NeuralNetworkCanvas } from '../Visualizer/NeuralNetworkCanvas.jsx';
 import { FitnessGraphCanvas } from '../Visualizer/FitnessGraphCanvas.jsx';
@@ -79,7 +81,9 @@ export function MobileCockpit({
   loadPretrainedChampion,
   exportLogCSV,
   clearStorage,
-  onOpenWalkthrough
+  onOpenWalkthrough,
+  theme = 'light',
+  onToggleTheme
 }) {
   const [activeTab, setActiveTab] = useState('brain');
   const [showAdvancedControls, setShowAdvancedControls] = useState(false);
@@ -140,8 +144,8 @@ export function MobileCockpit({
               width: '32px',
               height: '32px',
               borderRadius: '8px',
-              background: '#E0F2FE',
-              border: '1.5px solid #0F172A',
+              background: 'var(--bg-subtle)',
+              border: '1.5px solid var(--border-medium)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -165,6 +169,15 @@ export function MobileCockpit({
           </div>
 
           <div style={{ display: 'flex', gap: '6px' }}>
+            <button
+              onClick={onToggleTheme}
+              className="sleek-btn sleek-btn-neutral"
+              style={{ padding: '6px 8px' }}
+              aria-label="Toggle theme mode"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? <Sun size={15} color="#FBBF24" /> : <Moon size={15} color="#6366F1" />}
+            </button>
             <button
               onClick={toggleSound}
               className="sleek-btn sleek-btn-neutral"
@@ -216,7 +229,7 @@ export function MobileCockpit({
           <div style={{ fontSize: '1.15rem', fontWeight: '900', color: '#059669', fontFamily: 'var(--font-mono)', marginTop: '2px' }}>
             {telemetry?.alive ?? 0} <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>/ 150</span>
           </div>
-          <div style={{ width: '100%', height: '4px', background: '#E2E8F0', borderRadius: '2px', overflow: 'hidden', marginTop: '6px' }}>
+          <div style={{ width: '100%', height: '4px', background: 'var(--bg-subtle)', borderRadius: '2px', overflow: 'hidden', marginTop: '6px' }}>
             <div style={{ width: `${survivalPct}%`, height: '100%', background: '#059669' }} />
           </div>
         </div>
@@ -250,12 +263,12 @@ export function MobileCockpit({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: obstaclesEnabled ? '#FEF3C7' : '#F0FDF4',
-          borderColor: obstaclesEnabled ? '#D97706' : '#86EFAC'
+          background: obstaclesEnabled ? 'var(--hazard-bg)' : 'var(--corridor-bg)',
+          borderColor: obstaclesEnabled ? 'var(--hazard-border)' : 'var(--corridor-border)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             {obstaclesEnabled ? <ShieldAlert size={16} color="#D97706" /> : <Shield size={16} color="#059669" />}
-            <span style={{ fontSize: '0.76rem', fontWeight: '800', color: '#0F172A' }}>
+            <span style={{ fontSize: '0.76rem', fontWeight: '800', color: 'var(--text-primary)' }}>
               {obstaclesEnabled ? 'Dynamic Hazards Active' : 'Standard Corridor (Static Pipes)'}
             </span>
           </div>
@@ -265,8 +278,9 @@ export function MobileCockpit({
             style={{
               padding: '4px 8px',
               fontSize: '0.7rem',
-              background: '#FFFFFF',
-              border: '1.5px solid #0F172A'
+              background: 'var(--bg-card)',
+              color: 'var(--text-primary)',
+              border: '1.5px solid var(--border-medium)'
             }}
           >
             {obstaclesEnabled ? 'Disable Hazards' : 'Enable Wind/Motion'}
@@ -376,9 +390,10 @@ export function MobileCockpit({
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   textAlign: 'left',
-                  background: isMatch ? '#E0F2FE' : '#FFFFFF',
-                  borderColor: isMatch ? '#0F172A' : 'var(--border-subtle)',
-                  boxShadow: isMatch ? '2px 2px 0px #0F172A' : '1px 1px 0px #0F172A'
+                  background: isMatch ? 'var(--bg-subtle)' : 'var(--bg-card)',
+                  borderColor: isMatch ? 'var(--border-strong)' : 'var(--border-subtle)',
+                  boxShadow: isMatch ? 'var(--shadow-btn)' : '1px 1px 0px var(--border-medium)',
+                  color: 'var(--text-primary)'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', fontWeight: '800' }}>
@@ -406,7 +421,7 @@ export function MobileCockpit({
             padding: '2px 0'
           }}
         >
-          <span style={{ fontSize: '0.8rem', fontWeight: '800', color: '#0F172A', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '0.8rem', fontWeight: '800', color: 'var(--text-primary)', textTransform: 'uppercase' }}>
             {showAdvancedControls ? '▼ Hide Tuning Sliders' : '▶ Show Speed & Mutation Sliders'}
           </span>
           <span className="sleek-badge sleek-badge-slate" style={{ fontSize: '0.62rem' }}>
@@ -497,11 +512,11 @@ export function MobileCockpit({
                   width: '100%',
                   padding: '8px 12px',
                   borderRadius: '8px',
-                  border: '1.5px solid #0F172A',
+                  border: '1.5px solid var(--border-medium)',
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.8rem',
-                  background: '#FFFFFF',
-                  color: '#0F172A'
+                  background: 'var(--bg-card)',
+                  color: 'var(--text-primary)'
                 }}
               >
                 <option value="small">Small [9 → 8 → 1] (88 params)</option>
@@ -555,7 +570,12 @@ export function MobileCockpit({
           )}
 
           {activeTab === 'graph' && (
-            <FitnessGraphCanvas generationLog={generationLog} />
+            <FitnessGraphCanvas 
+              generationLog={generationLog} 
+              telemetry={telemetry}
+              gaStats={gaStats}
+              isRunning={isRunning}
+            />
           )}
 
           {activeTab === 'weights' && (
@@ -640,7 +660,7 @@ export function MobileCockpit({
         color: 'var(--text-secondary)',
         lineHeight: '1.4'
       }}>
-        Developed for <strong style={{ color: '#0F172A' }}>GCERT & NCERT Children's Science Exhibition 2026–27</strong> (બાળ વૈજ્ઞાનિક પ્રદર્શન) • 
+        Developed for <strong style={{ color: 'var(--text-primary)' }}>GCERT & NCERT Children's Science Exhibition 2026–27</strong> (બાળ વૈજ્ઞાનિક પ્રદર્શન) • 
         Themes: <em>Subtheme 1(A) AI for Life</em> & <em>Subtheme 1(B) Mathematical Modelling</em>
       </footer>
     </div>

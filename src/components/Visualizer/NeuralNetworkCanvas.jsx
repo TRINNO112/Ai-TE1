@@ -81,9 +81,10 @@ export function NeuralNetworkCanvas({ brain: propBrain, bestBird }) {
       const w = canvas.width;
       const h = canvas.height;
       const isCompact = w < 520;
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = '#FFFFFF';
+      ctx.fillStyle = isDark ? '#131D31' : '#FFFFFF';
       ctx.fillRect(0, 0, w, h);
 
       // Determine active brain & live activations
@@ -247,7 +248,7 @@ export function NeuralNetworkCanvas({ brain: propBrain, bestBird }) {
                 ? '600 8.5px "JetBrains Mono", monospace' 
                 : '600 9.5px "JetBrains Mono", monospace';
               ctx.textAlign = 'right';
-              ctx.fillStyle = '#334155';
+              ctx.fillStyle = isDark ? '#CBD5E1' : '#334155';
 
               // Single combined string guarantees 0 overlapping text!
               const fullText = valFormatted ? `${label}  ${valFormatted}` : label;
@@ -289,7 +290,7 @@ export function NeuralNetworkCanvas({ brain: propBrain, bestBird }) {
       ctx.font = isCompact 
         ? '700 8.5px "JetBrains Mono", monospace' 
         : '700 9.5px "JetBrains Mono", monospace';
-      ctx.fillStyle = '#0F172A';
+      ctx.fillStyle = isDark ? '#F8FAFC' : '#0F172A';
       const statusText = isCompact ? 'LIVE 60FPS' : 'SYNAPTIC RADAR (60 FPS)';
       ctx.fillText(statusText, w - 18, 20);
 
@@ -308,14 +309,14 @@ export function NeuralNetworkCanvas({ brain: propBrain, bestBird }) {
       // Positive
       ctx.fillStyle = '#059669';
       ctx.fillRect(isCompact ? 12 : 36, h - 16, isCompact ? 8 : 11, 3);
-      ctx.fillStyle = '#0F172A';
+      ctx.fillStyle = isDark ? '#F8FAFC' : '#0F172A';
       ctx.fillText('+ Excitatory', isCompact ? 23 : 51, h - 13);
 
       // Negative
       const midOffset = isCompact ? 96 : 155;
       ctx.fillStyle = '#E11D48';
       ctx.fillRect(midOffset, h - 16, isCompact ? 8 : 11, 3);
-      ctx.fillStyle = '#0F172A';
+      ctx.fillStyle = isDark ? '#F8FAFC' : '#0F172A';
       ctx.fillText('- Inhibitory', midOffset + (isCompact ? 11 : 15), h - 13);
 
       // Activation
@@ -324,7 +325,7 @@ export function NeuralNetworkCanvas({ brain: propBrain, bestBird }) {
       ctx.beginPath();
       ctx.arc(actOffset, h - 14.5, isCompact ? 2.5 : 3.5, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = '#0F172A';
+      ctx.fillStyle = isDark ? '#F8FAFC' : '#0F172A';
       ctx.fillText('Activation', actOffset + (isCompact ? 6 : 9), h - 13);
 
       animFrameRef.current = requestAnimationFrame(render);
@@ -359,7 +360,7 @@ export function NeuralNetworkCanvas({ brain: propBrain, bestBird }) {
           borderRadius: '12px',
           border: '1.5px solid var(--border-medium)',
           boxShadow: 'var(--shadow-card)',
-          background: '#FFFFFF',
+          background: 'var(--bg-card)',
           boxSizing: 'border-box'
         }}
       />

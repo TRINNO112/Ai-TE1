@@ -197,7 +197,7 @@ export function useSimulation(canvasRef) {
 
     // Save state
     setGaStats({
-      generation: ga.generation,
+      generation: ga.generation + 1,
       bestFitnessEver: ga.bestFitnessEver,
       bestScoreEver: ga.bestScoreEver
     });
@@ -208,7 +208,7 @@ export function useSimulation(canvasRef) {
     if (ga.bestBrainEver) {
       try {
         localStorage.setItem('flappyAI_savedBrain', JSON.stringify({
-          generation: ga.generation,
+          generation: ga.generation + 1,
           bestFitness: ga.bestFitnessEver,
           bestScore: ga.bestScoreEver,
           brain: ga.bestBrainEver.toJSON()
@@ -259,7 +259,7 @@ export function useSimulation(canvasRef) {
         ga.bestFitnessEver = latestTelem.bestFitness;
       }
       setGaStats({
-        generation: ga.generation,
+        generation: ga.generation + 1,
         bestFitnessEver: ga.bestFitnessEver,
         bestScoreEver: ga.bestScoreEver
       });
@@ -268,7 +268,7 @@ export function useSimulation(canvasRef) {
     setTurboStats({
       gensPerSec: Math.round(gensFinished * (1000 / Math.max(elapsed, 1))),
       stepsPerSec: stepsPerSec,
-      generation: ga.generation,
+      generation: ga.generation + 1,
       alive: latestTelem ? latestTelem.alive : 0,
       currentScore: latestTelem ? latestTelem.score : 0,
       bestScore: ga.bestScoreEver,

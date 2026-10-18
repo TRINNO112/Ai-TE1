@@ -16,8 +16,8 @@ export function GenerationLogTable({ generationLog }) {
       overflowY: 'auto',
       borderRadius: '8px',
       border: '1.5px solid var(--border-medium)',
-      background: '#FFFFFF',
-      boxShadow: '1px 1px 0px #1E293B',
+      background: 'var(--bg-card)',
+      boxShadow: 'var(--shadow-btn)',
       width: '100%',
       minWidth: 0,
       boxSizing: 'border-box'
@@ -30,7 +30,7 @@ export function GenerationLogTable({ generationLog }) {
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: '8px 12px',
-            borderBottom: '1px solid #E2E8F0',
+            borderBottom: '1px solid var(--border-subtle)',
             flexWrap: 'wrap',
             gap: '8px',
             boxSizing: 'border-box'

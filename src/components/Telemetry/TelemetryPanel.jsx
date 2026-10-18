@@ -49,8 +49,8 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
             flex: 1,
             height: '6px',
             borderRadius: '999px',
-            background: '#E2E8F0',
-            border: '1px solid #0F172A',
+            background: 'var(--bg-subtle)',
+            border: '1px solid var(--border-medium)',
             overflow: 'hidden'
           }}>
             <div style={{
@@ -166,8 +166,8 @@ export function TelemetryPanel({ telemetry, gaStats, obstaclesEnabled = false })
               width: '28px',
               height: '28px',
               borderRadius: '7px',
-              background: '#F1F5F9',
-              border: '1.5px solid #0F172A',
+              background: 'var(--bg-subtle)',
+              border: '1.5px solid var(--border-medium)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

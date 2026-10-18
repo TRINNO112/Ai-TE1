@@ -27,33 +27,33 @@ export function WalkthroughModal({ isOpen, onClose }) {
             Under <strong>India's National Education Policy (NEP 2020)</strong>, Class 8–12 students are mandated to learn AI and computational thinking.
           </p>
           <div style={{
-            background: '#FFF1F2',
+            background: 'var(--bg-subtle)',
             borderLeft: '4px solid #E11D48',
-            border: '1.5px solid #FDA4AF',
+            border: '1.5px solid var(--border-medium)',
             padding: '14px 16px',
             borderRadius: '10px',
             marginBottom: '14px'
           }}>
-            <strong style={{ color: '#BE123C', fontSize: '0.92rem' }}>What happens in Generation 1:</strong>
-            <p style={{ fontSize: '0.86rem', color: '#475569', marginTop: '4px', lineHeight: '1.5' }}>
+            <strong style={{ color: '#E11D48', fontSize: '0.92rem' }}>What happens in Generation 1:</strong>
+            <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: '1.5' }}>
               All 150 birds flop and crash within 1.5 seconds. Why? Because the weights inside their neural brains 
               are initialized completely at random using Gaussian sampling. 
-              <strong style={{ color: '#0F172A' }}> The AI knows nothing! There is no pre-coded intelligence.</strong>
+              <strong style={{ color: 'var(--text-primary)' }}> The AI knows nothing! There is no pre-coded intelligence.</strong>
             </p>
           </div>
           <div style={{
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            background: '#FEF3C7',
-            border: '1.5px solid #FCD34D',
+            background: 'var(--hazard-bg)',
+            border: '1.5px solid var(--border-medium)',
             padding: '10px 14px',
             borderRadius: '8px',
-            color: '#B45309',
+            color: 'var(--text-primary)',
             fontSize: '0.84rem',
             fontWeight: '600'
           }}>
-            <Lightbulb size={16} style={{ flexShrink: 0 }} />
+            <Lightbulb size={16} color="#D97706" style={{ flexShrink: 0 }} />
             <span>Classroom Takeaway: AI does not "think". It begins as pure random numbers and iteratively discovers patterns through mathematical loss.</span>
           </div>
         </div>
@@ -69,17 +69,17 @@ export function WalkthroughModal({ isOpen, onClose }) {
             How does the computer determine which bird is "smarter"? Through an objective mathematical grading formula:
           </p>
           <div style={{
-            background: '#F0F9FF',
-            border: '1.5px solid #0284C7',
+            background: 'var(--corridor-bg)',
+            border: '1.5px solid var(--border-medium)',
             padding: '14px 16px',
             borderRadius: '10px',
             fontFamily: 'var(--font-mono)',
             fontSize: '0.95rem',
             fontWeight: '800',
-            color: '#0369A1',
+            color: 'var(--text-primary)',
             textAlign: 'center',
             marginBottom: '14px',
-            boxShadow: '2px 2px 0px #0F172A'
+            boxShadow: 'var(--shadow-btn)'
           }}>
             Fitness = (Score × 1000) + FramesSurvived - (|y - y_gap| × 0.5)
           </div>
@@ -102,37 +102,37 @@ export function WalkthroughModal({ isOpen, onClose }) {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px', marginBottom: '14px' }}>
             <div style={{
-              background: '#F8FAFC',
+              background: 'var(--bg-subtle)',
               padding: '12px',
               borderRadius: '8px',
-              border: '1.5px solid var(--border-strong)',
-              boxShadow: '2px 2px 0px #0F172A'
+              border: '1.5px solid var(--border-medium)',
+              boxShadow: 'var(--shadow-btn)'
             }}>
-              <strong style={{ color: '#15803D', fontSize: '0.88rem' }}>1. Elitism:</strong>
+              <strong style={{ color: '#059669', fontSize: '0.88rem' }}>1. Elitism:</strong>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
                 Top 5% champions survive unchanged so the population never loses learned skills.
               </p>
             </div>
             <div style={{
-              background: '#F8FAFC',
+              background: 'var(--bg-subtle)',
               padding: '12px',
               borderRadius: '8px',
-              border: '1.5px solid var(--border-strong)',
-              boxShadow: '2px 2px 0px #0F172A'
+              border: '1.5px solid var(--border-medium)',
+              boxShadow: 'var(--shadow-btn)'
             }}>
-              <strong style={{ color: '#0369A1', fontSize: '0.88rem' }}>2. Crossover:</strong>
+              <strong style={{ color: '#0284C7', fontSize: '0.88rem' }}>2. Crossover:</strong>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
                 Pairs of top parents recombine synaptic weights like biological chromosomes.
               </p>
             </div>
             <div style={{
-              background: '#F8FAFC',
+              background: 'var(--bg-subtle)',
               padding: '12px',
               borderRadius: '8px',
-              border: '1.5px solid var(--border-strong)',
-              boxShadow: '2px 2px 0px #0F172A'
+              border: '1.5px solid var(--border-medium)',
+              boxShadow: 'var(--shadow-btn)'
             }}>
-              <strong style={{ color: '#B45309', fontSize: '0.88rem' }}>3. Mutation:</strong>
+              <strong style={{ color: '#D97706', fontSize: '0.88rem' }}>3. Mutation:</strong>
               <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
                 Weights are perturbed by Gaussian noise to discover novel flight strategies.
               </p>
@@ -142,15 +142,15 @@ export function WalkthroughModal({ isOpen, onClose }) {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            background: '#FEF3C7',
-            border: '1.5px solid #FCD34D',
+            background: 'var(--hazard-bg)',
+            border: '1.5px solid var(--border-medium)',
             padding: '10px 14px',
             borderRadius: '8px',
-            color: '#B45309',
+            color: 'var(--text-primary)',
             fontSize: '0.84rem',
             fontWeight: '600'
           }}>
-            <Lightbulb size={16} style={{ flexShrink: 0 }} />
+            <Lightbulb size={16} color="#D97706" style={{ flexShrink: 0 }} />
             <span>Classroom What-If: Drag the Mutation Slider to 50% to see chaotic extinction, or drop Elitism to 0% to see champions get forgotten!</span>
           </div>
         </div>
@@ -166,26 +166,26 @@ export function WalkthroughModal({ isOpen, onClose }) {
             By Generation 15–25, the birds navigate smoothly through variable speeds, moving pipes, and wind shear.
           </p>
           <div style={{
-            background: '#FAF5FF',
+            background: 'var(--bg-subtle)',
             borderLeft: '4px solid #7C3AED',
-            border: '1.5px solid #DDD6FE',
+            border: '1.5px solid var(--border-medium)',
             padding: '14px 16px',
             borderRadius: '10px',
             marginBottom: '14px'
           }}>
-            <strong style={{ color: '#6D28D9', fontSize: '0.92rem' }}>Industrial Robotics & UAV Drone Impact:</strong>
-            <p style={{ fontSize: '0.86rem', color: '#475569', marginTop: '4px', lineHeight: '1.5' }}>
+            <strong style={{ color: '#7C3AED', fontSize: '0.92rem' }}>Industrial Robotics & UAV Drone Impact:</strong>
+            <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: '1.5' }}>
               The 9 sensory inputs mimic LiDAR and ultrasonic distance rays on autonomous drones. 
               Because the neural network is ultra-lightweight (under 300 parameters), it runs in microseconds on low-power edge microcontrollers 
               without needing internet connectivity or cloud servers!
             </p>
           </div>
           <div style={{
-            background: '#F0FDF4',
-            border: '1.5px solid #86EFAC',
+            background: 'var(--corridor-bg)',
+            border: '1.5px solid var(--border-medium)',
             padding: '10px 14px',
             borderRadius: '8px',
-            color: '#15803D',
+            color: 'var(--text-primary)',
             fontSize: '0.88rem',
             fontWeight: '700'
           }}>
@@ -213,9 +213,9 @@ export function WalkthroughModal({ isOpen, onClose }) {
         maxWidth: '640px',
         padding: '28px',
         position: 'relative',
-        background: '#FFFFFF',
+        background: 'var(--bg-card)',
         border: '2px solid var(--border-strong)',
-        boxShadow: '6px 6px 0px #0F172A',
+        boxShadow: 'var(--shadow-modal)',
         maxHeight: '90vh',
         overflowY: 'auto'
       }}>
@@ -240,9 +240,9 @@ export function WalkthroughModal({ isOpen, onClose }) {
             width: '46px',
             height: '46px',
             borderRadius: '12px',
-            background: '#F1F5F9',
+            background: 'var(--bg-subtle)',
             border: '1.5px solid var(--border-strong)',
-            boxShadow: '2px 2px 0px #0F172A',
+            boxShadow: 'var(--shadow-btn)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

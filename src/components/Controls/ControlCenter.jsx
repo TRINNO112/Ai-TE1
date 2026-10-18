@@ -233,8 +233,8 @@ export function ControlCenter({
 
       {/* Obstacles Activation Mode Card (Normal condition: Disarmed by default) */}
       <div style={{
-        background: obstaclesEnabled ? '#FEF3C7' : '#E0F2FE',
-        border: '1.5px solid #0F172A',
+        background: obstaclesEnabled ? 'var(--hazard-bg)' : 'var(--corridor-bg)',
+        border: '1.5px solid var(--border-medium)',
         borderRadius: '12px',
         padding: '12px 16px',
         marginBottom: '16px',
@@ -243,15 +243,15 @@ export function ControlCenter({
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: '12px',
-        boxShadow: '2px 2px 0px #0F172A'
+        boxShadow: 'var(--shadow-btn)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
             width: '32px',
             height: '32px',
             borderRadius: '8px',
-            background: '#FFFFFF',
-            border: '1.5px solid #0F172A',
+            background: 'var(--bg-card)',
+            border: '1.5px solid var(--border-medium)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -261,7 +261,7 @@ export function ControlCenter({
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: '800', fontSize: '0.92rem', color: '#0F172A' }}>
+              <span style={{ fontFamily: 'var(--font-display)', fontWeight: '800', fontSize: '0.92rem', color: 'var(--text-primary)' }}>
                 Obstacles Mode: {obstaclesEnabled ? 'Dynamic Hazards Active (Wind & Motion)' : 'Standard Corridor (Static Pipes)'}
               </span>
               <span className={`sleek-badge ${obstaclesEnabled ? 'sleek-badge-amber' : 'sleek-badge-emerald'}`} style={{ fontSize: '0.62rem' }}>
@@ -291,12 +291,12 @@ export function ControlCenter({
 
       {/* Pedagogical Architectural Scenarios */}
       <div style={{
-        background: '#FAF9F6',
+        background: 'var(--bg-subtle)',
         border: '1.5px solid var(--border-medium)',
         borderRadius: '12px',
         padding: '12px 14px',
         marginBottom: '16px',
-        boxShadow: '1px 1px 0px #1E293B'
+        boxShadow: 'var(--shadow-btn)'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -332,13 +332,13 @@ export function ControlCenter({
                   flexDirection: 'column',
                   alignItems: 'flex-start',
                   textAlign: 'left',
-                  border: isMatch ? '1.5px solid #0F172A' : '1.5px solid var(--border-subtle)',
-                  background: isMatch ? '#E0F2FE' : '#FFFFFF',
-                  boxShadow: isMatch ? '2px 2px 0px #0F172A' : '1px 1px 0px #1E293B',
+                  border: isMatch ? '1.5px solid var(--border-strong)' : '1.5px solid var(--border-subtle)',
+                  background: isMatch ? 'var(--bg-subtle)' : 'var(--bg-card)',
+                  boxShadow: isMatch ? 'var(--shadow-btn)' : '1px 1px 0px var(--border-medium)',
                   borderRadius: '8px'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#0F172A', fontWeight: '800', width: '100%', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-primary)', fontWeight: '800', width: '100%', justifyContent: 'space-between' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                     {sc.icon}
                     <span>{sc.title}</span>
@@ -347,7 +347,7 @@ export function ControlCenter({
                     {sc.badge}
                   </span>
                 </div>
-                <div style={{ fontSize: '0.68rem', color: '#475569', marginTop: '4px', lineHeight: '1.25', fontWeight: '500' }}>
+                <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: '1.25', fontWeight: '500' }}>
                   {sc.desc}
                 </div>
               </button>
@@ -365,7 +365,7 @@ export function ControlCenter({
       }}>
         {/* Speed Slider & Multi-Physics Presets */}
         <div style={{
-          background: '#F8FAFC',
+          background: 'var(--bg-subtle)',
           padding: '14px 16px',
           borderRadius: '10px',
           border: '1.5px solid var(--border-medium)',
@@ -420,11 +420,11 @@ export function ControlCenter({
 
         {/* Mutation Rate Slider */}
         <div style={{
-          background: '#F8FAFC',
+          background: 'var(--bg-subtle)',
           padding: '14px 16px',
           borderRadius: '10px',
           border: '1.5px solid var(--border-medium)',
-          boxShadow: '1px 1px 0px #1E293B',
+          boxShadow: 'var(--shadow-btn)',
           display: 'flex',
           flexDirection: 'column',
           gap: '8px'
@@ -478,11 +478,11 @@ export function ControlCenter({
 
         {/* Elitism Slider */}
         <div style={{
-          background: '#F8FAFC',
+          background: 'var(--bg-subtle)',
           padding: '14px 16px',
           borderRadius: '10px',
           border: '1.5px solid var(--border-medium)',
-          boxShadow: '1px 1px 0px #1E293B',
+          boxShadow: 'var(--shadow-btn)',
           display: 'flex',
           flexDirection: 'column',
           gap: '8px'
@@ -500,8 +500,8 @@ export function ControlCenter({
               <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', color: '#D97706', fontSize: '0.95rem' }}>
                 {Math.round(elitismRate * 100)}%
               </span>
-              <span className={`sleek-badge ${elitismRate >= 0.1 ? 'sleek-badge-amber' : 'sleek-badge-slate'}`} style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
-                {elitismRate >= 0.1 ? 'High Preservation' : 'Balanced (5%)'}
+              <span className={`sleek-badge ${elitismRate >= 0.15 ? 'sleek-badge-amber' : elitismRate >= 0.05 ? 'sleek-badge-emerald' : 'sleek-badge-slate'}`} style={{ fontSize: '0.65rem', padding: '2px 6px' }}>
+                {elitismRate >= 0.15 ? 'High Preservation' : elitismRate >= 0.05 ? 'Optimal' : 'Exploratory'}
               </span>
             </div>
           </div>
@@ -536,11 +536,11 @@ export function ControlCenter({
 
         {/* Topology Selector */}
         <div style={{
-          background: '#F8FAFC',
+          background: 'var(--bg-subtle)',
           padding: '14px 16px',
           borderRadius: '10px',
           border: '1.5px solid var(--border-medium)',
-          boxShadow: '1px 1px 0px #1E293B',
+          boxShadow: 'var(--shadow-btn)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -560,9 +560,10 @@ export function ControlCenter({
             value={networkSize}
             onChange={(e) => onChangeNetworkSize(e.target.value)}
             style={{
-              background: '#FFFFFF',
-              color: '#0F172A',
-              border: '1.5px solid #0F172A',
+              width: '100%',
+              background: 'var(--bg-card)',
+              color: 'var(--text-primary)',
+              border: '1.5px solid var(--border-medium)',
               borderRadius: '6px',
               padding: '8px 10px',
               fontSize: '0.82rem',
@@ -570,7 +571,7 @@ export function ControlCenter({
               fontFamily: 'var(--font-mono)',
               outline: 'none',
               cursor: 'pointer',
-              boxShadow: '2px 2px 0px #0F172A'
+              boxShadow: 'var(--shadow-btn)'
             }}
           >
             <option value="small">Small [9 → 8 → 1] (81 params)</option>
@@ -600,11 +601,11 @@ export function ControlCenter({
           cursor: 'pointer',
           color: 'var(--text-primary)',
           fontWeight: '600',
-          background: '#FFFFFF',
+          background: 'var(--bg-card)',
           padding: '8px 14px',
           borderRadius: '8px',
-          border: '1.5px solid #0F172A',
-          boxShadow: '2px 2px 0px #0F172A'
+          border: '1.5px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-btn)'
         }}>
           <input 
             type="checkbox" 
@@ -627,11 +628,11 @@ export function ControlCenter({
           cursor: 'pointer',
           color: 'var(--text-primary)',
           fontWeight: '600',
-          background: '#FFFFFF',
+          background: 'var(--bg-card)',
           padding: '8px 14px',
           borderRadius: '8px',
-          border: '1.5px solid #0F172A',
-          boxShadow: '2px 2px 0px #0F172A'
+          border: '1.5px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-btn)'
         }}>
           <input 
             type="checkbox" 
@@ -654,11 +655,11 @@ export function ControlCenter({
           cursor: 'pointer',
           color: 'var(--text-primary)',
           fontWeight: '600',
-          background: '#FFFFFF',
+          background: 'var(--bg-card)',
           padding: '8px 14px',
           borderRadius: '8px',
-          border: '1.5px solid #0F172A',
-          boxShadow: '2px 2px 0px #0F172A'
+          border: '1.5px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-btn)'
         }}>
           <input 
             type="checkbox" 

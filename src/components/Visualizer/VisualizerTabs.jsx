@@ -21,6 +21,9 @@ export function VisualizerTabs({
   brain,
   bestBird,
   generationLog,
+  telemetry,
+  gaStats,
+  isRunning,
   onChangeNetworkSize,
   onChangeMutation,
   onChangeElitism
@@ -108,7 +111,12 @@ export function VisualizerTabs({
                 Fitness = Score × 1000 + Frames - ΔY
               </span>
             </div>
-            <FitnessGraphCanvas generationLog={generationLog} />
+            <FitnessGraphCanvas 
+              generationLog={generationLog} 
+              telemetry={telemetry}
+              gaStats={gaStats}
+              isRunning={isRunning}
+            />
           </div>
         )}
 

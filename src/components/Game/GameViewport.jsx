@@ -78,8 +78,9 @@ export function GameViewport({
           <div style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(255, 255, 255, 0.96)',
+            background: 'var(--bg-card)',
             backdropFilter: 'blur(10px)',
+            opacity: 0.98,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -92,13 +93,13 @@ export function GameViewport({
               width: '56px',
               height: '56px',
               borderRadius: '16px',
-              background: '#FEF3C7',
-              border: '1.5px solid #0F172A',
+              background: 'var(--hazard-bg)',
+              border: '1.5px solid var(--border-medium)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: '14px',
-              boxShadow: '2px 2px 0px #0F172A'
+              boxShadow: 'var(--shadow-btn)'
             }}>
               <Zap size={28} color="#D97706" />
             </div>
@@ -132,11 +133,11 @@ export function GameViewport({
               gap: '10px',
               width: '100%',
               maxWidth: '330px',
-              background: '#F8FAFC',
+              background: 'var(--bg-subtle)',
               padding: '14px',
               borderRadius: '12px',
-              border: '1.5px solid #0F172A',
-              boxShadow: '2px 2px 0px #0F172A',
+              border: '1.5px solid var(--border-medium)',
+              boxShadow: 'var(--shadow-btn)',
               fontFamily: 'var(--font-mono)',
               marginBottom: '18px'
             }}>

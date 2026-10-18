@@ -37,8 +37,8 @@ export function MathInspector({ brain, bestBird }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', width: '100%', minWidth: 0, boxSizing: 'border-box' }}>
       {/* Educational Banner */}
       <div style={{
-        background: '#F5F3FF',
-        border: '1.5px solid #0F172A',
+        background: 'var(--bg-subtle)',
+        border: '1.5px solid var(--border-medium)',
         borderRadius: '12px',
         padding: '12px 16px',
         display: 'flex',
@@ -46,12 +46,12 @@ export function MathInspector({ brain, bestBird }) {
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: '10px',
-        boxShadow: '1px 1px 0px #0F172A'
+        boxShadow: 'var(--shadow-btn)'
       }}>
         <div style={{ flex: '1 1 240px', minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
             <Calculator size={16} color="#7C3AED" />
-            <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.92rem', color: '#0F172A', fontWeight: '800' }}>
+            <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: '800' }}>
               Subtheme 1(B): Linear Algebra & Vector Forward Pass
             </h4>
           </div>
@@ -64,16 +64,16 @@ export function MathInspector({ brain, bestBird }) {
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
-          background: calcDetails.finalDecision.includes('FLAP') ? '#DCFCE7' : '#F1F5F9',
-          border: '1.5px solid #0F172A',
-          boxShadow: '1px 1px 0px #0F172A',
+          background: 'var(--bg-card)',
+          border: '1.5px solid var(--border-medium)',
+          boxShadow: 'var(--shadow-btn)',
           padding: '6px 12px',
           borderRadius: '8px',
           fontFamily: 'var(--font-mono)',
           fontSize: '0.82rem'
         }}>
           <span style={{ color: 'var(--text-secondary)', fontWeight: '600' }}>Decision:</span>
-          <strong style={{ color: calcDetails.finalDecision.includes('FLAP') ? '#15803D' : '#334155' }}>
+          <strong style={{ color: calcDetails.finalDecision.includes('FLAP') ? '#059669' : '#0284C7' }}>
             {calcDetails.finalDecision}
           </strong>
           <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
@@ -84,11 +84,11 @@ export function MathInspector({ brain, bestBird }) {
 
       {/* Sensory Input Vector Chips (Responsive Wrap Grid) */}
       <div style={{
-        background: '#FAF9F6',
+        background: 'var(--bg-subtle)',
         border: '1.5px solid var(--border-medium)',
         borderRadius: '10px',
         padding: '10px 12px',
-        boxShadow: '1px 1px 0px #1E293B'
+        boxShadow: 'var(--shadow-btn)'
       }}>
         <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginBottom: '8px', fontWeight: '800' }}>
           SENSORY INPUT VECTOR X ∈ ℝ⁹ (NORMALIZED RADAR SENSORS):
@@ -103,15 +103,15 @@ export function MathInspector({ brain, bestBird }) {
               key={idx} 
               title={INPUT_NAMES[idx] || `Sensor ${idx}`}
               style={{
-                background: '#FFFFFF',
+                background: 'var(--bg-card)',
                 padding: '5px 4px',
                 borderRadius: '6px',
-                border: '1.5px solid #0F172A',
-                boxShadow: '1px 1px 0px #0F172A',
+                border: '1.5px solid var(--border-medium)',
+                boxShadow: 'var(--shadow-btn)',
                 textAlign: 'center'
               }}
             >
-              <div style={{ fontSize: '0.62rem', color: '#64748B', fontWeight: '700' }}>x[{idx}]</div>
+              <div style={{ fontSize: '0.62rem', color: 'var(--text-muted)', fontWeight: '700' }}>x[{idx}]</div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: '#0284C7', fontWeight: '800' }}>
                 {val}
               </div>
@@ -150,12 +150,12 @@ export function MathInspector({ brain, bestBird }) {
       }}>
         {activeLayer.neurons.slice(0, 8).map((neuron, nIdx) => (
           <div key={nIdx} style={{
-            background: '#FFFFFF',
+            background: 'var(--bg-card)',
             border: '1.5px solid var(--border-medium)',
             borderRadius: '10px',
             padding: '10px 12px',
             fontSize: '0.8rem',
-            boxShadow: '1px 1px 0px #1E293B',
+            boxShadow: 'var(--shadow-btn)',
             display: 'flex',
             flexDirection: 'column',
             gap: '8px'
@@ -164,7 +164,7 @@ export function MathInspector({ brain, bestBird }) {
               <div style={{ fontWeight: '800', color: '#7C3AED', fontSize: '0.82rem' }}>
                 Neuron #{neuron.neuronIndex} ({neuron.activationFunction} Activation)
               </div>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem' }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--text-primary)' }}>
                 Output a = <strong style={{ color: '#059669', fontWeight: '800' }}>{neuron.output}</strong>
               </div>
             </div>
@@ -174,8 +174,8 @@ export function MathInspector({ brain, bestBird }) {
               display: 'flex',
               flexDirection: 'column',
               gap: '6px',
-              background: '#F8FAFC',
-              border: '1px solid #CBD5E1',
+              background: 'var(--bg-subtle)',
+              border: '1px solid var(--border-medium)',
               padding: '8px 10px',
               borderRadius: '8px',
               fontFamily: 'var(--font-mono)',
@@ -186,12 +186,12 @@ export function MathInspector({ brain, bestBird }) {
                 <span className="sleek-badge sleek-badge-sky" style={{ fontSize: '0.65rem', padding: '1px 5px' }}>
                   Linear Sum z
                 </span>
-                <span style={{ color: '#475569' }}>z = W·x + b =</span>
+                <span style={{ color: 'var(--text-secondary)' }}>z = W·x + b =</span>
                 <span style={{ color: '#0284C7', fontWeight: '700' }}>{neuron.dotProduct}</span>
                 <span>+</span>
                 <span style={{ color: '#D97706', fontWeight: '700' }}>({neuron.bias})</span>
                 <span>=</span>
-                <strong style={{ color: '#0F172A' }}>{neuron.preActivation}</strong>
+                <strong style={{ color: 'var(--text-primary)' }}>{neuron.preActivation}</strong>
               </div>
 
               {/* Step 2: Non-Linear Activation a = σ(z) */}
@@ -199,7 +199,7 @@ export function MathInspector({ brain, bestBird }) {
                 <span className="sleek-badge sleek-badge-emerald" style={{ fontSize: '0.65rem', padding: '1px 5px' }}>
                   Activation a
                 </span>
-                <span style={{ color: '#475569' }}>a = {neuron.activationFunction}({neuron.preActivation}) =</span>
+                <span style={{ color: 'var(--text-secondary)' }}>a = {neuron.activationFunction}({neuron.preActivation}) =</span>
                 <strong style={{ color: '#059669', fontSize: '0.84rem' }}>{neuron.output}</strong>
               </div>
             </div>

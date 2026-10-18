@@ -23,8 +23,8 @@ export function DecisionsViewer({ bestBird }) {
         overflowY: 'auto',
         borderRadius: '8px',
         border: '1.5px solid var(--border-medium)',
-        background: '#FFFFFF',
-        boxShadow: '1px 1px 0px #1E293B',
+        background: 'var(--bg-card)',
+        boxShadow: 'var(--shadow-btn)',
         width: '100%',
         boxSizing: 'border-box'
       }}>
@@ -38,7 +38,7 @@ export function DecisionsViewer({ bestBird }) {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '7px 12px',
-                borderBottom: '1px solid #E2E8F0',
+                borderBottom: '1px solid var(--border-subtle)',
                 gap: '8px',
                 flexWrap: 'wrap',
                 boxSizing: 'border-box'
@@ -58,8 +58,8 @@ export function DecisionsViewer({ bestBird }) {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
-                <span>Alt: <strong style={{ color: '#0F172A' }}>{d.inputs[0]}</strong></span>
-                <span>Dist: <strong style={{ color: '#0F172A' }}>{d.inputs[2]}</strong></span>
+                <span>Alt: <strong style={{ color: 'var(--text-primary)' }}>{d.inputs[0]}</strong></span>
+                <span>Dist: <strong style={{ color: 'var(--text-primary)' }}>{d.inputs[2]}</strong></span>
               </div>
             </div>
           );

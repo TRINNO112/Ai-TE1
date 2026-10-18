@@ -31,13 +31,13 @@ export function WeightsTable({ brain }) {
               width: '100%',
               padding: '7px 10px 7px 30px',
               borderRadius: '8px',
-              border: '1.5px solid #0F172A',
-              background: '#FFFFFF',
-              color: '#0F172A',
+              border: '1.5px solid var(--border-medium)',
+              background: 'var(--bg-card)',
+              color: 'var(--text-primary)',
               fontSize: '0.78rem',
               fontWeight: '600',
               outline: 'none',
-              boxShadow: '1px 1px 0px #0F172A',
+              boxShadow: 'var(--shadow-btn)',
               boxSizing: 'border-box'
             }}
           />
@@ -67,8 +67,8 @@ export function WeightsTable({ brain }) {
         overflowY: 'auto',
         borderRadius: '8px',
         border: '1.5px solid var(--border-medium)',
-        background: '#FFFFFF',
-        boxShadow: '1px 1px 0px #1E293B',
+        background: 'var(--bg-card)',
+        boxShadow: 'var(--shadow-btn)',
         width: '100%',
         boxSizing: 'border-box'
       }}>
@@ -84,7 +84,7 @@ export function WeightsTable({ brain }) {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '7px 12px',
-                borderBottom: '1px solid #E2E8F0',
+                borderBottom: '1px solid var(--border-subtle)',
                 gap: '8px',
                 boxSizing: 'border-box'
               }}
@@ -93,7 +93,7 @@ export function WeightsTable({ brain }) {
                 <span className={`sleek-badge ${row.type === 'weight' ? 'sleek-badge-sky' : 'sleek-badge-amber'}`} style={{ fontSize: '0.62rem', padding: '1px 5px', flexShrink: 0 }}>
                   {row.type}
                 </span>
-                <span style={{ fontFamily: 'var(--font-mono)', color: '#0F172A', fontWeight: '700', fontSize: '0.76rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)', fontWeight: '700', fontSize: '0.76rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {row.label}
                 </span>
               </div>
@@ -102,7 +102,7 @@ export function WeightsTable({ brain }) {
                 <div style={{
                   width: '44px',
                   height: '5px',
-                  background: '#E2E8F0',
+                  background: 'var(--bg-subtle)',
                   borderRadius: '999px',
                   overflow: 'hidden'
                 }}>

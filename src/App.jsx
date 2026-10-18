@@ -8,6 +8,7 @@ import { WalkthroughModal } from './components/Pedagogy/WalkthroughModal.jsx';
 import { ExportImportBar } from './components/ExportImport/ExportImportBar.jsx';
 import { MobileCockpit } from './components/Mobile/MobileCockpit.jsx';
 import { useSimulation } from './hooks/useSimulation.js';
+import { useTheme } from './hooks/useTheme.js';
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(() => 
@@ -29,6 +30,7 @@ export default function App() {
   const canvasRef = useRef(null);
   const [isWalkthroughOpen, setIsWalkthroughOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { theme, toggleTheme, isDark } = useTheme();
 
   const {
     isRunning,
@@ -115,6 +117,8 @@ export default function App() {
           exportLogCSV={exportLogCSV}
           clearStorage={clearStorage}
           onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
+          theme={theme}
+          onToggleTheme={toggleTheme}
         />
       ) : (
         <>
@@ -125,6 +129,8 @@ export default function App() {
             soundEnabled={soundEnabled}
             onToggleSound={toggleSound}
             onReset={resetSimulation}
+            theme={theme}
+            onToggleTheme={toggleTheme}
           />
 
           {/* Full-Width Telemetry Deck */}
@@ -152,6 +158,9 @@ export default function App() {
                 brain={championBrain}
                 bestBird={bestBird}
                 generationLog={generationLog}
+                telemetry={telemetry}
+                gaStats={gaStats}
+                isRunning={isRunning}
                 onChangeNetworkSize={changeNetworkSize}
                 onChangeMutation={setMutationRate}
                 onChangeElitism={setElitismRate}
@@ -202,7 +211,7 @@ export default function App() {
             padding: '16px 24px',
             textAlign: 'center',
             borderTop: '1.5px solid var(--border-medium)',
-            background: '#FFFFFF',
+            background: 'var(--bg-card)',
             fontSize: '0.82rem',
             color: 'var(--text-secondary)',
             fontFamily: 'var(--font-body)',

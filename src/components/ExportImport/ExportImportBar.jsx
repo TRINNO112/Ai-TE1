@@ -40,7 +40,7 @@ export function ExportImportBar({
           width: '32px',
           height: '32px',
           borderRadius: '8px',
-          background: '#E0F2FE',
+          background: 'var(--bg-subtle)',
           border: '1.5px solid var(--border-strong)',
           display: 'flex',
           alignItems: 'center',

@@ -45,6 +45,162 @@
   --shadow-btn-hover: 3px 3px 0px #0F172A;
   --shadow-btn-active: 0px 0px 0px #0F172A;
   --shadow-modal: 8px 8px 0px #0F172A;
+
+  /* Dynamic Hazard & Corridor Pod Tokens */
+  --corridor-bg: #E0F2FE;
+  --corridor-border: #0284C7;
+  --corridor-text: #0369A1;
+  --hazard-bg: #FEF3C7;
+  --hazard-border: #D97706;
+  --hazard-text: #92400E;
+}
+
+/* 🌙 High-Tech Aerospace Dark Theme (User Toggleable) */
+[data-theme="dark"] {
+  --bg-canvas: #090D16;
+  --bg-surface: #0F172A;
+  --bg-card: #131D31;
+  --bg-card-hover: #18243C;
+  --bg-card-solid: #131D31;
+  --bg-panel: #131D31;
+  --bg-subtle: #1E293B;
+  --bg-subtle-warm: #182235;
+
+  --border-subtle: rgba(148, 163, 184, 0.22);
+  --border-medium: #334155;
+  --border-strong: #64748B;
+  --border-accent: #38BDF8;
+  --border-glow: rgba(56, 189, 248, 0.35);
+
+  --accent-cyan: #38BDF8;
+  --accent-sky: #38BDF8;
+  --accent-blue: #3B82F6;
+  --accent-emerald: #10B981;
+  --accent-amber: #F59E0B;
+  --accent-rose: #F43F5E;
+  --accent-violet: #8B5CF6;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-inverse: #0F172A;
+
+  --shadow-card: 3px 3px 0px #020617;
+  --shadow-card-hover: 5px 5px 0px #020617;
+  --shadow-btn: 2px 2px 0px #020617;
+  --shadow-btn-hover: 3px 3px 0px #020617;
+  --shadow-btn-active: 0px 0px 0px #020617;
+  --shadow-modal: 8px 8px 0px #020617;
+
+  /* Dynamic Hazard & Corridor Pod Tokens in Dark Mode */
+  --corridor-bg: #0C4A6E;
+  --corridor-border: #0284C7;
+  --corridor-text: #7DD3FC;
+  --hazard-bg: #78350F;
+  --hazard-border: #D97706;
+  --hazard-text: #FDE68A;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(rgba(148, 163, 184, 0.12) 1.2px, transparent 1.2px),
+    linear-gradient(180deg, #090D16 0%, #0D1322 100%);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .sleek-btn-neutral {
+  background: #1E293B;
+  color: #F8FAFC;
+  border-color: #475569;
+}
+[data-theme="dark"] .sleek-btn-neutral:hover {
+  background: #334155;
+}
+
+[data-theme="dark"] select,
+[data-theme="dark"] input[type="text"] {
+  background-color: #1E293B !important;
+  color: #F8FAFC !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] input[type="range"] {
+  background: #334155;
+  border-color: #64748B;
+}
+
+[data-theme="dark"] input[type="range"]:hover {
+  background: #475569;
+}
+
+[data-theme="dark"] input[type="range"]::-webkit-slider-thumb {
+  background: #38BDF8;
+  border-color: #0284C7;
+}
+
+[data-theme="dark"] .sleek-pill {
+  background: #1E293B;
+  color: #F8FAFC;
+  border-color: #475569;
+}
+
+[data-theme="dark"] .sleek-pill:hover {
+  background: #334155;
+}
+
+[data-theme="dark"] .sleek-pill-active {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #38BDF8;
+}
+
+[data-theme="dark"] .sleek-badge-sky {
+  background: #0C4A6E;
+  color: #7DD3FC;
+  border-color: #0284C7;
+}
+
+[data-theme="dark"] .sleek-badge-emerald {
+  background: #064E3B;
+  color: #6EE7B7;
+  border-color: #059669;
+}
+
+[data-theme="dark"] .sleek-badge-amber {
+  background: #78350F;
+  color: #FCD34D;
+  border-color: #D97706;
+}
+
+[data-theme="dark"] .sleek-badge-slate {
+  background: #1E293B;
+  color: #94A3B8;
+  border-color: #475569;
+}
+
+[data-theme="dark"] .sleek-badge-violet {
+  background: #4C1D95;
+  color: #C4B5FD;
+  border-color: #7C3AED;
+}
+
+[data-theme="dark"] .sleek-badge-rose {
+  background: #881337;
+  color: #FDA4AF;
+  border-color: #E11D48;
+}
+
+[data-theme="dark"] .sleek-badge-cyan {
+  background: #164E63;
+  color: #67E8F9;
+  border-color: #0891B2;
+}
+
+[data-theme="dark"] footer {
+  background: #0F172A !important;
+  border-color: #334155 !important;
+  color: #94A3B8 !important;
 }
 
 * {
