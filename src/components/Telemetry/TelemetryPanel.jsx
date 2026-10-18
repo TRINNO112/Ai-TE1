@@ -5,153 +5,211 @@ import {
   Users, 
   Gauge, 
   Zap, 
-  Maximize2,
-  TrendingUp,
-  Award
+  Award,
+  Flame,
+  CheckCircle2
 } from 'lucide-react';
+
+/**
+ * Format numbers compactly to avoid layout-breaking text overflow (e.g. 328649.989 -> 328.6k)
+ */
+export function formatCompactNumber(val) {
+  if (val === null || val === undefined || isNaN(val)) return '0';
+  const num = Number(val);
+  if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+  }
+  if (num >= 10_000) {
+    return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'k';
+  }
+  return Math.round(num).toLocaleString();
+}
 
 export function TelemetryPanel({ telemetry, gaStats }) {
   const generation = gaStats?.generation ?? 1;
   const alive = telemetry?.alive ?? 0;
   const total = telemetry?.total ?? 150;
+  const survivalPct = Math.round((alive / (total || 1)) * 100);
+  
   const bestScore = telemetry?.bestScore ?? 0;
+  const bestScoreEver = Math.max(gaStats?.bestScoreEver ?? 0, bestScore);
+  const isScoreRecord = bestScore > 0 && bestScore >= (gaStats?.bestScoreEver ?? 0);
+
   const bestFitness = telemetry?.bestFitness ?? 0;
   const bestFitnessEver = Math.max(gaStats?.bestFitnessEver ?? 0, bestFitness);
-  const bestScoreEver = Math.max(gaStats?.bestScoreEver ?? 0, bestScore);
-  const isNewRecord = bestScore > 0 && bestScore >= (gaStats?.bestScoreEver ?? 0);
+  const isFitnessRecord = bestFitness > 0 && bestFitness >= (gaStats?.bestFitnessEver ?? 0);
+
   const speed = telemetry?.speed ?? 2.0;
   const gap = telemetry?.gap ?? 160;
 
-  const cards = [
+  const pods = [
     {
       id: 'gen',
-      label: 'Generation',
+      label: 'GENERATION',
       value: `Gen ${generation}`,
-      sub: 'Active Epoch',
-      icon: <Activity size={16} color="#38bdf8" />,
+      sub: 'Active Epoch Cycle',
+      badge: null,
+      icon: <Activity size={18} color="#38bdf8" />,
       accent: 'var(--accent-sky)'
     },
     {
-      id: 'alive',
-      label: 'Active Agents',
+      id: 'flock',
+      label: 'FLOCK SURVIVAL',
       value: `${alive} / ${total}`,
-      sub: `${Math.round((alive / (total || 1)) * 100)}% Surviving`,
-      icon: <Users size={16} color="#34d399" />,
+      sub: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
+          <div style={{
+            flex: 1,
+            height: '4px',
+            borderRadius: '2px',
+            background: 'rgba(255, 255, 255, 0.08)',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              width: `${survivalPct}%`,
+              height: '100%',
+              background: 'linear-gradient(90deg, #10b981 0%, #34d399 100%)',
+              transition: 'width 0.3s ease'
+            }} />
+          </div>
+          <span style={{ fontSize: '0.72rem', color: '#34d399', fontWeight: '600' }}>
+            {survivalPct}%
+          </span>
+        </div>
+      ),
+      icon: <Users size={18} color="#34d399" />,
       accent: 'var(--accent-emerald)'
     },
     {
       id: 'score',
-      label: 'Epoch Best Score',
+      label: 'OBSTACLES CLEARED',
       value: bestScore,
-      sub: 'Obstacles Cleared',
-      icon: <TrendingUp size={16} color="#fbbf24" />,
+      sub: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px', fontSize: '0.72rem' }}>
+          <span style={{ color: 'var(--text-muted)' }}>All-Time Peak:</span>
+          <strong style={{ color: '#fbbf24', fontFamily: 'var(--font-mono)' }}>{bestScoreEver}</strong>
+        </div>
+      ),
+      badge: isScoreRecord && bestScore > 0 ? (
+        <span className="sleek-badge sleek-badge-amber" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
+          <Flame size={10} style={{ marginRight: '3px' }} /> Record
+        </span>
+      ) : null,
+      icon: <Trophy size={18} color="#fbbf24" />,
       accent: 'var(--accent-amber)'
     },
     {
       id: 'fitness',
-      label: 'Epoch Fitness',
-      value: bestFitness.toLocaleString(),
-      sub: 'Objective Score',
-      icon: <Gauge size={16} color="#22d3ee" />,
+      label: 'NEURAL FITNESS',
+      value: formatCompactNumber(bestFitness),
+      fullValue: `Current: ${Math.round(bestFitness).toLocaleString()} | Peak: ${Math.round(bestFitnessEver).toLocaleString()}`,
+      sub: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px', fontSize: '0.72rem' }}>
+          <span style={{ color: 'var(--text-muted)' }}>Peak:</span>
+          <strong style={{ color: '#22d3ee', fontFamily: 'var(--font-mono)' }}>
+            {formatCompactNumber(bestFitnessEver)}
+          </strong>
+        </div>
+      ),
+      badge: isFitnessRecord && bestFitness > 0 ? (
+        <span className="sleek-badge sleek-badge-sky" style={{ fontSize: '0.62rem', padding: '2px 6px' }}>
+          <CheckCircle2 size={10} style={{ marginRight: '3px' }} /> Peak
+        </span>
+      ) : null,
+      icon: <Gauge size={18} color="#22d3ee" />,
       accent: 'var(--accent-cyan)'
     },
     {
-      id: 'best-fitness',
-      label: 'Record Fitness',
-      value: bestFitnessEver.toLocaleString(),
-      sub: 'All-Time Champion',
-      icon: <Trophy size={16} color="#fbbf24" />,
-      accent: 'var(--accent-amber)'
-    },
-    {
-      id: 'best-score',
-      label: 'Record Score',
-      value: bestScoreEver,
-      sub: 'All-Time Peak',
-      icon: <Award size={16} color="#f43f5e" />,
-      accent: 'var(--accent-rose)'
-    },
-    {
-      id: 'speed',
-      label: 'Corridor Velocity',
-      value: `${speed}x`,
-      sub: speed > 2.5 ? 'Adaptive Ramp' : 'Cruising Velocity',
-      icon: <Zap size={16} color="#38bdf8" />,
-      accent: 'var(--accent-sky)'
-    },
-    {
-      id: 'gap',
-      label: 'Corridor Aperture',
-      value: `${gap}px`,
-      sub: gap < 140 ? 'Narrow Flight' : 'Standard Gap',
-      icon: <Maximize2 size={16} color="#34d399" />,
-      accent: 'var(--accent-emerald)'
+      id: 'corridor',
+      label: 'FLIGHT CORRIDOR',
+      value: `${speed}x Velocity`,
+      sub: (
+        <div style={{ marginTop: '4px', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+          Aperture: <strong style={{ color: '#a78bfa', fontFamily: 'var(--font-mono)' }}>{gap}px</strong> • {gap < 140 ? 'Narrow' : 'Standard'}
+        </div>
+      ),
+      badge: null,
+      icon: <Zap size={18} color="#a78bfa" />,
+      accent: 'var(--accent-violet)'
     }
   ];
 
   return (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-      gap: '12px',
-      margin: '0 24px 16px 24px'
+      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+      gap: '14px',
+      margin: '0 24px 18px 24px'
     }}>
-      {cards.map(card => (
+      {pods.map(pod => (
         <div 
-          key={card.id}
+          key={pod.id}
           className="sleek-card"
+          title={pod.fullValue || undefined}
           style={{
             padding: '14px 18px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            borderTop: `3px solid ${card.accent}`,
-            background: 'rgba(12, 18, 32, 0.75)'
+            borderTop: `3px solid ${pod.accent}`,
+            background: 'rgba(12, 18, 32, 0.78)',
+            minHeight: '100px'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span style={{
-              fontSize: '0.72rem',
-              color: 'var(--text-secondary)',
-              fontWeight: '700',
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em',
-              fontFamily: 'var(--font-mono)'
-            }}>
-              {card.label}
-            </span>
+          {/* Top Label & Icon Header */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{
+                fontSize: '0.74rem',
+                color: 'var(--text-secondary)',
+                fontWeight: '700',
+                letterSpacing: '0.04em',
+                fontFamily: 'var(--font-mono)',
+                whiteSpace: 'nowrap'
+              }}>
+                {pod.label}
+              </span>
+              {pod.badge}
+            </div>
+
             <div style={{
-              width: '26px',
-              height: '26px',
-              borderRadius: '6px',
+              width: '28px',
+              height: '28px',
+              borderRadius: '7px',
               background: 'rgba(255, 255, 255, 0.04)',
               border: '1px solid var(--border-subtle)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              flexShrink: 0
             }}>
-              {card.icon}
+              {pod.icon}
             </div>
           </div>
 
+          {/* Primary Metric & Contextual Subtext */}
           <div>
             <div style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '1.35rem',
+              fontSize: '1.45rem',
               fontWeight: '800',
               color: '#ffffff',
               letterSpacing: '-0.02em',
-              lineHeight: '1.2'
+              lineHeight: '1.2',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
             }}>
-              {card.value}
+              {pod.value}
             </div>
+
             <div style={{
-              fontSize: '0.68rem',
+              fontSize: '0.72rem',
               color: 'var(--text-muted)',
               fontFamily: 'var(--font-body)',
               marginTop: '4px'
             }}>
-              {card.sub}
+              {typeof pod.sub === 'string' ? pod.sub : pod.sub}
             </div>
           </div>
         </div>
@@ -159,3 +217,4 @@ export function TelemetryPanel({ telemetry, gaStats }) {
     </div>
   );
 }
+

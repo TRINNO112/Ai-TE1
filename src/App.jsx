@@ -120,6 +120,9 @@ export default function App() {
             brain={championBrain}
             bestBird={bestBird}
             generationLog={generationLog}
+            onChangeNetworkSize={changeNetworkSize}
+            onChangeMutation={setMutationRate}
+            onChangeElitism={setElitismRate}
           />
         </section>
       </main>

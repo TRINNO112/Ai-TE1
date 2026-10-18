@@ -20,7 +20,10 @@ import { BenchmarkViewer } from './BenchmarkViewer.jsx';
 export function VisualizerTabs({
   brain,
   bestBird,
-  generationLog
+  generationLog,
+  onChangeNetworkSize,
+  onChangeMutation,
+  onChangeElitism
 }) {
   const [activeTab, setActiveTab] = useState('brain');
 
@@ -94,7 +97,11 @@ export function VisualizerTabs({
         )}
 
         {activeTab === 'benchmark' && (
-          <BenchmarkViewer />
+          <BenchmarkViewer
+            onSelectNetworkSize={onChangeNetworkSize}
+            onSelectMutation={onChangeMutation}
+            onSelectElitism={onChangeElitism}
+          />
         )}
 
         {activeTab === 'graph' && (

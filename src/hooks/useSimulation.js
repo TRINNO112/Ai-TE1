@@ -437,8 +437,10 @@ export function useSimulation(canvasRef) {
   // Load static pre-trained champion
   const loadPretrainedChampion = async () => {
     try {
-      const res = await fetch('/best-brain.json');
-      if (!res.ok) throw new Error('Could not load /best-brain.json');
+      const baseUrl = import.meta.env.BASE_URL || './';
+      const cleanBase = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+      const res = await fetch(`${cleanBase}best-brain.json`);
+      if (!res.ok) throw new Error(`Could not load ${cleanBase}best-brain.json`);
       const data = await res.json();
       importBrainJSON(data);
     } catch (err) {
