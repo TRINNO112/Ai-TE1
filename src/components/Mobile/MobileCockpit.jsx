@@ -536,30 +536,22 @@ export function MobileCockpit({
           ))}
         </div>
 
-        {/* Tab Content Body with Horizontal Swipe Isolation */}
-        <div style={{ minWidth: 0, width: '100%' }}>
+        {/* Tab Content Body with Responsive Stacking (Zero Horizontal Scrollbars) */}
+        <div style={{ minWidth: 0, width: '100%', boxSizing: 'border-box' }}>
           {activeTab === 'brain' && (
             <NeuralNetworkCanvas brain={championBrain} bestBird={bestBird} />
           )}
 
           {activeTab === 'math' && (
-            <div className="mobile-scroll-container">
-              <div style={{ minWidth: '480px' }}>
-                <MathInspector brain={championBrain} bestBird={bestBird} />
-              </div>
-            </div>
+            <MathInspector brain={championBrain} bestBird={bestBird} />
           )}
 
           {activeTab === 'benchmark' && (
-            <div className="mobile-scroll-container">
-              <div style={{ minWidth: '520px' }}>
-                <BenchmarkViewer
-                  onSelectNetworkSize={changeNetworkSize}
-                  onSelectMutation={setMutationRate}
-                  onSelectElitism={setElitismRate}
-                />
-              </div>
-            </div>
+            <BenchmarkViewer
+              onSelectNetworkSize={changeNetworkSize}
+              onSelectMutation={setMutationRate}
+              onSelectElitism={setElitismRate}
+            />
           )}
 
           {activeTab === 'graph' && (
@@ -567,27 +559,15 @@ export function MobileCockpit({
           )}
 
           {activeTab === 'weights' && (
-            <div className="mobile-scroll-container">
-              <div style={{ minWidth: '500px' }}>
-                <WeightsTable brain={championBrain} />
-              </div>
-            </div>
+            <WeightsTable brain={championBrain} />
           )}
 
           {activeTab === 'decisions' && (
-            <div className="mobile-scroll-container">
-              <div style={{ minWidth: '500px' }}>
-                <DecisionsViewer bestBird={bestBird} />
-              </div>
-            </div>
+            <DecisionsViewer bestBird={bestBird} />
           )}
 
           {activeTab === 'log' && (
-            <div className="mobile-scroll-container">
-              <div style={{ minWidth: '500px' }}>
-                <GenerationLogTable generationLog={generationLog} />
-              </div>
-            </div>
+            <GenerationLogTable generationLog={generationLog} />
           )}
         </div>
       </div>

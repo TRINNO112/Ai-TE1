@@ -206,7 +206,7 @@ export default function App() {
             fontSize: '0.82rem',
             color: 'var(--text-secondary)',
             fontFamily: 'var(--font-body)',
-            marginTop: 'auto'
+            marginTop: '32px'
           }}>
             <span>
               Developed for <strong style={{ color: 'var(--text-primary)' }}>GCERT & NCERT Children's Science Exhibition 2026–27</strong> (બાળ વૈજ્ઞાનિક પ્રદર્શન) • 

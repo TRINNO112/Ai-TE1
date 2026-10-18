@@ -13,8 +13,8 @@ export function DecisionsViewer({ bestBird }) {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', minWidth: 0, boxSizing: 'border-box' }}>
+      <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', fontWeight: '600' }}>
         Real-time telemetry trace of champion bird's last 20 neural evaluations:
       </div>
 
@@ -24,46 +24,46 @@ export function DecisionsViewer({ bestBird }) {
         borderRadius: '8px',
         border: '1.5px solid var(--border-medium)',
         background: '#FFFFFF',
-        boxShadow: '1px 1px 0px #1E293B'
+        boxShadow: '1px 1px 0px #1E293B',
+        width: '100%',
+        boxSizing: 'border-box'
       }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', textAlign: 'left' }}>
-          <thead>
-            <tr style={{ background: '#F1F5F9', borderBottom: '1.5px solid #CBD5E1' }}>
-              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Frame</th>
-              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Action</th>
-              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Sigmoid Output</th>
-              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Altitude (y)</th>
-              <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Distance to Pipe</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...history].reverse().map((d, idx) => {
-              const isFlap = d.action === 'FLAP';
-              return (
-                <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
-                    #{d.frame}
-                  </td>
-                  <td style={{ padding: '7px 12px' }}>
-                    <span className={`sleek-badge ${isFlap ? 'sleek-badge-emerald' : 'sleek-badge-sky'}`} style={{ gap: '4px' }}>
-                      {isFlap ? <ArrowUp size={12} /> : <ArrowRight size={12} />}
-                      {d.action}
-                    </span>
-                  </td>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: isFlap ? '#059669' : '#0284C7' }}>
-                    {d.output}
-                  </td>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: '#0F172A' }}>
-                    {d.inputs[0]}
-                  </td>
-                  <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: '#0F172A' }}>
-                    {d.inputs[2]}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {[...history].reverse().map((d, idx) => {
+          const isFlap = d.action === 'FLAP';
+          return (
+            <div 
+              key={idx} 
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '7px 12px',
+                borderBottom: '1px solid #E2E8F0',
+                gap: '8px',
+                flexWrap: 'wrap',
+                boxSizing: 'border-box'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', fontSize: '0.7rem' }}>
+                  #{d.frame}
+                </span>
+                <span className={`sleek-badge ${isFlap ? 'sleek-badge-emerald' : 'sleek-badge-sky'}`} style={{ gap: '3px', fontSize: '0.68rem', padding: '1px 5px' }}>
+                  {isFlap ? <ArrowUp size={11} /> : <ArrowRight size={11} />}
+                  {d.action}
+                </span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontWeight: '800', fontSize: '0.76rem', color: isFlap ? '#059669' : '#0284C7' }}>
+                  {(d.output * 100).toFixed(0)}%
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
+                <span>Alt: <strong style={{ color: '#0F172A' }}>{d.inputs[0]}</strong></span>
+                <span>Dist: <strong style={{ color: '#0F172A' }}>{d.inputs[2]}</strong></span>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -309,10 +309,17 @@ export function useSimulation(canvasRef) {
       // Throttled UI Telemetry updates (every 6 frames ~ 10 updates/sec for smooth 60fps)
       frameCount++;
       if (frameCount % 6 === 0) {
-        const topBird = game.getBestBird();
-        setBestBird(topBird);
-        if (topBird && topBird.brain) {
-          setChampionBrain(topBird.brain);
+        const topBird = game.getBestBird() || (game.birds.length > 0 ? game.birds[0] : null);
+        if (topBird) {
+          // Provide fresh reference so React subscribers (MathInspector, DecisionsViewer) update live
+          setBestBird({
+            ...topBird,
+            brain: topBird.brain,
+            decisionHistory: topBird.decisionHistory ? [...topBird.decisionHistory] : []
+          });
+          if (topBird.brain) {
+            setChampionBrain(topBird.brain);
+          }
         }
         if (telem) {
           setTelemetry(telem);

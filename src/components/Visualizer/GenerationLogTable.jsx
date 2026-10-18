@@ -17,54 +17,45 @@ export function GenerationLogTable({ generationLog }) {
       borderRadius: '8px',
       border: '1.5px solid var(--border-medium)',
       background: '#FFFFFF',
-      boxShadow: '1px 1px 0px #1E293B'
+      boxShadow: '1px 1px 0px #1E293B',
+      width: '100%',
+      minWidth: 0,
+      boxSizing: 'border-box'
     }}>
-      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', textAlign: 'left' }}>
-        <thead>
-          <tr style={{ background: '#F1F5F9', borderBottom: '1.5px solid #CBD5E1' }}>
-            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Gen</th>
-            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Best Score</th>
-            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Avg Score</th>
-            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Best Fitness</th>
-            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Avg Fitness</th>
-            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Mutation</th>
-            <th style={{ padding: '8px 12px', color: '#0F172A', fontWeight: '800' }}>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[...generationLog].reverse().map((entry, idx) => (
-            <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0' }}>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#0284C7' }}>
-                #{entry.generation}
-              </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '800', color: '#059669' }}>
-                {entry.bestScore}
-              </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
-                {entry.avgScore}
-              </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', fontWeight: '700', color: '#D97706' }}>
-                {entry.bestFitness.toLocaleString()}
-              </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
-                {entry.avgFitness.toLocaleString()}
-              </td>
-              <td style={{ padding: '7px 12px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', fontWeight: '600' }}>
-                {Math.round(entry.mutationRate * 100)}%
-              </td>
-              <td style={{ padding: '7px 12px' }}>
-                {entry.newRecord ? (
-                  <span className="sleek-badge sleek-badge-amber" style={{ gap: '3px' }}>
-                    <Trophy size={11} /> Record
-                  </span>
-                ) : (
-                  <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Evolved</span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {[...generationLog].reverse().map((entry, idx) => (
+        <div 
+          key={idx} 
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '8px 12px',
+            borderBottom: '1px solid #E2E8F0',
+            flexWrap: 'wrap',
+            gap: '8px',
+            boxSizing: 'border-box'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', color: '#0284C7', fontWeight: '800', fontSize: '0.8rem' }}>
+              Gen #{entry.generation}
+            </span>
+            {entry.newRecord ? (
+              <span className="sleek-badge sleek-badge-amber" style={{ gap: '3px', fontSize: '0.62rem', padding: '1px 5px' }}>
+                <Trophy size={10} /> Record
+              </span>
+            ) : (
+              <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Evolved</span>
+            )}
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontFamily: 'var(--font-mono)', fontSize: '0.74rem' }}>
+            <span>Score: <strong style={{ color: '#059669' }}>{entry.bestScore}</strong></span>
+            <span>Fitness: <strong style={{ color: '#D97706' }}>{entry.bestFitness.toLocaleString()}</strong></span>
+            <span>Mut: <strong style={{ color: 'var(--text-secondary)' }}>{Math.round(entry.mutationRate * 100)}%</strong></span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

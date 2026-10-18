@@ -212,7 +212,7 @@ export function BenchmarkViewer({
         background: '#E0F2FE',
         border: '1.5px solid #0F172A',
         borderRadius: '12px',
-        padding: '16px 20px',
+        padding: '14px 16px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -220,7 +220,7 @@ export function BenchmarkViewer({
         gap: '12px',
         boxShadow: '2px 2px 0px #0F172A'
       }}>
-        <div style={{ flex: 1, minWidth: '260px' }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
             <FlaskConical size={20} color="#0284C7" />
             <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', color: '#0F172A', fontWeight: '800' }}>
@@ -260,8 +260,8 @@ export function BenchmarkViewer({
       {/* Quick Scientific Metric Chips */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-        gap: '10px'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(105px, 1fr))',
+        gap: '8px'
       }}>
         <div style={{ background: '#FFFFFF', border: '1.5px solid #0F172A', boxShadow: '1px 1px 0px #0F172A', borderRadius: '8px', padding: '10px 14px' }}>
           <span style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontWeight: '700' }}>TOTAL TRIALS</span>
@@ -363,8 +363,8 @@ export function BenchmarkViewer({
                 {/* Visual Comparative Bars */}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                  gap: '12px',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(115px, 1fr))',
+                  gap: '10px',
                   background: '#F8FAFC',
                   borderRadius: '8px',
                   border: '1px solid #CBD5E1',
